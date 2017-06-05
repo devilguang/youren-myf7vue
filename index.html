@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>youren-myf7vue</title>
+  <script>
+    (function () {
+      var theme = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ? 'ios' : 'material';
+      var icons = theme !== 'ios' 
+                  // ? 'http://cdn.framework7.io/css/framework7-icons.css'
+                  ? '/static/framework7/css/framework7-icons.css'
+                  : 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+      document.write(
+        '<link href="/static/framework7/css/framework7.' + theme + '.min.css" rel="stylesheet" />' +
+        '<link href="/static/framework7/css/framework7.' + theme + '.colors.min.css" rel="stylesheet" />' +
+        '<link href="' + icons + '" rel="stylesheet" />'
+      );
+    })();
+
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
