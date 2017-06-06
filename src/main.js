@@ -1,9 +1,11 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue'
 import App from './App'
 import Routes from './router'
 import Framework7Vue from './f7/vue-f7/framework7-vue.js'
+
+Vue.use(Framework7Vue)
+
 
 Vue.config.productionTip = false
 
