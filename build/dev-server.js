@@ -62,7 +62,14 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-var uri = 'http://localhost:' + port
+var getLocalURL = function(port) {
+    var ip =  require('os').networkInterfaces()['本地连接'].find(conn => (conn.family == 'IPv4') && (conn.internal == false)).address;
+    port = port || 8080;
+    return `http://${ip}:${port}`
+}
+
+var uri = getLocalURL(port)
+// var uri = 'http://localhost:' + port
 
 var _resolve
 var readyPromise = new Promise(resolve => {
