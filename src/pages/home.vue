@@ -4,7 +4,7 @@
       <f7-nav-left>
         <f7-link icon="icon-bars" open-panel="left"></f7-link>
       </f7-nav-left>
-      <f7-nav-center sliding>Hello World</f7-nav-center>
+      <f7-nav-center sliding>有人微信公众号</f7-nav-center>
       <f7-nav-right>
         <f7-link icon="icon-bars" open-panel="right"></f7-link>
       </f7-nav-right>
@@ -14,8 +14,22 @@
       <f7-link>Right</f7-link>
     </f7-toolbar>
 
+    <f7-block-title>登陆步骤</f7-block-title>
     <f7-list>
-      <f7-list-item title="Accordion" link="/accordion/"></f7-list-item>
+      <f7-list-item title="登陆" link="/login/"></f7-list-item>
+      <f7-list-item title="认证" link="/check/"></f7-list-item>
+      <f7-list-item title="选择领域" link="/areas/"></f7-list-item>
+      <f7-list-item title="联系方式" link="/contact/"></f7-list-item>
+    </f7-list>
+
+    <f7-block-title>我的（专家版）</f7-block-title>
+    <f7-list>
+      <f7-list-item title="我的主页" link="/myhome/"></f7-list-item>
+      <f7-list-item title="我的帐户" link="/myaccount/"></f7-list-item>
+      
+    </f7-list>
+
+      <!--<f7-list-item title="Accordion" link="/accordion/"></f7-list-item>
       <f7-list-item title="Calendar" link="/calendar/"></f7-list-item>
       <f7-list-item title="Cards" link="/cards/"></f7-list-item>
       <f7-list-item title="Chips" link="/chips/"></f7-list-item>
@@ -47,7 +61,7 @@
       <f7-list-item title="Timeline Horizontal" link="/timeline-horizontal/"></f7-list-item>
       <f7-list-item title="Timeline Calendar" link="/timeline-calendar/"></f7-list-item>
       <f7-list-item title="Virtual List" link="/virtual-list/"></f7-list-item>
-      <f7-list-item title="Virtual List with Vue" link="/virtual-list-vue/"></f7-list-item>
+      <f7-list-item title="Virtual List with Vue" link="/virtual-list-vue/"></f7-list-item>-->
     </f7-list>
     <f7-list>
       <f7-list-item title="Dynamic Route" link="/user/45/posts/28/?sort=first#opened"></f7-list-item>
