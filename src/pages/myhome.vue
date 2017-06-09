@@ -1,70 +1,76 @@
 
-<style>
+<style <style lang="scss">
 
-    .userCard-wrapper {
-        background: #3982e8;
-        border: 1px solid #3982e8;
-        position: relative;
+
+    .MyHome {
+
+        .content-block-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .card {
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            // top: 15px;
+            margin-bottom: -20px;
+        }
+ 
+        .userCard-wrapper {
+            background: #3982e8;
+            border: 1px solid #3982e8;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+
+        .userCard-avatar {
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+        }
+
+        .userCard-inner{
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .userCard-name {
+            color: #3982e8;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .userCard-unit {
+            display: inline-block;
+            padding-right: 20px;
+            border-right: 1px solid black;
+        }
+
+        .userCard-title {
+            display: inline-block;
+            padding-left: 20px;
+        }
+
+        .userCard-area {
+            margin-top: 10px;
+        }
+
+        .userBlock-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .userBlock-title i {
+            font-size: 1.2em;
+        }
+
+        .userBlock-summary {
+            line-height: 2em;
+        }
+   
     }
-
-    .userCard-content {
-        border-radius: 20px;
-        background: #fff;
-        margin: 0 20px;
-        padding: 20px;
-        top: 20px;
-        position: relative;
-        box-shadow: 0 0 10px gray; 
-        display: flex;
-
-    }
-
-    .userCard-avatar {
-        border-radius: 50%;
-        height: 80px;
-        width: 80px;
-    }
-
-    .userCard-inner{
-        flex: 1;
-        margin-left: 20px;
-
-    }
-
-    .userCard-name {
-        color: #3982e8;
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .userCard-unit {
-        display: inline-block;
-        padding-right: 20px;
-        border-right: 1px solid black;
-    }
-
-    .userCard-degree {
-        display: inline-block;
-        padding-left: 20px;
-    }
-
-    .userCard-area {
-        margin-top: 10px;
-    }
-
-    .userBlock-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    .userBlock-title i {
-        font-size: 1.2em;
-    }
-
-    .userBlock-summary {
-        line-height: 2em;
-    }
-
 
 </style>
 
@@ -72,28 +78,30 @@
 <template>
     <f7-page class="MyHome">
         <f7-navbar title="个人中心" back-link="Back" sliding></f7-navbar>
+
         <div class="userCard-wrapper">
-            <div class="userCard-content">
-                <img class="userCard-avatar" src="" />
+            <f7-card>
+                <img class="userCard-avatar" src="../assets/app-icons/avatar-user.png" />
                 <div class="userCard-inner">
                     <div class="userCard-name">{{userCard.name}}</div>
                     <div>
                         <span class="userCard-unit">{{userCard.unit}}</span>
-                        <span class="userCard-degree">{{userCard.degree}}</span>
+                        <span class="userCard-title">{{userCard.title}}</span>
                     </div>
                     <div class="userCard-area">{{userCard.area}}</div>
                 </div>
-            </div>
+            </f7-card>
         </div>
 
 
+        <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 个人简介</f7-block-title>
         <f7-block inner>
-            <div class="userBlock-title"><i class="fa fa-file-text color-primary"></i> 个人简介</div>        
             <p class="userBlock-summary">
                 {{userCard.summary}}
             </p>
         </f7-block>
 
+        <f7-block-title><i class="fa fa-user fa-lg color-blue"></i> 联系人信息</f7-block-title>
         <f7-list form>
             <f7-list-item>
                 <f7-label floating>姓名</f7-label>

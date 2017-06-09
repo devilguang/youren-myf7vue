@@ -36,6 +36,26 @@ export default [{
     path: '/myhome/',
     name: 'myhome',
     component: require("@/pages/myhome.vue")
+  },
+  {
+    path: '/myaccount/',
+    name: 'myaccount',
+    component: require("@/pages/myaccount.vue")
+  },
+  {
+    path: '/recommend-user/',
+    name: 'recommend-user',
+    component: require("@/pages/recommend-user.vue")
+  },
+  {
+    path: '/meeting-user/',
+    name: 'meeting-user',
+    component: require("@/pages/meeting-user.vue")
+  },
+  {
+    path: '/demand/',
+    name: 'demand',
+    component: require("@/pages/demand.vue")
   }
 
 ]

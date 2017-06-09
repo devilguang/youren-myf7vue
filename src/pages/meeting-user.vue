@@ -1,0 +1,414 @@
+<style lang="scss">
+.Meeting {
+
+    margin-bottom: 300px;
+    
+    .tab-link.button {
+        color: lightgray;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+
+        &.active {
+            color: white;
+            border-bottom: 1px solid white;
+        }
+    }
+
+    .content-block-title {
+        font-size: 1em;
+        font-weight: bold;
+    }
+    .item-inner {
+        display: flex;
+    }
+    .info-action {
+        width: 100px;
+        background-color: #ecf3fe;
+        height: 90%;
+        padding: 10px; 
+        font-size: smaller; 
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .button {
+            font-size: 12px;
+            line-height: 2em;
+            height: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: .5em;
+
+        }
+    }
+    .info-content {
+        // flex: 1;
+        color: gray;
+        margin-right: 10px;
+        p {
+            margin-top: .2em;
+            margin-bottom: .5em;
+        }
+    }
+    .info-title {
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .info-text {
+        font-size: 12px;
+        color: #757575;
+        line-height: 1.5em;
+        position: relative;
+        overflow: hidden;
+        max-height: 40px;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+    }
+    .info-time {
+        font-size: 10px;
+    }
+    .info-misc {
+        font-size: 12px;
+        color: gray;
+    }
+
+    .has-icon {
+        background-repeat: no-repeat;
+        background-size: 1.5em;
+        padding-left: 1.8em;
+
+        &-phone {
+            @extend .has-icon;
+            background-image: url(../assets/app-icons/icon-mobile.png);
+        }
+
+        &-time {
+            @extend .has-icon;
+            background-image: url(../assets/app-icons/icon-time.png);
+        }
+        &-money {
+            @extend .has-icon;
+            background-image: url(../assets/app-icons/icon-money.png);
+        }
+        &-address {
+            @extend .has-icon;
+            background-image: url(../assets/app-icons/icon-address.png);
+        }
+    }
+    
+    
+}
+</style>
+
+<template>
+    <f7-page with-subnavbar no-page-content class="Meeting">
+        <f7-navbar back-link="Back" title="约见" sliding>
+            <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
+                <f7-buttons>
+                    <f7-button tab-link="#tab1">待确认</f7-button>|
+                    <f7-button tab-link="#tab2">已确认</f7-button>|
+                    <f7-button tab-link="#tab3" active>已结束</f7-button>
+                </f7-buttons>
+            </f7-subnavbar>
+        </f7-navbar>
+    
+        <f7-tabs swipeable>
+            <f7-page-content id="tab1" tab >
+                <f7-block-title class="color-blue">
+                    <i class="fa fa-star"></i> 我感兴趣的
+                </f7-block-title>
+                <f7-list>
+                    <f7-list-item v-for="info in myInteresting" :key="info.id">
+                        <div class="info-content unit">
+                            <p class="info-title color-blue">{{info.title}}</p>
+                            <p class="info-text">{{info.desc}}</p>
+                            <p class="info-time">{{info.time}}</p>
+                        </div>
+                        <div class="info-action flex-vertical flex-middle flex-center color-red">
+                            <div style="font-size: 12px;">{{info.stepMessage}}</div>
+                        </div>
+                    </f7-list-item>
+                </f7-list>
+
+                <f7-block-title class="color-blue">
+                    <i class="fa fa-heartbeat"></i> 对我感兴趣的
+                </f7-block-title>
+                <f7-list>
+                    <f7-list-item v-for="info in beInterested" :key="info.id">
+                        <div class="info-content unit">
+                            <div class="flex-left">
+                                <img class="info-midea" :src="info.media" alt="" style="width: 80px; height:50px; margin-right: 10px;">
+                                <div class="">
+                                    <p class="info-title">{{info.customerUnit}}</p>
+                                    <p class="info-misc">{{info.customerName}}  <span style="display:inline-block; margin-left: 10px; font-size: smaller">({{info.customerTitle}})</span></p>
+                                </div>
+                            </div> 
+                            <p class="info-text" style="margin-top: .5em;">
+                                留言： {{info.message}}
+                            </p>
+                            
+                        </div>
+                        <div class="info-action flex-vertical flex-middle flex-center color-red">
+
+                            <template v-if="info.stepCode=='待确认'">
+                                <f7-button color="red" fill round>拒绝</f7-button>
+                                <f7-button color="blue" fill round>接受</f7-button>
+                            </template>
+                            <div v-else-if="info.stepCode=='已确认'" style="font-size: 12px;">
+                                {{info.stepMessage}}
+                            </div>
+                            
+                        </div>
+                    </f7-list-item>
+                </f7-list>
+            </f7-page-content>
+
+            <f7-page-content id="tab2" tab>
+                <f7-block-title class="color-blue">今天</f7-block-title>
+                <f7-list>
+                    <f7-list-item v-for="info in confirmed" v-if="isToday(info.meetingDate)" :key="info.id">
+                        <div class="info-content" style="width: max-content; max-width: 120px;">
+                            <img class="info-midea" :src="info.media" alt="" style="width: 80px; height:50px; margin-right: 10px;">
+                            <p class="info-title">{{info.customerUnit}}</p>
+                            <p class="info-misc">{{info.customerName}} <small>{{info.customerTitle}}</small></p>
+                        </div>
+                        <div class="info-content unit">
+                            <p class="info-title color-blue">{{info.meetingType}}</p>
+                            <p class="info-misc has-icon-phone">{{info.customerPhone}}</p>
+                            <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}} <small style="margin-left: 10px;">({{info.meetingDuration}})</small></p>
+                            <p class="info-misc has-icon-address">{{info.meetingAddress}}</p>
+                            <p class="info-misc has-icon-money">获取报酬 <span class="color-orange">{{info.payment}}</span> 元</p>
+                        </div>
+                    </f7-list-item>
+                </f7-list>
+
+                <f7-block-title class="color-blue">之后</f7-block-title>
+                <f7-list>
+                    <f7-list-item v-for="info in confirmed" v-if="isAfterToday(info.meetingDate)" :key="info.id">
+                        <div class="info-content" style="width: max-content; max-width: 120px;">
+                            <img class="info-midea" :src="info.media" alt="" style="width: 80px; height:50px; margin-right: 10px;">
+                            <p class="info-title">{{info.customerUnit}}</p>
+                            <p class="info-misc">{{info.customerName}} <small>{{info.customerTitle}}</small></p>
+                        </div>
+                        <div class="info-content unit">
+                            <p class="info-title color-blue">{{info.meetingType}}</p>
+                            <p class="info-misc has-icon-phone">{{info.customerPhone}}</p>
+                            <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}} <small style="margin-left: 10px;">({{info.meetingDuration}})</small></p>
+                            <p class="info-misc has-icon-address">{{info.meetingAddress}}</p>
+                            <p class="info-misc has-icon-money">获取报酬 <span class="color-orange">{{info.payment}}</span> 元</p>
+                        </div>
+                    </f7-list-item>
+                </f7-list>
+            </f7-page-content>
+
+            <f7-page-content id="tab3" tab active>
+                <f7-list>
+                    <f7-list-item v-for="info in confirmed" v-if="isToday(info.meetingDate)" :key="info.id">
+                        <div class="info-content" style="width: max-content; max-width: 120px;">
+                            <img class="info-midea" :src="info.media" alt="" style="width: 80px; height:50px; margin-right: 10px;">
+                            <p class="info-title">{{info.customerUnit}}</p>
+                            <p class="info-misc">{{info.customerName}} <small>{{info.customerTitle}}</small></p>
+                        </div>
+                        <div class="info-content unit">
+                            <p class="info-title color-blue">{{info.meetingType}}</p>
+                            <p class="info-misc has-icon-phone">{{info.customerPhone}}</p>
+                            <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}} <small style="margin-left: 10px;">({{info.meetingDuration}})</small></p>
+                            <p class="info-misc has-icon-address">{{info.meetingAddress}}</p>
+                            <p class="info-misc has-icon-money">获取报酬 <span class="color-orange">{{info.payment}}</span> 元</p>
+                        </div>
+                    </f7-list-item>
+                </f7-list>
+            </f7-page-content>
+        </f7-tabs>
+    </f7-page>
+</template>
+<script>
+export default {
+
+    data() {
+        return {
+            myInteresting: [
+                {
+                    id: 1,
+                    title: '微通道换热器应用于制冷系统（干式）',
+                    number: 'N128745613',
+                    step: '研发',
+                    area: '北京',
+                    money: '50万',
+                    time: '2017年5月21日 17:30 发送',
+                    keywords: ['机械', '涡轮', '建模'],
+                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+                    midea: '',
+                    stepMessage: '系统正在安排约会，请耐心等待',
+                },
+                {
+                    id: 2,
+                    title: '微通道换热器应用于制冷系统（干式）',
+                    number: 'N128745613',
+                    step: '研发',
+                    area: '北京',
+                    money: '50万',
+                    time: '2017年5月21日 17:30 发送',
+                    keywords: ['机械', '涡轮', '建模'],
+                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+                    midea: '',
+                    stepMessage: '系统正在安排约会，请耐心等待',
+                },
+            ],
+
+            beInterested: [
+                {
+                    id: 1,
+                    title: '微通道换热器应用于制冷系统（干式）',
+                    number: 'N128745613',
+                    step: '研发',
+                    area: '北京',
+                    money: '50万',
+                    time: '2017年5月21日 17:30 发送',
+                    keywords: ['机械', '涡轮', '建模'],
+                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+                    media: '/static/img/corp1.jpg',
+                    stepCode:    '待确认',
+                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+
+                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+                    customerUnit: '武汉船舶研究院',
+                    customerName: '张大大',
+                    customerTitle: '部门负责人',
+                    
+
+                },
+                {
+                    id: 2,
+                    title: '微通道换热器应用于制冷系统（干式）',
+                    number: 'N128745613',
+                    step: '研发',
+                    area: '北京',
+                    money: '50万',
+                    time: '2017年5月21日 17:30 发送',
+                    keywords: ['机械', '涡轮', '建模'],
+                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+                    media: '/static/img/corp2.jpg',
+
+                    stepCode:    '已确认',
+                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+
+                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+                    customerUnit: '武汉船舶研究院',
+                    customerName: '张大大',
+                    customerTitle: '部门负责人',
+                },
+            ],
+
+            confirmed: [
+                {
+                    id: 1,
+                    title: '微通道换热器应用于制冷系统（干式）',
+                    number: 'N128745613',
+                    step: '研发',
+                    area: '北京',
+                    money: '50万',
+                    time: '2017年5月21日 17:30 发送',
+                    keywords: ['机械', '涡轮', '建模'],
+                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+                    media: '/static/img/corp1.jpg',
+                    stepCode:    '待确认',
+                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+
+                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+                    customerUnit: '武汉船舶研究院',
+                    customerName: '张大大',
+                    customerTitle: '部门负责人',
+                    meetingDate: '2017-06-09 12:30:00',
+                    meetingDuration: '会议30分钟',
+                    meetingType: '电话会议',
+                    meetingAddress: '',
+                    customerPhone: '1357891254',
+                    payment: '0'
+                    
+
+                },
+                {
+                    id: 2,
+                    title: '微通道换热器应用于制冷系统（干式）',
+                    number: 'N128745613',
+                    step: '研发',
+                    area: '北京',
+                    money: '50万',
+                    time: '2017年5月21日 17:30 发送',
+                    keywords: ['机械', '涡轮', '建模'],
+                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+                    media: '/static/img/corp2.jpg',
+
+                    stepCode:    '已确认',
+                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+
+                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+                    customerUnit: '武汉船舶研究院',
+                    customerName: '张大大',
+                    customerTitle: '部门负责人',
+                    meetingDate: '2017-06-20 12:30:00',
+                    meetingDuration: '会议30分钟',
+                    meetingType: '线下约谈',
+                    meetingAddress: '武汉市洪山区光谷天地c区星巴克',
+                    customerPhone: '1357891254',
+                    payment: 200
+                },
+                {
+                    id: 3,
+                    title: '微通道换热器应用于制冷系统（干式）',
+                    number: 'N128745613',
+                    step: '研发',
+                    area: '北京',
+                    money: '50万',
+                    time: '2017年5月21日 17:30 发送',
+                    keywords: ['机械', '涡轮', '建模'],
+                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+                    media: '/static/img/corp3.jpg',
+
+                    stepCode:    '已确认',
+                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+
+                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+                    customerUnit: '武汉船舶研究院',
+                    customerName: '张大大',
+                    customerTitle: '部门负责人',
+                    meetingDate: '2017-06-20 12:30:00',
+                    meetingDuration: '会议30分钟',
+                    meetingType: '线下约谈',
+                    meetingAddress: '武汉市洪山区光谷天地c区星巴克',
+                    customerPhone: '1357891254',
+                    payment: 300
+                }
+            ]
+        }
+    },
+
+    methods: {
+        formateDate (date, fmt = "M月D日dddd H:mm"){
+            return moment(date).format(fmt)
+        },
+
+        isToday(date){
+            return moment(date).isSame(new Date(), 'day')
+        },
+
+        isAfterToday(date){
+            return moment(date).isAfter(new Date(), 'day')
+        }
+
+    }
+}
+</script>
