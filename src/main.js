@@ -11,6 +11,14 @@ import '@/assets/css/common.scss'
 Vue.config.productionTip = false
 Vue.use(Framework7Vue)
 
+import VueStar from 'vue-star'
+Vue.component('VueStar', VueStar)
+
+import StartRating from 'vue-star-rating'
+Vue.component('StarRating', StartRating)
+
+
+
 
 
 

@@ -20,7 +20,7 @@
                             <div class="item-content" style="position: relative;">
                                 <div class="item-inner">
                                     <div class="item-title label">联系人姓名</div>
-                                    <div class="item-input">
+                                    <div class="item-input item-input-field">
                                         <input type="text" placeholder="" v-model="linkman.name" />
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                                 <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
                                 <div class="item-inner">
                                     <div class="item-title label">联系人电话</div>
-                                    <div class="item-input">
+                                    <div class="item-input item-input-field">
                                         <input type="tel" placeholder="" v-model="linkman.phone" />
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@
                                 <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
                                 <div class="item-inner">
                                     <div class="item-title label">联系人邮箱</div>
-                                    <div class="item-input">
+                                    <div class="item-input" item-input-field>
                                         <input type="text" placeholder="" v-model="linkman.email" />
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                 <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
                                 <div class="item-inner">
                                     <div class="item-title label">联系人职务</div>
-                                    <div class="item-input">
+                                    <div class="item-input item-input-field">
                                         <input type="text" placeholder="" v-model="linkman.post" />
                                     </div>
                                 </div>
