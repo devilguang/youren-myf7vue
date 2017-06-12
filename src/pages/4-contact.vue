@@ -42,7 +42,7 @@
                                 <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
                                 <div class="item-inner">
                                     <div class="item-title label">联系人邮箱</div>
-                                    <div class="item-input" item-input-field>
+                                    <div class="item-input item-input-field">
                                         <input type="text" placeholder="" v-model="linkman.email" />
                                     </div>
                                 </div>

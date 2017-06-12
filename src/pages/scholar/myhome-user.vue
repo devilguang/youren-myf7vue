@@ -1,87 +1,11 @@
 
-<style <style lang="scss">
-
-
-    .MyHome {
-
-        .content-block-title {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .card {
-            border-radius: 10px;
-            padding: 15px;
-            display: flex;
-            // top: 15px;
-            margin-bottom: -20px;
-        }
- 
-        .userCard-wrapper {
-            background: #3982e8;
-            border: 1px solid #3982e8;
-            position: relative;
-            margin-bottom: 50px;
-        }
-
-
-        .userCard-avatar {
-            border-radius: 50%;
-            height: 80px;
-            width: 80px;
-        }
-
-        .userCard-inner{
-            flex: 1;
-            margin-left: 20px;
-        }
-
-        .userCard-name {
-            color: #3982e8;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .userCard-unit {
-            display: inline-block;
-            padding-right: 20px;
-            border-right: 1px solid black;
-        }
-
-        .userCard-title {
-            display: inline-block;
-            padding-left: 20px;
-        }
-
-        .userCard-area {
-            margin-top: 10px;
-        }
-
-        .userBlock-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        .userBlock-title i {
-            font-size: 1.2em;
-        }
-
-        .userBlock-summary {
-            line-height: 2em;
-        }
-   
-    }
-
-</style>
-
-
 <template>
     <f7-page class="MyHome">
         <f7-navbar title="个人中心" back-link="Back" sliding></f7-navbar>
 
         <div class="userCard-wrapper">
             <f7-card>
-                <img class="userCard-avatar" src="../assets/app-icons/avatar-user.png" />
+                <img class="userCard-avatar" src="../../assets/app-icons/avatar-user.png" />
                 <div class="userCard-inner">
                     <div class="userCard-name">{{userCard.name}}</div>
                     <div>

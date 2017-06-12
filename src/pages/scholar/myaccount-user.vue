@@ -1,28 +1,3 @@
-<style lang="scss">
-    .MyAccount {
-
-        .content-block {
-            margin: 10px 0;
-        }
-
-        .message-type, .money-type {
-            background-image: url(../assets/app-icons/icon-money.png);
-            background-size: 1.5em 1.5em;
-            line-height: 1.8em;
-            background-repeat: no-repeat;
-            padding-left: 2em;
-        }
-
-        .message-type {
-            background-image: url(../assets/app-icons/icon-message.png);
-        }
-
-        .money-content {
-            padding-left: 2em;
-        }
-    }
-</style>
-
 
 <template>
     <f7-page class="MyAccount">

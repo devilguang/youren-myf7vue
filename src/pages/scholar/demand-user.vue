@@ -1,59 +1,7 @@
 
-<style <style lang="scss">
-
-
-    .Demand {
-
-        .content-block-title {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        .content-block-inner {
-            text-indent: 2em;
-        }
-
-        .card {
-            border-radius: 10px;
-            padding: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: -20px;
-
-            .info-title {
-                font-size: 1.2em;
-                width: 100%;
-            }
-            .info-content {
-                flex: 3;
-                color: gray;
-                p {margin: .5em 1em;}
-            }
-            .info-media {
-                width: 150px;
-                height: 100px;
-                margin-top: 1em;
-                border-radius: .5em;
-            }
-        }
- 
-        .card-wrapper {
-            background: #3982e8;
-            border: 1px solid #3982e8;
-            position: relative;
-            margin-bottom: 50px;
-        }
-
-
-
-
-
-    }
-
-</style>
-
 
 <template>
-    <f7-page class="Demand">
+    <f7-page class="Meeting">
         <f7-navbar title="推荐需求" back-link="Back" sliding></f7-navbar>
 
         <div class="card-wrapper">
@@ -66,7 +14,7 @@
                     <p>金额: {{info.money}} </p>
                     <p class="color-red">关键词: {{info.keywords.join(' ')}} </p>
                 </div>
-                <img class="info-media"  src="../assets/img/corp1.jpg" />
+                <img class="info-media"  src="../../assets/img/corp1.jpg" />
             </f7-card>
         </div>
 

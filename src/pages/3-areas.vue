@@ -2,9 +2,6 @@
 <style lang="scss">
 
     .areas {
-        // min-height: 100vh;
-
-        // padding-bottom: 40px;
 
         label.areaItem {
             border: 1px solid #ddd;
@@ -30,9 +27,6 @@
             right: -5px; 
             border-radius: 50%;
             padding:0 2px;
-            // width: 10.27px;
-            // height: 12px;
-            // vertical-align: middle;
         }
     }
 
@@ -54,7 +48,7 @@
                     <input type="checkbox" name="area" @change="onChange($event, area)">{{area}}
                     
                     <span  v-if="checked" class="badge">
-                        <i class="fa fa-check-circle fa-lg color-primary"></i>
+                        <i class="fa fa-check-circle fa-lg color-blue"></i>
                     </span>
                 </label>
             </div>

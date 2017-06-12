@@ -13,7 +13,7 @@
       <f7-link>Left</f7-link>
       <f7-link>Right</f7-link>
     </f7-toolbar>
-
+  
     <f7-block-title>登陆步骤</f7-block-title>
     <f7-list>
       <f7-list-item title="登陆" link="/login/"></f7-list-item>
@@ -21,62 +21,25 @@
       <f7-list-item title="选择领域" link="/areas/"></f7-list-item>
       <f7-list-item title="联系方式" link="/contact/"></f7-list-item>
     </f7-list>
-
+  
     <f7-block-title>我的（专家版）</f7-block-title>
     <f7-list>
-      <f7-list-item title="我的主页" link="/myhome/"></f7-list-item>
-      <f7-list-item title="我的帐户" link="/myaccount/"></f7-list-item>
+      <f7-list-item title="我的主页" link="/myhome-user/"></f7-list-item>
+      <f7-list-item title="我的帐户" link="/myaccount-user/"></f7-list-item>
       <f7-list-item title="推荐" link="/recommend-user/"></f7-list-item>
-      <f7-list-item title="约见" link="/meeting-user/"></f7-list-item>
+      <f7-list-item title="约见" link="/mymeeting-user/"></f7-list-item>
     </f7-list>
-
+  
     <f7-block-title>我的（企业版）</f7-block-title>
     <f7-list>
       <f7-list-item title="我的主页" link="/myhome-corp/"></f7-list-item>
       <f7-list-item title="我的帐户" link="/myaccount-corp/"></f7-list-item>
+      <f7-list-item title="推荐" link="/recommend-corp/"></f7-list-item>
+      <f7-list-item title="约见" link="/mymeeting-corp/"></f7-list-item>
     </f7-list>
-
-      <!--<f7-list-item title="Accordion" link="/accordion/"></f7-list-item>
-      <f7-list-item title="Calendar" link="/calendar/"></f7-list-item>
-      <f7-list-item title="Cards" link="/cards/"></f7-list-item>
-      <f7-list-item title="Chips" link="/chips/"></f7-list-item>
-      <f7-list-item title="Contacts" link="/contacts/"></f7-list-item>
-      <f7-list-item title="Content Block" link="/content-block/"></f7-list-item>
-      <f7-list-item title="Data Table" link="/data-table/"></f7-list-item>
-      <f7-list-item title="FAB" link="/fab/"></f7-list-item>
-      <f7-list-item title="FAB Speed Dial" link="/fab-dial/"></f7-list-item>
-      <f7-list-item title="Forms" link="/forms/"></f7-list-item>
-      <f7-list-item title="Grid" link="/grid/"></f7-list-item>
-      <f7-list-item title="Infinite Scroll" link="/infinite/"></f7-list-item>
-      <f7-list-item title="Lists" link="/lists/"></f7-list-item>
-      <f7-list-item title="Login Screen" link="/login-screen/"></f7-list-item>
-      <f7-list-item title="Messages" link="/messages/"></f7-list-item>
-      <f7-list-item title="Modals" link="/modals/"></f7-list-item>
-      <f7-list-item title="Navbars & Toolbars" link="/bars/"></f7-list-item>
-      <f7-list-item title="Photo Browser" link="/photo-browser/"></f7-list-item>
-      <f7-list-item title="Preloader" link="/preloader/"></f7-list-item>
-      <f7-list-item title="Progress Bar" link="/progressbar/"></f7-list-item>
-      <f7-list-item title="Pull To Refresh" link="/pull-to-refresh/"></f7-list-item>
-      <f7-list-item title="Searchbar" link="/searchbar/"></f7-list-item>
-      <f7-list-item title="Smart Select" link="/smart-select/"></f7-list-item>
-      <f7-list-item title="Sortable" link="/sortable/"></f7-list-item>
-      <f7-list-item title="Swipeout" link="/swipeout/"></f7-list-item>
-      <f7-list-item title="Swiper" link="/swiper/"></f7-list-item>
-      <f7-list-item title="Tabs" link="/tabs/"></f7-list-item>
-      <f7-list-item title="Tabs Swipeable" link="/tabs-swipeable/"></f7-list-item>
-      <f7-list-item title="Timeline Vertical" link="/timeline-vertical/"></f7-list-item>
-      <f7-list-item title="Timeline Horizontal" link="/timeline-horizontal/"></f7-list-item>
-      <f7-list-item title="Timeline Calendar" link="/timeline-calendar/"></f7-list-item>
-      <f7-list-item title="Virtual List" link="/virtual-list/"></f7-list-item>
-      <f7-list-item title="Virtual List with Vue" link="/virtual-list-vue/"></f7-list-item>-->
-    </f7-list>
-    <f7-list>
-      <f7-list-item title="Dynamic Route" link="/user/45/posts/28/?sort=first#opened"></f7-list-item>
-      <f7-list-item title="Nested Routes" link="/nested-routes/"></f7-list-item>
-      <f7-list-item title="Data Binding" link="/data-binding/"></f7-list-item>
     </f7-list>
   </f7-page>
 </template>
 <script>
-  export default {}
+export default {}
 </script>

@@ -1,31 +1,7 @@
-<style lang="scss">
-    .MyAccountCorp {
-
-        .content-block {
-            margin: 10px 0;
-        }
-
-        .message-type, .money-type {
-            background-image: url(../assets/app-icons/icon-money.png);
-            background-size: 1.5em 1.5em;
-            line-height: 1.8em;
-            background-repeat: no-repeat;
-            padding-left: 2em;
-        }
-
-        .message-type {
-            background-image: url(../assets/app-icons/icon-message.png);
-        }
-
-        .money-content {
-            padding-left: 2em;
-        }
-    }
-</style>
 
 
 <template>
-    <f7-page class="MyAccountCorp">
+    <f7-page class="MyAccount">
         <f7-navbar title="帐户" back-link="Back" sliding></f7-navbar>
         <f7-block inner>
             <div class="message-type">累计咨询次数</div>
