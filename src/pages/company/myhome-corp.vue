@@ -1,13 +1,12 @@
 
-
 <template>
-    <f7-page with-subnavbar no-page-content class="Home">
+    <f7-page with-subnavbar no-page-content class="Meeting">
         <f7-navbar back-link="Back" title="主页" sliding>
             <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
                 <f7-buttons>
                     <f7-button tab-link="#tab1">需求列表</f7-button>|
-                    <f7-button tab-link="#tab2" >企业主页</f7-button>|
-                    <f7-button tab-link="#tab3" active>联系人</f7-button>
+                    <f7-button tab-link="#tab2" active>企业主页</f7-button>|
+                    <f7-button tab-link="#tab3" >联系人</f7-button>
                 </f7-buttons>
             </f7-subnavbar>
         </f7-navbar>
@@ -49,37 +48,37 @@
                 </f7-list>
             </f7-page-content>
 
-            <f7-page-content id="tab2" tab >
-                <div class="infoCard-wrapper">
-                    <f7-card>
-                        <img class="infoCard-avatar" src="../../assets/app-icons/avatar-unit1.png" />
-                        <div class="infoCard-inner">
-                            <div class="infoCard-name">{{infoCard.name}}</div>
+            <f7-page-content id="tab2" tab active>
+                <div class="card-wrapper">
+                    <f7-card class="flex-left flex-middle">
+                        <img class="info-avatar" src="/static/img/avatar-unit1.png" style="height: 100px; width: 100px; margin-right: 15px;" />
+                        <div class="info-inner">
+                            <div class="info-title color-blue" style="font-size: 16px;">{{info.name}}</div>
                             <div>
-                                <span style="margin-right: 20px;">{{infoCard.corpType}}</span> | 
-                                <span style="margin-left: 20px;">{{infoCard.corpMany}}</span>
+                                <span style="margin-right: 10px;">{{info.corpType}}</span> | 
+                                <span style="margin-left: 10px;">{{info.corpMany}}</span>
                             </div>
                         </div>
                     </f7-card>
                 </div>
 
                 <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 所属领域</f7-block-title>
-                <f7-block inner>
-                    <p style="line-height: 2em;">
-                        {{infoCard.area}}
-                    </p>
-                </f7-block>
+                <div class="content-block">
+                    <div class="content-block-inner" style="text-indent: 2em;">
+                        {{info.area}}
+                    </div>
+                </div>
 
                 <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 企业简介</f7-block-title>
-                <f7-block inner>
-                    <p style="line-height: 2em; text-indent: 2em;">
-                        {{infoCard.summary}}
-                    </p>
-                </f7-block>
+                <div class="content-block">
+                    <div class="content-block-inner" style="text-indent: 2em;">
+                        {{info.summary}}
+                    </div>
+                </div>
 
             </f7-page-content>
 
-            <f7-page-content id="tab3" tab active>
+            <f7-page-content id="tab3" tab >
                 <f7-block-title>联系人</f7-block-title>
                 <f7-list>
                     <f7-list-item v-for="info in contactors" :key="info.name">
@@ -94,7 +93,7 @@
                         </div>
                     </f7-list-item>
                 </f7-list>
-                <f7-block style="">
+                <f7-block>
                     <f7-button @click="">新增联系人</f7-button>
                 </f7-block>
             </f7-page-content>
@@ -106,7 +105,7 @@ export default {
 
     data() {
         return {
-            infoCard: {
+            info: {
                 name: '百度网络科技有限公司',
                 corpName: '百度网络科技有限公司',
                 corpType: '上市公司',

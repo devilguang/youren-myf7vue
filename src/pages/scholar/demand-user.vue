@@ -5,27 +5,30 @@
         <f7-navbar title="推荐需求" back-link="Back" sliding></f7-navbar>
 
         <div class="card-wrapper">
-            <f7-card>
-                <div class="info-title color-blue">{{info.title}}</div>
-                <div class="info-content">
-                    <p>编号: {{info.number}} </p>
-                    <p>需求阶段: {{info.step}} </p>
-                    <p>所在地: {{info.area}} </p>
-                    <p>金额: {{info.money}} </p>
-                    <p class="color-red">关键词: {{info.keywords.join(' ')}} </p>
+            <f7-card class="flex-vertical">
+                <div class="info-title color-blue" style="font-size: 14px;">{{info.title}}</div>
+                <div class="flex-between flex-middle">
+                    <div class="info-content">
+                        <p class="info-misc">编号: {{info.number}} </p>
+                        <p class="info-misc">需求阶段: {{info.step}} </p>
+                        <p class="info-misc">所在地: {{info.area}} </p>
+                        <p class="info-misc">金额: {{info.money}} </p>
+                        <p class="color-red" style="font-size: 12px;">关键词: {{info.keywords.join(' ')}} </p>
+                    </div>
+                    <img class="info-media"  src="/static/img/corp1.jpg" style="width: 130px; height: 80px;" />
                 </div>
-                <img class="info-media"  src="../../assets/img/corp1.jpg" />
+                
             </f7-card>
         </div>
 
 
         <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 需求简介</f7-block-title>
-        <f7-block inner>
+        <f7-block inner style="text-indent: 2em;">
             {{info.desc}}
         </f7-block>
 
         <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 企业信息</f7-block-title>
-        <f7-block inner>
+        <f7-block inner style="text-indent: 2em;">
             {{info.corpDesc}}
         </f7-block>
 

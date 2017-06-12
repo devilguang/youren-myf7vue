@@ -1,3 +1,9 @@
+<style>
+    .error {
+        background: red;
+    }
+</style>
+
 <template>
     <f7-page toolbar-fixed>
         <f7-navbar back-link="Back" title="登陆" sliding></f7-navbar>
@@ -18,12 +24,14 @@
 
             <f7-list form v-if="loginType=='password'">
                 <f7-list-item>
-                    <f7-input name="email" type="email" placeholder="请输入您的注册邮箱" v-model="formValues.loginEmail"></f7-input>
+                    <f7-input name="email"  type="email" placeholder="请输入您的注册邮箱" v-model="formValues.loginEmail"></f7-input>
                 </f7-list-item>
                 <f7-list-item>
-                    <f7-input name="password" type="password" placeholder="请输入密码" v-model="formValues.password"></f7-input>
+                    <f7-input name="password"  type="password" placeholder="请输入密码" v-model="formValues.password"></f7-input>
                 </f7-list-item>
             </f7-list>
+
+            <!--<span v-show="errors.has('email')" class="color-red">{{errors.first('email')}}</span>-->
 
             <f7-button round fill @click="nextStep">确定</f7-button>
 
@@ -37,6 +45,7 @@
     </f7-page>
 </template>
 <script>
+
 export default {
 
     data() {
@@ -46,11 +55,18 @@ export default {
                 code: "",
                 loginEmail: "",
                 password: "",
+            },
+            formValid: {
+                loginEmail: false
             }
         }
     },
+    
+
     methods: {
         nextStep(){
+            // let rs = this.$validValue.email(this.formValues.loginEmail)
+            // alert(rs)
             this.$router.load({url: '/check/'})
         }
     }

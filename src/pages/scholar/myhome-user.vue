@@ -1,47 +1,45 @@
 
 <template>
-    <f7-page class="MyHome">
+    <f7-page class="Meeting">
         <f7-navbar title="个人中心" back-link="Back" sliding></f7-navbar>
 
-        <div class="userCard-wrapper">
-            <f7-card>
-                <img class="userCard-avatar" src="../../assets/app-icons/avatar-user.png" />
-                <div class="userCard-inner">
-                    <div class="userCard-name">{{userCard.name}}</div>
+        <div class="card-wrapper">
+            <f7-card class="flex-left flex-middle">
+                <img class="info-avatar" src="/static/img/avatar-user.png" style="height: 100px; width: 100px; margin-right: 15px;" />
+                <div class="info-inner">
+                    <div class="info-title color-blue" style="font-size: 16px;">{{info.name}}</div>
                     <div>
-                        <span class="userCard-unit">{{userCard.unit}}</span>
-                        <span class="userCard-title">{{userCard.title}}</span>
+                        <span style="margin-right: 10px;">{{info.unit}}</span> | 
+                        <span style="margin-left: 10px;">{{info.title}}</span>
                     </div>
-                    <div class="userCard-area">{{userCard.area}}</div>
+                    <div>{{info.area}}</div>
                 </div>
             </f7-card>
         </div>
 
 
         <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 个人简介</f7-block-title>
-        <f7-block inner>
-            <p class="userBlock-summary">
-                {{userCard.summary}}
-            </p>
+        <f7-block inner  style="text-indent: 2em;">
+            {{info.summary}}
         </f7-block>
 
         <f7-block-title><i class="fa fa-user fa-lg color-blue"></i> 联系人信息</f7-block-title>
         <f7-list form>
             <f7-list-item>
                 <f7-label floating>姓名</f7-label>
-                <f7-input name="name" type="text" placeholder="章华" v-model="userCard.name"></f7-input>
+                <f7-input name="name" type="text" placeholder="章华" v-model="info.name"></f7-input>
             </f7-list-item>
             <f7-list-item>
                 <f7-label floating>邮箱</f7-label>
-                <f7-input name="email" type="text" placeholder="上海交通大学" v-model="userCard.email"></f7-input>
+                <f7-input name="email" type="text" placeholder="上海交通大学" v-model="info.email"></f7-input>
             </f7-list-item>
             <f7-list-item>
                 <f7-label floating>手机号</f7-label>
-                <f7-input name="phone" type="text" placeholder="博士" v-model="userCard.phone"></f7-input>
+                <f7-input name="phone" type="text" placeholder="博士" v-model="info.phone"></f7-input>
             </f7-list-item>
             <f7-list-item>
                 <f7-label floating>所在地</f7-label>
-                <f7-input name="address" type="text" placeholder="教授" v-model="userCard.address"></f7-input>
+                <f7-input name="address" type="text" placeholder="教授" v-model="info.address"></f7-input>
             </f7-list-item>
         </f7-list>
 
@@ -56,7 +54,7 @@
 export default {
     data() {
         return {
-            userCard: {
+            info: {
                 name: '张良培',
                 unit: '上海交通大学',
                 title: '教授',
