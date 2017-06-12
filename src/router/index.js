@@ -56,6 +56,18 @@ export default [{
     path: '/demand/',
     name: 'demand',
     component: require("@/pages/demand.vue")
+  },
+
+  {
+    path: '/myaccount-corp/',
+    name: 'myaccount-corp',
+    component: require("@/pages/myaccount-corp.vue")
+  },
+
+  {
+    path: '/myhome-corp/',
+    name: 'myhome-corp',
+    component: require("@/pages/myhome-corp.vue")
   }
 
 ]

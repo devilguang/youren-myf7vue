@@ -54,10 +54,20 @@
         </f7-block>
 
         <f7-block style="margin-top: 40px; margin-bottom: 200px">
-            <f7-button round fill @click="">确定</f7-button>
+            <f7-button round fill @click="nextStep">确定</f7-button>
         </f7-block>
     </f7-page>
 </template>
+
+<script>
+export default {
+    methods: {
+        nextStep(){
+            this.$router.load({url: '/home/'})
+        },
+    }
+}
+</script>
 
 
 

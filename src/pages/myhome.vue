@@ -122,7 +122,7 @@
         </f7-list>
 
         <f7-block style="margin-bottom: 200px">
-            <f7-button round fill @click="">确定</f7-button>
+            <f7-button round fill @click="nextStep">确定</f7-button>
         </f7-block>
 
     </f7-page>
@@ -146,7 +146,11 @@ export default {
     },
 
     methods: {
-        commit(){}
+        commit(){},
+
+        nextStep(){
+            this.$router.load({url: '/home/'})
+        },
     }
 }
 </script>

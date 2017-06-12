@@ -28,7 +28,12 @@
       <f7-list-item title="我的帐户" link="/myaccount/"></f7-list-item>
       <f7-list-item title="推荐" link="/recommend-user/"></f7-list-item>
       <f7-list-item title="约见" link="/meeting-user/"></f7-list-item>
-      
+    </f7-list>
+
+    <f7-block-title>我的（企业版）</f7-block-title>
+    <f7-list>
+      <f7-list-item title="我的主页" link="/myhome-corp/"></f7-list-item>
+      <f7-list-item title="我的帐户" link="/myaccount-corp/"></f7-list-item>
     </f7-list>
 
       <!--<f7-list-item title="Accordion" link="/accordion/"></f7-list-item>
