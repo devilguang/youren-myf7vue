@@ -54,7 +54,7 @@ export default [{
     component: require("@/pages/scholar/mymeeting-user.vue")
   },
   {
-    path: '/demand/',
+    path: '/demand/:id',
     name: 'demand',
     component: require("@/pages/scholar/demand-user.vue")
   },

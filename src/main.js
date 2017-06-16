@@ -4,13 +4,15 @@
 import Vue from 'vue'
 import Framework7Vue from './f7/vue-f7/framework7-vue.js'
 import Routes from './router'
-
+import axios from 'axios'
 import '@/assets/css/mobi-plugin-flexbox.scss'
 import '@/assets/css/common.scss'
+import VueBus from 'vue-bus'
 
 Vue.config.productionTip = false
 Vue.use(Framework7Vue)
-
+Vue.use(VueBus)
+Vue.prototype.$http = axios.create({ baseURL: 'http://192.168.16.23:9000/' });
 import VueStar from 'vue-star'
 Vue.component('VueStar', VueStar)
 
@@ -36,7 +38,7 @@ Vue.prototype.$validField = validField;
 var app = new Vue({
 
     el: '#app',
-    
+
     framework7: {
       root: '#app',
       animateNavBackIcon: true,

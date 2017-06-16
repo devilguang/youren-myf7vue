@@ -6,7 +6,7 @@
             欢迎您，章华教授：<br>
             为了更好的为您服务，请您核实您的基本信息并按照指引填写相关需求，谢谢您的信任！
         </p>
-    
+
         <f7-list form>
             <f7-list-item>
                 <f7-label floating>姓名</f7-label>
@@ -34,8 +34,8 @@
             <f7-button round fill @click="nextStep">没问题，下一步</f7-button>
         </f7-block>
 
-    
-    
+
+
     </f7-page>
 </template>
 <script>
@@ -56,7 +56,12 @@ export default {
     methods: {
         nextStep(){
             this.$router.load({url: '/areas/'})
-        }
+        },
+      checkAixos(){
+            this.$http.get('v1/user/login',{params:{}}).then((res)=>{
+
+            })
+      }
     }
 
 }

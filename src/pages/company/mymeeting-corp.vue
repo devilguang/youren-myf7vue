@@ -10,7 +10,7 @@
                 </f7-buttons>
             </f7-subnavbar>
         </f7-navbar>
-    
+
         <f7-tabs swipeable>
             <f7-page-content id="tab1" tab >
                 <f7-block-title class="color-blue">需求沟通</f7-block-title>
@@ -187,12 +187,13 @@
                 </f7-pages>
             </f7-view>
         </f7-popup>
-
     </f7-page>
 </template>
 <script>
 export default {
-
+    mounted(){
+      console.log(this.$route)
+    },
     data() {
         return {
             popupRating: false,
@@ -377,7 +378,7 @@ export default {
                     meetingAddress: '',
                     customerPhone: '1357891254',
                     payment: 0,
-                    
+
                     edit: false,
                     hasRating: false,
                     rating: {
@@ -522,7 +523,7 @@ export default {
                     meetingAddress: '武汉市洪山区光谷天地c区星巴克',
                     customerPhone: '1357891254',
                     payment: 300,
-                    
+
                     edit: false,
                     hasRating: true,
                     rating: {
@@ -557,7 +558,7 @@ export default {
                     meetingAddress: '',
                     customerPhone: '1357891254',
                     payment: 0,
-                    
+
                     edit: false,
                     hasRating: false,
                     rating: {
@@ -629,7 +630,7 @@ export default {
             this.infos = [info];
             this.popupRating = true;
         }
-        
+
     }
 }
 </script>
