@@ -17,6 +17,10 @@ Vue.component('VueStar', VueStar)
 import StartRating from 'vue-star-rating'
 Vue.component('StarRating', StartRating)
 
+
+import axios from 'axios'
+Vue.prototype.$http = axios.create({baseURL: ''})
+
 // import cn from 'vee-validate/dist/locale/zh_CN.js'
 // import VeeValidate, {Validator } from 'vee-validate'
 // Validator.addLocale(cn);
