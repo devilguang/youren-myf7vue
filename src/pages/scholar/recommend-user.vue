@@ -2,13 +2,15 @@
     .Recommend {
 
     }
+
 </style>
 
 <template>
 
     <f7-page class="Recommend">
-        <f7-navbar title="推荐需求-专家版" back-link="Back" sliding></f7-navbar>
-
+        <v-cloak>
+          <f7-navbar title="推荐需求-专家版" back-link="Back" sliding></f7-navbar>
+        </v-cloak>
         <f7-list media-list>
             <f7-list-item v-for="info in infoList" :key="info.id" :media=" '<img src=/static/img/corp1.jpg + width='+80+'/>'"
                           :title="info.title" :subtitle="'<br>'"
@@ -31,14 +33,19 @@
     },
   methods:{
       userPostAixos(){
-          this.$http.post('v1/expert/suggests',{
-            "pageIndex":"1",
-            "pageSize":"10",
-            "orderProperty":"chatNum",
-            "orderType":"asc",
-            "expertId":"55236ee44808dd4b659f57ac"}).then((res)=>{
+        this.$http({
+          method:'post',
+          url:'v1/expert/suggests',
+          data:{
+              "pageIndex":"1",
+              "pageSize":"10",
+              "orderProperty":"chatNum",
+              "orderType":"asc",
+              "expertId":"011bbe1e-f56c-41ef-8adb-1fe60287cc50"
+          }
+        }).then((res)=>{
             this.infoList = res.data.data.data
-          }).catch((error) => console.log(error))
+        })
     }
   },
   mounted(){

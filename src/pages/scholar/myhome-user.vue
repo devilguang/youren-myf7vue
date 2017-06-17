@@ -1,15 +1,16 @@
 
 <template>
     <f7-page class="Meeting">
+      <v-cloak>
         <f7-navbar title="个人中心" back-link="Back" sliding></f7-navbar>
-
+      </v-cloak>
         <div class="card-wrapper">
             <f7-card class="flex-left flex-middle">
                 <img class="info-avatar" src="/static/img/avatar-user.png" style="height: 100px; width: 100px; margin-right: 15px;" />
                 <div class="info-inner">
                     <div class="info-title color-blue" style="font-size: 16px;">{{info.name}}</div>
                     <div>
-                        <span style="margin-right: 10px;">{{info.unit}}</span> | 
+                        <span style="margin-right: 10px;">{{info.unit}}</span> |
                         <span style="margin-left: 10px;">{{info.title}}</span>
                     </div>
                     <div>{{info.area}}</div>

@@ -1,16 +1,21 @@
-
+<style>
+  [v-cloak]{
+    display: none;
+  }
+</style>
 <template>
     <f7-page with-subnavbar no-page-content class="Meeting">
+    <v-cloak>
         <f7-navbar back-link="Back" title="约见" sliding>
-            <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
-                <f7-buttons>
-                    <f7-button tab-link="#tab1">待确认</f7-button>|
-                    <f7-button tab-link="#tab2">已确认</f7-button>|
-                    <f7-button tab-link="#tab3" active>已结束</f7-button>
-                </f7-buttons>
-            </f7-subnavbar>
-        </f7-navbar>
-    
+              <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
+                  <f7-buttons>
+                      <f7-button tab-link="#tab1">待确认</f7-button>|
+                      <f7-button tab-link="#tab2">已确认</f7-button>|
+                      <f7-button tab-link="#tab3" active>已结束</f7-button>
+                  </f7-buttons>
+              </f7-subnavbar>
+          </f7-navbar>
+      </v-cloak>
         <f7-tabs swipeable>
             <f7-page-content id="tab1" tab >
                 <f7-block-title class="color-blue">
@@ -41,11 +46,11 @@
                                     <p class="info-title">{{info.customerUnit}}</p>
                                     <p class="info-misc">{{info.customerName}}  <span style="display:inline-block; margin-left: 10px; font-size: smaller">({{info.customerTitle}})</span></p>
                                 </div>
-                            </div> 
+                            </div>
                             <p class="info-text" style="margin-top: .5em;">
                                 留言： {{info.message}}
                             </p>
-                            
+
                         </div>
                         <div class="info-action flex-vertical flex-around color-red">
                             <template v-if="info.stepCode=='待确认'">
@@ -237,7 +242,7 @@ export default {
                     customerUnit: '武汉船舶研究院',
                     customerName: '张大大',
                     customerTitle: '部门负责人',
-                    
+
 
                 },
                 {
@@ -289,7 +294,7 @@ export default {
                     meetingAddress: '',
                     customerPhone: '1357891254',
                     payment: 0,
-                    
+
                     edit: false,
                     hasRating: false,
                     rating: {
@@ -434,7 +439,7 @@ export default {
                     meetingAddress: '武汉市洪山区光谷天地c区星巴克',
                     customerPhone: '1357891254',
                     payment: 300,
-                    
+
                     edit: false,
                     hasRating: true,
                     rating: {
@@ -470,7 +475,17 @@ export default {
             this.infos = [info];
             this.popupRating = true;
         }
-        
+
+    },
+  mounted(){
+    if(!window.localStorage){
+      alert("浏览器支持localstorage");
+    }else{
+      var storage=window.localStorage;
+      //读取本地存储的id
+      var userId = storage["a"];
+      console.log(userId);
     }
+  }
 }
 </script>

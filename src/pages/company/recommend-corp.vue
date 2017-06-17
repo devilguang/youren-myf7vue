@@ -5,8 +5,9 @@
 
 <template>
     <f7-page class="Meeting">
-        <f7-navbar title="推荐专家" back-link="Back" sliding></f7-navbar>
-
+        <v-cloak>
+          <f7-navbar title="推荐专家" back-link="Back" sliding></f7-navbar>
+        </v-cloak>
         <f7-list>
             <f7-list-item v-for="info in infoList" :key="info.id">
                 <div class="info-content flex-vertical flex-center flex-middle" style="width: 100px; max-width: 120px; text-align: center; background: #ecf3fe;">

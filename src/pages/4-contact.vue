@@ -4,8 +4,9 @@
 
 <template>
     <f7-page>
+      <v-cloak>
         <f7-navbar back-link="Back" title="联系方式" sliding></f7-navbar>
-
+      </v-cloak>
         <f7-block style=" text-align:left">
             为了方便我们及时与您取得联系，请您填写至少一位联系人信息。
         </f7-block>

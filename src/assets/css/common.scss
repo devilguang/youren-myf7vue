@@ -1,4 +1,7 @@
-
+//返回
+[v-cloak]{
+  display: none;
+}
 
 
 // 我的帐户：可通用
@@ -29,7 +32,7 @@
 .Meeting {
 
     margin-bottom: 300px;
-    
+
     // tab导航
     .tab-link.button {
         color: lightgray;
@@ -68,7 +71,7 @@
     .info-action {
         width: 100px;
         background-color: #ecf3fe;
-        font-size: smaller; 
+        font-size: smaller;
         display: flex;
         flex-direction: column;
         justify-content: space-around;

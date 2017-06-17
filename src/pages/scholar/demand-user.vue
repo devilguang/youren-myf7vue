@@ -1,6 +1,9 @@
+
 <template>
     <f7-page class="Meeting">
+      <v-cloak>
         <f7-navbar title="推荐需求" back-link="Back" sliding></f7-navbar>
+      </v-cloak>
         <div class="card-wrapper">
             <f7-card class="flex-vertical">
                 <div class="info-title color-blue" style="font-size: 14px;">{{info.title}}</div>
@@ -78,6 +81,17 @@
             this.firmId = this.$route.params.id
             //写入a字段
             storage["a"]=this.firmId;
+          }
+          console.log()
+          if(!window.localStorage){
+           console.log("浏览器支持localstorage");
+            return false;
+          }else{
+            var storage=window.localStorage;
+            //写入a字段
+            storage["a"]=this.$route.params.id;
+            //写入b字段
+            console.log(typeof storage["a"]);
           }
         },
       demandAixos(){

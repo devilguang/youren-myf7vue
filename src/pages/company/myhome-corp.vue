@@ -1,7 +1,9 @@
 
 <template>
     <f7-page with-subnavbar no-page-content class="Meeting">
+      <v-cloak>
         <f7-navbar back-link="Back" title="主页" sliding>
+
             <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
                 <f7-buttons>
                     <f7-button tab-link="#tab1">需求列表</f7-button>|
@@ -10,7 +12,7 @@
                 </f7-buttons>
             </f7-subnavbar>
         </f7-navbar>
-    
+        </v-cloak>
         <f7-tabs swipeable>
             <f7-page-content id="tab1" tab >
                 <f7-block-title class="color-black"> 推广中</f7-block-title>
@@ -22,11 +24,11 @@
                                 <div class="info-title">{{info.title}}</div>
                                 <p class="info-misc">{{info.desc}} </p>
                                 <div class="info-misc flex-right flex-middle" style="text-align: right;">
-                                    <f7-input name="switch" type="switch" @change="" v-model="info.enable"></f7-input> 
+                                    <f7-input name="switch" type="switch" @change="" v-model="info.enable"></f7-input>
                                     <span style="white-space: nowrap; margin-left: 10px;">下架</span>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </f7-list-item>
                 </f7-list>
 
@@ -39,11 +41,11 @@
                                 <div class="info-title">{{info.title}}</div>
                                 <p class="info-misc">{{info.desc}} </p>
                                 <div class="info-misc flex-right flex-middle" style="text-align: right;">
-                                    <f7-input name="switch" type="switch" @change="" v-model="info.enable"></f7-input> 
+                                    <f7-input name="switch" type="switch" @change="" v-model="info.enable"></f7-input>
                                     <span style="white-space: nowrap; margin-left: 10px;">上架</span>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </f7-list-item>
                 </f7-list>
             </f7-page-content>
@@ -55,7 +57,7 @@
                         <div class="info-inner">
                             <div class="info-title color-blue" style="font-size: 16px;">{{info.name}}</div>
                             <div>
-                                <span style="margin-right: 10px;">{{info.corpType}}</span> | 
+                                <span style="margin-right: 10px;">{{info.corpType}}</span> |
                                 <span style="margin-left: 10px;">{{info.corpMany}}</span>
                             </div>
                         </div>

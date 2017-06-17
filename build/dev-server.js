@@ -69,8 +69,8 @@ var getLocalURL = function(port) {
 }
 
 // var uri = getLocalURL(port)
-// var uri = 'http://localhost:' + port
-var uri = 'http://192.168.16.10:' + port
+var uri = 'http://localhost:' + port
+// var uri = 'http://192.168.16.10:' + port
 
 var _resolve
 var readyPromise = new Promise(resolve => {

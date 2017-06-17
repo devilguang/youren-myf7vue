@@ -2,12 +2,14 @@
   .error {
     background: red;
   }
+
 </style>
 
 <template>
   <f7-page toolbar-fixed>
-    <f7-navbar back-link="Back" title="登陆" sliding></f7-navbar>
-
+    <v-cloak>
+      <f7-navbar back-link="Back" title="登陆" sliding></f7-navbar>
+    </v-cloak>
     <div style="margin:30px;">
 
       <f7-buttons>
@@ -31,7 +33,7 @@
         </f7-list-item>
       </f7-list>
 
-      <!--<span v-show="errors.has('email')" class="color-red">{{errors.first('email')}}</span>-->
+      <span v-show="flag" class="color-red">{{meassage}}</span>
 
       <f7-button round fill @click="nextStep">确定</f7-button>
 
@@ -52,12 +54,17 @@
       return {
         loginType: "code" || "password",
         formValues: {
-          code: "",
+          code: "pwhdxmet6",
           loginEmail: "",
           password: "",
         },
         formValid: {
           loginEmail: false
+        },
+        meassage:'',
+        flag:false,
+        expertUser:{
+            name:"",
         }
       }
     },
@@ -67,7 +74,33 @@
       nextStep(){
         // let rs = this.$validValue.email(this.formValues.loginEmail)
         // alert(rs)
-        this.$router.load({url: 'check/'})
+        if(this.loginType == 'code'){
+            this.$http({
+              method : 'post',
+              url : 'v1/user/loginCode/'+this.formValues.code,
+              data:{ }
+            }).then((res)=>{
+                console.log(res.data.data)
+                this.expertUser.id = res.data.data.id
+                this.expertUser.name = res.data.data.loginName
+                localStorage.setItem("expertUser",)
+                let userId = res.data.data.id
+                //邀请码正确但是资料没有完善
+                  if(res.data.errno ==4&&res.data.data.dataFlag == 0 ){
+                    this.flag = false
+                    this.$router.load({url: 'check/'})
+                  }
+              //邀请码正确但是资料已经完善
+                  if(res.data.errno ==4&&res.data.data.dataFlag == 1 ){
+                    this.$router.load({url: 'check/'})
+                  }
+                  if(res.data.errno ==2){
+                    this.flag = true
+                    this.meassage = res.data.message
+                    return false
+                  }
+            })
+        }
       }
     }
 

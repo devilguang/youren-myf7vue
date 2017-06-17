@@ -1,16 +1,21 @@
-
+<style>
+  [v-cloak]{
+    display: none;
+  }
+</style>
 <template>
     <f7-page with-subnavbar no-page-content class="Meeting">
+      <v-cloak>
         <f7-navbar back-link="Back" title="约见" sliding>
-            <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
-                <f7-buttons>
-                    <f7-button tab-link="#tab1" >待付款</f7-button>|
-                    <f7-button tab-link="#tab2" active>已确认</f7-button>|
-                    <f7-button tab-link="#tab3">已结束</f7-button>
-                </f7-buttons>
-            </f7-subnavbar>
+              <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
+                  <f7-buttons>
+                      <f7-button tab-link="#tab1" >待付款</f7-button>|
+                      <f7-button tab-link="#tab2" active>已确认</f7-button>|
+                      <f7-button tab-link="#tab3">已结束</f7-button>
+                  </f7-buttons>
+              </f7-subnavbar>
         </f7-navbar>
-
+      </v-cloak>
         <f7-tabs swipeable>
             <f7-page-content id="tab1" tab >
                 <f7-block-title class="color-blue">需求沟通</f7-block-title>

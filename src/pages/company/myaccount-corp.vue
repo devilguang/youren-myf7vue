@@ -2,7 +2,9 @@
 
 <template>
     <f7-page class="MyAccount">
-        <f7-navbar title="帐户" back-link="Back" sliding></f7-navbar>
+        <v-cloak>
+          <f7-navbar title="帐户" back-link="Back" sliding></f7-navbar>
+        </v-cloak>
         <f7-block inner>
             <div class="message-type">累计咨询次数</div>
             <div class="money-content">3</div>
@@ -39,7 +41,7 @@ export default {
     data(){
         return {
             info: {
-                
+
             }
         }
     },

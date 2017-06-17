@@ -33,9 +33,9 @@
 </style>
 <template>
     <f7-page>
+      <v-cloak>
         <f7-navbar back-link="Back" title="关注领域" sliding></f7-navbar>
-
-
+      </v-cloak>
         <f7-block style=" text-align:center">
             您主要关注的产业领域（可多选）
         </f7-block>

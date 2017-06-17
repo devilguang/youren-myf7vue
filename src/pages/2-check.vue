@@ -1,6 +1,11 @@
+<style>
+
+</style>
 <template>
     <f7-page>
-        <f7-navbar back-link="Back" title="专家认证" sliding></f7-navbar>
+        <v-cloak>
+         <f7-navbar back-link="Back" title="专家认证" sliding></f7-navbar>
+        </v-cloak>
 
         <p style="padding:10px">
             欢迎您，章华教授：<br>
@@ -40,7 +45,6 @@
 </template>
 <script>
 export default {
-
     data() {
         return {
             formValues: {
@@ -52,17 +56,29 @@ export default {
             }
         }
     },
-
     methods: {
         nextStep(){
             this.$router.load({url: '/areas/'})
+
         },
       checkAixos(){
             this.$http.get('v1/user/login',{params:{}}).then((res)=>{
 
             })
       }
-    }
+    },
+  mounted(){
+        this.$http({
+          "method":"psot",
+          "url":"v1/user/loginCode",
+          "data":{
+              "id":this.$route.params.id
+          }
+        }).then((res)=>{
+
+        })
+        console.log(this.$route.params.id)
+  }
 
 }
 </script>
