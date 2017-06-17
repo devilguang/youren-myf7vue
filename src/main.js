@@ -1,6 +1,4 @@
-
 // import App from './App'
-
 import Vue from 'vue'
 import Framework7Vue from './f7/vue-f7/framework7-vue.js'
 import Routes from './router'
