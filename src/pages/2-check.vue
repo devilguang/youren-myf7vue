@@ -15,11 +15,11 @@
         <f7-list form>
             <f7-list-item>
                 <f7-label floating>姓名</f7-label>
-                <f7-input name="name" type="text" placeholder="章华" v-model="formValues.name"></f7-input>
+                <f7-input name="name" type="text" placeholder="章华" v-model="formValues.loginName"></f7-input>
             </f7-list-item>
             <f7-list-item>
                 <f7-label floating>单位</f7-label>
-                <f7-input name="unit" type="text" placeholder="上海交通大学" v-model="formValues.unit"></f7-input>
+                <f7-input name="unit" type="text" placeholder="上海交通大学" v-model="formValues.address"></f7-input>
             </f7-list-item>
             <f7-list-item>
                 <f7-label floating>学位</f7-label>
@@ -38,22 +38,19 @@
         <f7-block style="margin-bottom: 200px">
             <f7-button round fill @click="nextStep">没问题，下一步</f7-button>
         </f7-block>
-
-
-
     </f7-page>
 </template>
 <script>
 export default {
     data() {
         return {
-            formValues: {
-                name: '',
-                unit: '',
-                degree: '',
-                title: '',
-                area:  '',
-            }
+            formValues: [
+//                name: '',
+//                unit: '',
+//                degree: '',
+//                title: '',
+//                area:  '',
+            ]
         }
     },
     methods: {
@@ -61,23 +58,11 @@ export default {
             this.$router.load({url: '/areas/'})
 
         },
-      checkAixos(){
-            this.$http.get('v1/user/login',{params:{}}).then((res)=>{
 
-            })
-      }
     },
   mounted(){
-        this.$http({
-          "method":"psot",
-          "url":"v1/user/loginCode",
-          "data":{
-              "id":this.$route.params.id
-          }
-        }).then((res)=>{
-
-        })
-        console.log(this.$route.params.id)
+      this.formValues = JSON.parse(window.localStorage.getItem("expertOpinion"));
+      console.log(this.formValues)
   }
 
 }

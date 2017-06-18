@@ -478,14 +478,7 @@ export default {
 
     },
   mounted(){
-    if(!window.localStorage){
-      alert("浏览器支持localstorage");
-    }else{
-      var storage=window.localStorage;
-      //读取本地存储的id
-      var userId = storage["a"];
-      console.log(userId);
-    }
+      window.localStorage.getItem("a")
   }
 }
 </script>

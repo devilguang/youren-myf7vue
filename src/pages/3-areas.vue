@@ -1,8 +1,6 @@
 
 <style lang="scss">
-
     .areas {
-
         label.areaItem {
             border: 1px solid #ddd;
             font-size: 12px;
@@ -65,7 +63,7 @@ export default {
                 {"name":"采矿 ","id":"02"},
                 {"name":"制造","id":"03"},
                 {"name":"建筑","id":"06"},
-                {"name":"信息传输、计算机服务和软件","id":"10"},
+                {"name":"信息传输、软件和信息技术服务","id":"10"},
                 {"name":"房地产","id":"12"},
                 {"name":"电力、热力、燃气及水生产供应 ","id":"04"},
                 {"name":"教育 ","id":"17"},

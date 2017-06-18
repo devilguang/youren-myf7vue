@@ -20,13 +20,11 @@
                     <p class="info-text">行业： {{info.field}}</p>
                     <p class="flex-around" style="margin-top: .5em;">
                         <f7-button color="blue" class="mini-button" fill round>查看详情</f7-button>
-                        <f7-button color="orange" class="mini-button" fill round>立即联系</f7-button>
+                        <f7-button color="orange" class="mini-button" fill round @click="immediately">立即联系</f7-button>
                     </p>
                 </div>
             </f7-list-item>
         </f7-list>
-
-
     </f7-page>
 </template>
 
@@ -55,9 +53,13 @@ export default {
     cropGetAixos(){
       this.$http.get("http://192.168.16.26:9000/v1/recommend/list",{params:{}}).then( (res)=>{
         this.infoList = res.data.data
-        console.log(this.infoList)
       }) .catch((error) => console.log(error))
+    },
+//    点击立即联系的时候
+    immediately(){
+        window.localStorage.setItem("enterpriseId",this.infoList.id)
     }
+
   },
   mounted() {
       this.cropGetAixos()

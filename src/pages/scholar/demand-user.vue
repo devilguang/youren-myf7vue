@@ -73,26 +73,11 @@
                 })
             })
 //          获取到的Id
-          if(!window.localStorage){
-            console.log("浏览器支持localstorage");
-            return false;
-          }else{
-            var storage=window.localStorage;
-            this.firmId = this.$route.params.id
-            //写入a字段
-            storage["a"]=this.firmId;
-          }
-          console.log()
-          if(!window.localStorage){
-           console.log("浏览器支持localstorage");
-            return false;
-          }else{
-            var storage=window.localStorage;
-            //写入a字段
-            storage["a"]=this.$route.params.id;
-            //写入b字段
-            console.log(typeof storage["a"]);
-          }
+          var storage = window.localStorage;
+          this.firmId = this.$route.params.id
+            //写入a  a表示的是id 当点击立即联系的时候把id存在本地中，然后约见里面去获取这个ID
+          storage.setItem("a",this.firmId)
+          localStorage.removeItem("c")
         },
       demandAixos(){
         let demandId = this.$route.params.id
