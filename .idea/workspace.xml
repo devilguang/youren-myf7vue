@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="168a9ae3-9c40-46f0-abd4-dbf358c48560" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/1-login.vue" afterPath="$PROJECT_DIR$/src/pages/1-login.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/2-check.vue" afterPath="$PROJECT_DIR$/src/pages/2-check.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/3-areas.vue" afterPath="$PROJECT_DIR$/src/pages/3-areas.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/4-contact.vue" afterPath="$PROJECT_DIR$/src/pages/4-contact.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/company/recommend-corp.vue" afterPath="$PROJECT_DIR$/src/pages/company/recommend-corp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/scholar/demand-user.vue" afterPath="$PROJECT_DIR$/src/pages/scholar/demand-user.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/scholar/myhome-user.vue" afterPath="$PROJECT_DIR$/src/pages/scholar/myhome-user.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/scholar/mymeeting-user.vue" afterPath="$PROJECT_DIR$/src/pages/scholar/mymeeting-user.vue" />
-    </list>
+    <list default="true" id="168a9ae3-9c40-46f0-abd4-dbf358c48560" name="默认的" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -454,12 +442,12 @@
       <workItem from="1497688177630" duration="184000" />
       <workItem from="1497688401136" duration="1226000" />
       <workItem from="1497690276391" duration="10614000" />
-      <workItem from="1497764679284" duration="8916000" />
+      <workItem from="1497764679284" duration="9513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80832000" />
+    <option name="totallyTimeSpent" value="81429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1324" height="728" extended-state="1" />
