@@ -77,7 +77,6 @@
 <script>
 let autoID = 0;
 export default {
-
     data() {
         return {
             linkmans: [
@@ -105,17 +104,15 @@ export default {
             })
         },
         removeLinkman(id) {
-
             let index = this.linkmans.findIndex(man => man.id == id)
             this.linkmans.splice(index, 1)
         },
         commit() {
             const self = this;
             this.$f7.alert('恭喜您，认证成功！麦子根据您的信息自动为您匹配了12个企业需求，您可以点击推荐查看。', '认证成功', function(){
-                self.$router.load({url: '/home/'})
+                self.$router.load({url: '/recommend-user/'})
             })
         },
-
     },
 
 }

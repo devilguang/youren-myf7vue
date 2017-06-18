@@ -50,7 +50,7 @@
   },
   mounted(){
       this.userPostAixos()
-      console.log(this.$route)
+
   }
 }
 </script>

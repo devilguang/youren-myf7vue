@@ -63,7 +63,9 @@
         },
         meassage:'',
         flag:false,
-        expertUser:''
+        expertUser:'',
+        ordId :'',
+        info:[]
       }
     },
 
@@ -78,17 +80,8 @@
               url : 'v1/user/loginCode/'+this.formValues.code,
               data:{ }
             }).then((res)=>{
-                console.log(res.data.data)
-//                this.expertUser.id = res.data.data.id
-//                this.expertUser.name = res.data.data.loginName  //专家姓名
-//                this.expertUser.unit = res.data.data.loginName  //单位
-//                this.expertUser.degree = res.data.data.loginName //学位
-//                this.expertUser.jobTitle =res.data.data.loginName // 职称
-//                this.expertUser.researchArea = res.data.data.loginName //研究方向
-                  this.expertUser = res.data.data
-                localStorage.setItem("expertOpinion",JSON.stringify(this.expertUser))//本地存储专家的个人信息
-//              var json_data = JSON.parse(storage.getItem("expertOpinion"));//从本地获取数据的方法
-              let userId = res.data.data.id
+                  this.ordId = res.data.data.oId
+                  let userId = res.data.data.id
                 //邀请码正确但是资料没有完善
                   if(res.data.errno ==4&&res.data.data.dataFlag == 0 ){
                     this.flag = false
@@ -103,8 +96,13 @@
                     this.meassage = res.data.message
                     return false
                   }
+              this.$http.get('v1/expert/'+this.ordId).then((res)=>{
+                localStorage.setItem("expertOpinion",JSON.stringify(res.data))//本地存储专家的个人信息
+              })
             })
+
         }
+
       }
     }
 

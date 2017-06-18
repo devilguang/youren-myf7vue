@@ -69,7 +69,7 @@
             this.$f7.confirm('您是否对该需求感兴趣，确定后系统将发送您的基本信息给对方。', '立即联系', () => {
                 this.$f7.alert('系统正在为您安排约会，稍后会有技术经纪人与您联系，您可以在“约会”查看进度。', '约会安排中', () => {
                     this.buttonText = "约见安排中"
-                    // this.$router.load("/home/")
+                  this.$router.load("/mymeeting-corp/")
                 })
             })
 //          获取到的Id
