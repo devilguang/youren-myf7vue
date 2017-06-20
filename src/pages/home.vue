@@ -84,7 +84,6 @@ export default {
 
                 }else {  //表示登录成功
                   this.flag = false
-
                   console.log(this.gotoAdress)
                   this.hrefIp = this.gotoAdress
                   if(this.type==2){

@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="168a9ae3-9c40-46f0-abd4-dbf358c48560" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/3-check.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/company/expertsDetails.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/1-login.vue" afterPath="$PROJECT_DIR$/src/pages/1-login.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/2-check.vue" afterPath="$PROJECT_DIR$/src/pages/2-check.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/3-areas.vue" afterPath="$PROJECT_DIR$/src/pages/3-areas.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/4-contact.vue" afterPath="$PROJECT_DIR$/src/pages/4-contact.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/company/myaccount-corp.vue" afterPath="$PROJECT_DIR$/src/pages/company/myaccount-corp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/company/myhome-corp.vue" afterPath="$PROJECT_DIR$/src/pages/company/myhome-corp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/company/mymeeting-corp.vue" afterPath="$PROJECT_DIR$/src/pages/company/mymeeting-corp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/company/recommend-corp.vue" afterPath="$PROJECT_DIR$/src/pages/company/recommend-corp.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home.vue" afterPath="$PROJECT_DIR$/src/pages/home.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/scholar/demand-user.vue" afterPath="$PROJECT_DIR$/src/pages/scholar/demand-user.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/scholar/myaccount-user.vue" afterPath="$PROJECT_DIR$/src/pages/scholar/myaccount-user.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/scholar/myhome-user.vue" afterPath="$PROJECT_DIR$/src/pages/scholar/myhome-user.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/scholar/mymeeting-user.vue" afterPath="$PROJECT_DIR$/src/pages/scholar/mymeeting-user.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/scholar/recommend-user.vue" afterPath="$PROJECT_DIR$/src/pages/scholar/recommend-user.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/router/index.js" afterPath="$PROJECT_DIR$/src/router/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,8 +21,8 @@
       <file leaf-file-name="home.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="69" column="17" lean-forward="true" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+            <state relative-caret-position="428">
+              <caret line="116" column="1" lean-forward="true" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
@@ -495,12 +474,12 @@
       <workItem from="1497783159040" duration="567000" />
       <workItem from="1497834424201" duration="230000" />
       <workItem from="1497834690273" duration="31813000" />
-      <workItem from="1497920754045" duration="23678000" />
+      <workItem from="1497920754045" duration="24074000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144877000" />
+    <option name="totallyTimeSpent" value="145273000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -929,8 +908,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="69" column="17" lean-forward="true" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+        <state relative-caret-position="428">
+          <caret line="116" column="1" lean-forward="true" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
           <folding>
             <element signature="n#style#0;n#div#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#f7-page#0;n#template#0;n#!!top" expanded="true" />
