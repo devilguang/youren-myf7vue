@@ -4,9 +4,9 @@
 
 <template>
     <f7-page>
-      <v-cloak>
+      <div v-cloak>
         <f7-navbar back-link="Back" title="联系方式" sliding></f7-navbar>
-      </v-cloak>
+      </div>
         <f7-block style=" text-align:left">
             为了方便我们及时与您取得联系，请您填写至少一位联系人信息。
         </f7-block>
@@ -108,9 +108,23 @@ export default {
             this.linkmans.splice(index, 1)
         },
         commit() {
-            const self = this;
-            this.$f7.alert('恭喜您，认证成功！麦子根据您的信息自动为您匹配了12个企业需求，您可以点击推荐查看。', '认证成功', function(){
-                self.$router.load({url: '/recommend-user/'})
+            this.linkmans.forEach((item,index)=> {
+                if(item.name==""||item.phone==''|| item.email==''||item.post==''){
+                  this.$f7.alert("请填写完整的信息","认证失败")
+                }else if(/[^\u4e00-\u9fa5]/.test(item.name)&&!(item.name.length<2)){
+                  this.$f7.alert("请填写正确的姓名","认证失败")
+                }
+                else if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(item.phone))){
+                  this.$f7.alert("请填写正确的手机号码","认证失败")
+                }else if(!(/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/.test(item.email))){
+                  this.$f7.alert("请填写正确格式的邮箱","认证失败")
+                }
+                else{
+                  const self = this;
+                  this.$f7.alert('恭喜您，认证成功！麦子根据您的信息自动为您匹配了12个企业需求，您可以点击推荐查看。', '认证成功', function(){
+                      self.$router.load({url: '/recommend-user/'})
+                  })
+                }
             })
         },
     },

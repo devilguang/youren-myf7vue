@@ -1,23 +1,21 @@
 
 <template>
     <f7-page with-subnavbar no-page-content class="Meeting">
-      <v-cloak>
-        <f7-navbar back-link="Back" title="主页" sliding>
-
-            <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
-                <f7-buttons>
-                    <f7-button tab-link="#tab1">需求列表</f7-button>|
-                    <f7-button tab-link="#tab2" active>企业主页</f7-button>|
-                    <f7-button tab-link="#tab3" >联系人</f7-button>
-                </f7-buttons>
-            </f7-subnavbar>
-        </f7-navbar>
-        </v-cloak>
+      <f7-navbar back-link="Back" title="主页" sliding></f7-navbar>
+      <div v-cloak>
+          <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
+                  <f7-buttons>
+                      <f7-button tab-link="#tab1">需求列表</f7-button>|
+                      <f7-button tab-link="#tab2" active>企业主页</f7-button>|
+                      <f7-button tab-link="#tab3" >联系人</f7-button>
+                  </f7-buttons>
+          </f7-subnavbar>
+      </div>
         <f7-tabs swipeable>
             <f7-page-content id="tab1" tab >
                 <f7-block-title class="color-black"> 推广中</f7-block-title>
                 <f7-list>
-                    <f7-list-item v-for="info in infoList.filter(info=> info.enable)" :key="info.id">
+                    <f7-list-item v-for="info in infoList.filter(info=>info.enable)" :key="info.id">
                         <div class="flex-left flex-top">
                             <img :src="info.media" alt="" style="width: 80px; height:80px; margin-right: 10px;">
                             <div class="unit">
@@ -57,8 +55,8 @@
                         <div class="info-inner">
                             <div class="info-title color-blue" style="font-size: 16px;">{{info.name}}</div>
                             <div>
-                                <span style="margin-right: 10px;">{{info.corpType}}</span> |
-                                <span style="margin-left: 10px;">{{info.corpMany}}</span>
+                                <span style="margin-right: 10px;">上市公司</span> |
+                                <span style="margin-left: 10px;">2000人以上</span>
                             </div>
                         </div>
                     </f7-card>
@@ -67,19 +65,17 @@
                 <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 所属领域</f7-block-title>
                 <div class="content-block">
                     <div class="content-block-inner" style="text-indent: 2em;">
-                        {{info.area}}
+                       IT/互联网、生产计算机软件；提供相关技术咨询、技术服务、技术培训
                     </div>
                 </div>
 
                 <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 企业简介</f7-block-title>
                 <div class="content-block">
                     <div class="content-block-inner" style="text-indent: 2em;">
-                        {{info.summary}}
+                        {{info.companyAbout}}
                     </div>
                 </div>
-
             </f7-page-content>
-
             <f7-page-content id="tab3" tab >
                 <f7-block-title>联系人</f7-block-title>
                 <f7-list>
@@ -104,18 +100,10 @@
 </template>
 <script>
 export default {
-
     data() {
         return {
             info: {
-                name: '百度网络科技有限公司',
-                corpName: '百度网络科技有限公司',
-                corpType: '上市公司',
-                corpMany: '2000人以上',
-                area: 'IT/互联网、生产计算机软件; 提供相关技术咨询、技术服务技术培训',
-                summary: '百度，全球最大的中文搜索引擎，最大的中文网站。2000年1月创立于北京中关村。1999年底，身在美国硅谷的的李彦宏看到了中国互联网及中文搜索引擎服务的巨大发展潜力，抱着技术改变世界的梦想，他毅然辞掉硅谷的高薪工作，携搜索引擎专利技术，于2000年1月1日在中关村创建了百度公司。从最初的不足10人发展至今，员工人数超过18000人。如今的百度，已成为中国最受欢迎，影响力最大的中文网站。'
             },
-
             infoList: [
                 {
                     id: 1,
@@ -170,7 +158,6 @@ export default {
                     enable: false,
                 },
             ],
-
             contactors: [
                 {
                     name: '张万磊',
@@ -181,7 +168,6 @@ export default {
             ],
         }
     },
-
     methods: {
         formateDate (date, fmt = "M月D日dddd H:mm"){
             return moment(date).format(fmt)
@@ -194,7 +180,10 @@ export default {
         isAfterToday(date){
             return moment(date).isAfter(new Date(), 'day')
         }
-
-    }
+    },
+  mounted(){
+      this.info = JSON.parse(window.localStorage.getItem("priseInformation "));
+      console.log(this.info)
+  }
 }
 </script>

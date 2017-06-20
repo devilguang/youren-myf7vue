@@ -8,9 +8,7 @@
 <template>
 
     <f7-page class="Recommend">
-        <v-cloak>
           <f7-navbar title="推荐需求-专家版" back-link="Back" sliding></f7-navbar>
-        </v-cloak>
         <f7-list media-list>
             <f7-list-item v-for="info in infoList" :key="info.id" :media=" '<img src=/static/img/corp1.jpg + width='+80+'/>'"
                           :title="info.title" :subtitle="'<br>'"
@@ -50,7 +48,6 @@
   },
   mounted(){
       this.userPostAixos()
-
   }
 }
 </script>

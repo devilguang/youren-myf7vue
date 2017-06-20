@@ -17,7 +17,7 @@
               <f7-link>Left</f7-link>
               <f7-link>Right</f7-link>
             </f7-toolbar>
-  
+
             <f7-list>
               <f7-list-item title="登陆首页" link="/login/"></f7-list-item>
 
@@ -69,9 +69,10 @@
 
 <script>
 import Routes from '@/router'
-
+Vue.use(Framework7Vue)
 export default {
   name: 'app',
+  el: '#app',
   framework7: {
     root: '#app', //Should be same as app el
     animateNavBackIcon: true,
@@ -95,7 +96,7 @@ export default {
   // Custom App Methods
   methods: {
     onF7Init: function () {
-      console.log('f7-init1111');
+//      console.log('f7-init1111');
     }
   }
 }

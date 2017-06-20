@@ -1,9 +1,7 @@
 
 <template>
     <f7-page class="Meeting">
-      <v-cloak>
         <f7-navbar title="推荐需求" back-link="Back" sliding></f7-navbar>
-      </v-cloak>
         <div class="card-wrapper">
             <f7-card class="flex-vertical">
                 <div class="info-title color-blue" style="font-size: 14px;">{{info.title}}</div>
@@ -28,7 +26,7 @@
         </f7-block>
 
         <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 企业信息</f7-block-title>
-        <f7-block inner style="text-indent: 2em;" v-text="firmList.companyAbout=null?null:firmList.companyAbout">
+        <f7-block inner style="text-indent: 2em;" v-text="this.companyAbout">
         </f7-block>
 
         <f7-block style="margin-bottom: 200px">
@@ -57,7 +55,8 @@
             firmList:[],
             buttonText: "立即联系" || " 约见安排中..." || "已安排约见" || "已完成",
             //放入企业的ID
-            firmId:[]
+            firmId:[],
+            companyAbout:""
 
 
         }
@@ -86,6 +85,8 @@
             let firmId = this.info.companyId
           this.$http.get('/v1/company/id/'+firmId).then((res)=>{
             this.firmList = res.data.data
+          //企业信息
+            this.companyAbout = this.firmList.companyAbout
           }).catch((error) => console.log(error))
         }).catch((error) => console.log(error))
       }

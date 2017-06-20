@@ -31,13 +31,10 @@
 </style>
 <template>
     <f7-page>
-      <v-cloak>
         <f7-navbar back-link="Back" title="关注领域" sliding></f7-navbar>
-      </v-cloak>
         <f7-block style=" text-align:center">
             您主要关注的产业领域（可多选）
         </f7-block>
-
         <f7-block class="areas">
             <div class="flex-between flex-wrap ">
                 <label class="areaItem" v-for="(area, i) in areaMap" :key="area.id" :class="{checked: area.checked}">
@@ -50,7 +47,8 @@
             </div>
         </f7-block>
         <f7-block style="margin-bottom: 200px">
-            <f7-button round fill @click="nextStep">已选好，下一步</f7-button>
+          <!--href="/contact/"-->
+            <f7-button round fill @click="nextStep" >已选好，下一步</f7-button>
         </f7-block>
     </f7-page>
 </template>

@@ -1,9 +1,7 @@
 
 <template>
     <f7-page class="MyAccount">
-        <v-cloak>
           <f7-navbar title="帐户" back-link="Back" sliding></f7-navbar>
-        </v-cloak>
         <f7-block inner>
             <div class="money-type">今日收益</div>
             <div class="money-content">10000.00</div>
