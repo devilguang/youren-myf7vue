@@ -9,11 +9,14 @@ import VueBus from 'vue-bus'
 Vue.config.productionTip = false
 Vue.use(Framework7Vue)
 Vue.use(VueBus)
-Vue.prototype.$http = axios.create({ baseURL: 'http://120.55.191.189:9002/' });
+// Vue.prototype.$http = axios.create({ baseURL: 'http://192.168.16.253:9002/' });
+// Vue.prototype.$http = axios.create({ baseURL: 'http://120.55.191.189:9002/' });
+Vue.prototype.$http = axios.create({ baseURL: 'http://192.168.16.23:9000/' });
 import VueStar from 'vue-star'
 Vue.component('VueStar', VueStar)
 import StartRating from 'vue-star-rating'
 Vue.component('StarRating', StartRating)
+
 var app = new Vue({
     el: '#app',
     framework7: {
@@ -30,9 +33,7 @@ var app = new Vue({
     // Custom App Methods
     methods: {
       onF7Init: function () {
-        console.log('f7-init');
-
-
+        // console.log('f7-init');
       }
     }
 });

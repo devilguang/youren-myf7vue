@@ -70,6 +70,20 @@
 <script>
 import Routes from '@/router'
 Vue.use(Framework7Vue)
+
+//往Vue的原型添加一个仓库，然后写一个vue的实例，变量全部可以存放在ruturn的json数据中
+//Vue.prototype.$store = new Vue({
+//  data() {
+//      return {
+//        userInfo: {},
+//        areaInfo: {}
+//      }
+//  }
+//})
+//可以在子页面中来调用
+//this.$store.userInfo ={}
+
+
 export default {
   name: 'app',
   el: '#app',

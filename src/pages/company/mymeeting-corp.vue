@@ -1,640 +1,655 @@
 <style>
-  [v-cloak]{
+  [v-cloak] {
     display: none;
   }
 </style>
 <template>
-    <f7-page with-subnavbar no-page-content class="Meeting">
-      <div v-cloak>
+  <f7-page with-subnavbar no-page-content class="Meeting">
+    <div v-cloak>
       <f7-navbar back-link="Back" title="约见" sliding></f7-navbar>
-        <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
-                  <f7-buttons>
-                      <f7-button tab-link="#tab1" >待付款</f7-button>|
-                      <f7-button tab-link="#tab2" active>已确认</f7-button>|
-                      <f7-button tab-link="#tab3">已结束</f7-button>
-                  </f7-buttons>
-              </f7-subnavbar>
-      </div>
-        <f7-tabs swipeable>
-            <f7-page-content id="tab1" tab >
-                <f7-block-title class="color-blue">需求沟通</f7-block-title>
+      <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
+        <f7-buttons>
+          <f7-button tab-link="#tab1">待付款</f7-button>
+          |
+          <f7-button tab-link="#tab2" active>已确认</f7-button>
+          |
+          <f7-button tab-link="#tab3">已结束</f7-button>
+        </f7-buttons>
+      </f7-subnavbar>
+    </div>
+    <f7-tabs swipeable>
+      <f7-page-content id="tab1" tab>
+        <f7-block-title class="color-blue">需求沟通</f7-block-title>
 
-                <!--表单类型用 form 否则用 div -->
-                <div class="list-block">
-                    <ul>
-                        <li class="swipeout transitioning" v-for="info in demands" v-if="info.meetingType == '需求沟通'" :key="info.id">
-                            <!--滑动包装-->
-                            <div class="swipeout-content" style="">
-                                <!--checkbox包装-->
-                                <label class="item-content label-checkbox">
-                                    <!---->
-                                    <input type="checkbox" name="my-checkbox" v-model="selection">
-                                    <div class="item-media">
-                                        <i class="icon icon-form-checkbox"></i>
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="info-content unit">
-                                            <div class="info-title" style="font-size: 14px">{{info.name}}  {{info.unit}}  {{info.title}}</div>
-                                            <p class="info-misc">方向： {{info.area}}</p>
-                                            <p class="info-misc">行业： {{info.industry}}</p>
-                                            <p class="info-misc">接洽需求： {{info.demand}}</p>
-                                            <p class="color-red" style="text-align: right;">￥ {{info.money}}</p>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-                            <f7-swipeout-actions>
-                                <f7-swipeout-button delete>删除</f7-swipeout-button>
-                            </f7-swipeout-actions>
-                        </li>
-                    </ul>
-                </div>
-
-                <f7-block-title class="color-blue">专家约见</f7-block-title>
-                <!--表单类型用 form 否则用 div -->
-                <div class="list-block">
-                    <ul>
-                        <li class="swipeout transitioning" v-for="info in demands" v-if="info.meetingType == '专家约见'" :key="info.id">
-                            <!--滑动包装-->
-                            <div class="swipeout-content" style="">
-                                <!--checkbox包装-->
-                                <label class="item-content label-checkbox">
-                                    <!---->
-                                    <input type="checkbox" name="my-checkbox" v-model="selection">
-                                    <div class="item-media">
-                                        <i class="icon icon-form-checkbox"></i>
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="info-content unit">
-                                            <div class="info-title" style="font-size: 14px">{{info.name}}  {{info.unit}}  {{info.title}}</div>
-                                            <p class="info-misc">方向： {{info.area}}</p>
-                                            <p class="info-misc">行业： {{info.industry}}</p>
-                                            <p class="info-misc">接洽需求： {{info.demand}}</p>
-                                            <p class="color-red" style="text-align: right;">￥ {{info.money}}</p>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-                            <f7-swipeout-actions>
-                                <f7-swipeout-button delete>删除</f7-swipeout-button>
-                            </f7-swipeout-actions>
-                        </li>
-                    </ul>
-                </div>
-            </f7-page-content>
-
-            <f7-page-content id="tab2" tab active>
-                <f7-block-title class="color-blue">今天</f7-block-title>
-                <f7-list>
-                    <f7-list-item v-for="info in meetings" v-if="isToday(info.meetingDate)" :key="info.id">
-                        <div class="info-content" style="width: max-content; max-width: 120px; text-align: center;">
-                            <img class="info-midea" :src="info.media" alt="" style="width: 50px; height:50px;">
-                            <div class="info-title">{{info.customerName}}</div>
-                            <div class="info-misc">{{info.customerUnit}}</div>
-                        </div>
-                        <div class="info-content unit">
-                            <p class="info-title color-blue">{{info.meetingType}}</p>
-                            <p class="info-misc has-icon-phone">{{info.customerPhone}}</p>
-                            <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}} <small style="margin-left: 10px;">({{info.meetingDuration}})</small></p>
-                            <p class="info-misc has-icon-address">{{info.meetingAddress}}</p>
-                        </div>
-                    </f7-list-item>
-                </f7-list>
-
-                <f7-block-title class="color-blue">之后</f7-block-title>
-                <f7-list>
-                    <f7-list-item v-for="info in meetings" v-if="isAfterToday(info.meetingDate)" :key="info.id">
-                        <div class="info-content" style="width: max-content; max-width: 120px; text-align: center;">
-                            <img class="info-midea" :src="info.media" alt="" style="width: 50px; height:50px;">
-                            <div class="info-title">{{info.customerName}}</div>
-                            <div class="info-misc">{{info.customerUnit}}</div>
-                        </div>
-                        <div class="info-content unit">
-                            <p class="info-title color-blue">{{info.meetingType}}</p>
-                            <p class="info-misc has-icon-phone">{{info.customerPhone}}</p>
-                            <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}} <small style="margin-left: 10px;">({{info.meetingDuration}})</small></p>
-                            <p class="info-misc has-icon-address">{{info.meetingAddress}}</p>
-                        </div>
-                    </f7-list-item>
-                </f7-list>
-            </f7-page-content>
-
-            <f7-page-content id="tab3" tab >
-                <f7-list>
-                    <f7-list-item v-for="info in meetings" v-if="isBeforeToday(info.meetingDate)" :key="info.id">
-                        <div class="info-content" style="width: max-content; max-width: 120px; text-align: center;">
-                            <img class="info-midea" :src="info.media" alt="" style="width: 50px; height:50px; margin-right: 10px; border-radius: 50%;">
-                            <p class="info-title">{{info.customerName}}</p>
-                        </div>
-                        <div class="info-content unit">
-                            <p class="info-title">{{info.customerUnit}}</p>
-                            <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}}</p>
-                            <p class="info-misc has-icon-money"><span class="color-orange">{{info.payment}}</span> 元</p>
-                        </div>
-                        <div class="info-action" style="width: 80px; ">
-                            <template v-if="info.hasRating">
-                                综合评分
-                                <StarRating class="unit" v-model="info.rating.composite" :star-size="15" :increment="1" :padding="3" :show-rating="false"></StarRating>
-                            </template>
-                            <template v-else>
-                                <f7-button color="blue" fill round @click="rating(info)">去评价</f7-button>
-                            </template>
-                        </div>
-                    </f7-list-item>
-                </f7-list>
-            </f7-page-content>
-        </f7-tabs>
-
-        <f7-popup :opened="popupRating" @popup:closed="popupRating=false">
-            <f7-view>
-                <f7-pages class="Rating">
-                <f7-page navbar-fixed v-for="info in infos" :key="info.id">
-                    <f7-navbar title="星级评分">
-                    <f7-nav-right>
-                        <!-- Using state: -->
-                        <f7-link @click="popupRating=false">完成</f7-link>
-                    </f7-nav-right>
-                    </f7-navbar>
-
-                    <div class="flex-left flex-middle" style="margin: 5px;">
-                        <img class="info-midea" :src="info.media" alt="" style="width: 80px; height:80px; margin-right: 10px;">
-                        <div class="info-content unit">
-                            <p class="info-title" style="margin-bottom: .2em;">{{info.customerUnit}}</p>
-                            <p class="info-misc" style="margin-bottom: .2em;">{{info.customerName}} <small>{{info.customerTitle}}</small></p>
-                            <p class="info-misc" style="margin-bottom: .2em;">报酬金额 <span class="color-orange">{{info.payment}}</span> 元</p>
-                        </div>
-                        <div class="info-content">
-                            <p class="info-misc">{{formateDate(info.meetingDate, 'YYYY-MM-DD HH:mm')}}</p>
-                        </div>
+        <!--表单类型用 form 否则用 div -->
+        <div class="list-block">
+          <ul>
+            <li class="swipeout transitioning" v-for="info in demands" v-if="info.meetingType == '需求沟通'" :key="info.id">
+              <!--滑动包装-->
+              <div class="swipeout-content" style="">
+                <!--checkbox包装-->
+                <label class="item-content label-checkbox">
+                  <!---->
+                  <input type="checkbox" name="my-checkbox" v-model="selection">
+                  <div class="item-media">
+                    <i class="icon icon-form-checkbox"></i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="info-content unit">
+                      <div class="info-title" style="font-size: 14px">{{info.name}}  {{info.unit}}  {{info.title}}</div>
+                      <p class="info-misc">方向： {{info.area}}</p>
+                      <p class="info-misc">行业： {{info.industry}}</p>
+                      <p class="info-misc">接洽需求： {{info.demand}}</p>
+                      <p class="color-red" style="text-align: right;">￥ {{info.money}}</p>
                     </div>
+                  </div>
+                </label>
+              </div>
+              <f7-swipeout-actions>
+                <f7-swipeout-button delete>删除</f7-swipeout-button>
+              </f7-swipeout-actions>
+            </li>
+          </ul>
+        </div>
 
-                    <f7-block>
-                        <div class="info-title">约见评价</div>
-                        <div class="flex-left flex-top">
-                            <div class="color-gray unit-1-4">匹配准确：</div>
-                            <StarRating class="unit" v-model="info.rating.accuracy" :star-size="22" :increment="1" :padding="10" :show-rating="false"></StarRating>
-                        </div>
-                        <div class="flex-left flex-top">
-                            <div class="color-gray unit-1-4">企业诚意：</div>
-                            <StarRating class="unit" v-model="info.rating.sincerity" :star-size="22" :increment="1" :padding="10" :show-rating="false"></StarRating>
-                        </div>
-                        <div class="flex-left flex-top">
-                            <div class="color-gray unit-1-4">经纪人服务：</div>
-                            <StarRating class="unit" v-model="info.rating.service" :star-size="22" :increment="1" :padding="10" :show-rating="false"></StarRating>
-                        </div>
-                        <div class="flex-left flex-top">
-                            <div class="color-gray unit-1-4">综合评分：</div>
-                            <StarRating class="unit" v-model="info.rating.composite" :star-size="22" :increment="1" :padding="10" :show-rating="false"></StarRating>
-                        </div>
-                    </f7-block>
-                </f7-page>
-                </f7-pages>
-            </f7-view>
-        </f7-popup>
-    </f7-page>
+        <f7-block-title class="color-blue">专家约见</f7-block-title>
+        <!--表单类型用 form 否则用 div -->
+        <div class="list-block">
+          <ul>
+            <li class="swipeout transitioning" v-for="info in demands" v-if="info.meetingType == '专家约见'" :key="info.id">
+              <!--滑动包装-->
+              <div class="swipeout-content" style="">
+                <!--checkbox包装-->
+                <label class="item-content label-checkbox">
+                  <!---->
+                  <input type="checkbox" name="my-checkbox" v-model="selection">
+                  <div class="item-media">
+                    <i class="icon icon-form-checkbox"></i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="info-content unit">
+                      <div class="info-title" style="font-size: 14px">{{info.name}}  {{info.unit}}  {{info.title}}</div>
+                      <p class="info-misc">方向： {{info.area}}</p>
+                      <p class="info-misc">行业： {{info.industry}}</p>
+                      <p class="info-misc">接洽需求： {{info.demand}}</p>
+                      <p class="color-red" style="text-align: right;">￥ {{info.money}}</p>
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <f7-swipeout-actions>
+                <f7-swipeout-button delete>删除</f7-swipeout-button>
+              </f7-swipeout-actions>
+            </li>
+          </ul>
+        </div>
+      </f7-page-content>
+
+      <f7-page-content id="tab2" tab active>
+        <f7-block-title class="color-blue">今天</f7-block-title>
+        <f7-list>
+          <f7-list-item v-for="info in meetings" v-if="isToday(info.meetingDate)" :key="info.id">
+            <div class="info-content" style="width: max-content; max-width: 120px; text-align: center;">
+              <img class="info-midea" :src="info.media" alt="" style="width: 50px; height:50px;">
+              <div class="info-title">{{info.customerName}}</div>
+              <div class="info-misc">{{info.customerUnit}}</div>
+            </div>
+            <div class="info-content unit">
+              <p class="info-title color-blue">{{info.meetingType}}</p>
+              <p class="info-misc has-icon-phone">{{info.customerPhone}}</p>
+              <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}}
+                <small style="margin-left: 10px;">({{info.meetingDuration}})</small>
+              </p>
+              <p class="info-misc has-icon-address">{{info.meetingAddress}}</p>
+            </div>
+          </f7-list-item>
+        </f7-list>
+
+        <f7-block-title class="color-blue">之后</f7-block-title>
+        <f7-list>
+          <f7-list-item v-for="info in meetings" v-if="isAfterToday(info.meetingDate)" :key="info.id">
+            <div class="info-content" style="width: max-content; max-width: 120px; text-align: center;">
+              <img class="info-midea" :src="info.media" alt="" style="width: 50px; height:50px;">
+              <div class="info-title">{{info.customerName}}</div>
+              <div class="info-misc">{{info.customerUnit}}</div>
+            </div>
+            <div class="info-content unit">
+              <p class="info-title color-blue">{{info.meetingType}}</p>
+              <p class="info-misc has-icon-phone">{{info.customerPhone}}</p>
+              <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}}
+                <small style="margin-left: 10px;">({{info.meetingDuration}})</small>
+              </p>
+              <p class="info-misc has-icon-address">{{info.meetingAddress}}</p>
+            </div>
+          </f7-list-item>
+        </f7-list>
+      </f7-page-content>
+
+      <f7-page-content id="tab3" tab>
+        <f7-list>
+          <f7-list-item v-for="info in meetings" v-if="isBeforeToday(info.meetingDate)" :key="info.id">
+            <div class="info-content" style="width: max-content; max-width: 120px; text-align: center;">
+              <img class="info-midea" :src="info.media" alt=""
+                   style="width: 50px; height:50px; margin-right: 10px; border-radius: 50%;">
+              <p class="info-title">{{info.customerName}}</p>
+            </div>
+            <div class="info-content unit">
+              <p class="info-title">{{info.customerUnit}}</p>
+              <p class="info-misc has-icon-time">{{formateDate(info.meetingDate)}}</p>
+              <p class="info-misc has-icon-money"><span class="color-orange">{{info.payment}}</span> 元</p>
+            </div>
+            <div class="info-action" style="width: 80px; ">
+              <template v-if="info.hasRating">
+                综合评分
+                <StarRating class="unit" v-model="info.rating.composite" :star-size="15" :increment="1" :padding="3"
+                            :show-rating="false"></StarRating>
+              </template>
+              <template v-else>
+                <f7-button color="blue" fill round @click="rating(info)">去评价</f7-button>
+              </template>
+            </div>
+          </f7-list-item>
+        </f7-list>
+      </f7-page-content>
+    </f7-tabs>
+
+    <f7-popup :opened="popupRating" @popup:closed="popupRating=false">
+      <f7-view>
+        <f7-pages class="Rating">
+          <f7-page navbar-fixed v-for="info in infos" :key="info.id">
+            <f7-navbar title="星级评分">
+              <f7-nav-right>
+                <!-- Using state: -->
+                <f7-link @click="popupRating=false">完成</f7-link>
+              </f7-nav-right>
+            </f7-navbar>
+
+            <div class="flex-left flex-middle" style="margin: 5px;">
+              <img class="info-midea" :src="info.media" alt="" style="width: 80px; height:80px; margin-right: 10px;">
+              <div class="info-content unit">
+                <p class="info-title" style="margin-bottom: .2em;">{{info.customerUnit}}</p>
+                <p class="info-misc" style="margin-bottom: .2em;">{{info.customerName}}
+                  <small>{{info.customerTitle}}</small>
+                </p>
+                <p class="info-misc" style="margin-bottom: .2em;">报酬金额 <span
+                  class="color-orange">{{info.payment}}</span> 元</p>
+              </div>
+              <div class="info-content">
+                <p class="info-misc">{{formateDate(info.meetingDate, 'YYYY-MM-DD HH:mm')}}</p>
+              </div>
+            </div>
+
+            <f7-block>
+              <div class="info-title">约见评价</div>
+              <div class="flex-left flex-top">
+                <div class="color-gray unit-1-4">匹配准确：</div>
+                <StarRating class="unit" v-model="info.rating.accuracy" :star-size="22" :increment="1" :padding="10"
+                            :show-rating="false"></StarRating>
+              </div>
+              <div class="flex-left flex-top">
+                <div class="color-gray unit-1-4">企业诚意：</div>
+                <StarRating class="unit" v-model="info.rating.sincerity" :star-size="22" :increment="1" :padding="10"
+                            :show-rating="false"></StarRating>
+              </div>
+              <div class="flex-left flex-top">
+                <div class="color-gray unit-1-4">经纪人服务：</div>
+                <StarRating class="unit" v-model="info.rating.service" :star-size="22" :increment="1" :padding="10"
+                            :show-rating="false"></StarRating>
+              </div>
+              <div class="flex-left flex-top">
+                <div class="color-gray unit-1-4">综合评分：</div>
+                <StarRating class="unit" v-model="info.rating.composite" :star-size="22" :increment="1" :padding="10"
+                            :show-rating="false"></StarRating>
+              </div>
+            </f7-block>
+          </f7-page>
+        </f7-pages>
+      </f7-view>
+    </f7-popup>
+  </f7-page>
 </template>
 <script>
-export default {
+  export default {
     mounted(){
       console.log(this.$route)
     },
     data() {
-        return {
-            popupRating: false,
+      return {
+        popupRating: false,
 
-            selection: [],
+        selection: [],
 
-            infos: [],
+        infos: [],
 
-            myInteresting: [
-                {
-                    id: 1,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    midea: '',
-                    stepMessage: '系统正在安排约会，请耐心等待',
-                },
-                {
-                    id: 2,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    midea: '',
-                    stepMessage: '系统正在安排约会，请耐心等待',
-                },
-            ],
+        myInteresting: [
+          {
+            id: 1,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            midea: '',
+            stepMessage: '系统正在安排约会，请耐心等待',
+          },
+          {
+            id: 2,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            midea: '',
+            stepMessage: '系统正在安排约会，请耐心等待',
+          },
+        ],
 
-            beInterested: [
-                {
-                    id: 1,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/corp1.jpg',
-                    stepCode:    '待确认',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+        beInterested: [
+          {
+            id: 1,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/corp1.jpg',
+            stepCode: '待确认',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                },
-                {
-                    id: 2,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/avatar-user3.jpg',
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+          },
+          {
+            id: 2,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/avatar-user3.jpg',
 
-                    stepCode:    '已确认',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+            stepCode: '已确认',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                },
-            ],
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+          },
+        ],
 
-            demands: [
-                {
-                    id: 1,
-                    name: '张良培',
-                    unit: '上海交通大学',
-                    title: '教授',
-                    meetingType: '需求沟通',
+        demands: [
+          {
+            id: 1,
+            name: '张良培',
+            unit: '上海交通大学',
+            title: '教授',
+            meetingType: '需求沟通',
 
-                    demand: '公司远程 or 模拟会议系统',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: 'ASIC/FOPI设计，测试，微电子行业研究',
-                    industry: '微电子、半导体、多媒体技术',
-                    money: 200,
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    midea: '',
-                },
-                {
-                    id: 2,
-                    name: '张良培',
-                    unit: '上海交通大学',
-                    title: '教授',
-                    meetingType: '专家约见',
+            demand: '公司远程 or 模拟会议系统',
+            number: 'N128745613',
+            step: '研发',
+            area: 'ASIC/FOPI设计，测试，微电子行业研究',
+            industry: '微电子、半导体、多媒体技术',
+            money: 200,
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            midea: '',
+          },
+          {
+            id: 2,
+            name: '张良培',
+            unit: '上海交通大学',
+            title: '教授',
+            meetingType: '专家约见',
 
-                    demand: '公司远程 or 模拟会议系统',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: 'ASIC/FOPI设计，测试，微电子行业研究',
-                    industry: '微电子、半导体、多媒体技术',
-                    money: 200,
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    midea: '',
-                },
-                {
-                    id: 3,
-                    name: '张良培',
-                    unit: '上海交通大学',
-                    title: '教授',
-                    meetingType: '需求沟通',
+            demand: '公司远程 or 模拟会议系统',
+            number: 'N128745613',
+            step: '研发',
+            area: 'ASIC/FOPI设计，测试，微电子行业研究',
+            industry: '微电子、半导体、多媒体技术',
+            money: 200,
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            midea: '',
+          },
+          {
+            id: 3,
+            name: '张良培',
+            unit: '上海交通大学',
+            title: '教授',
+            meetingType: '需求沟通',
 
-                    demand: '公司远程 or 模拟会议系统',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: 'ASIC/FOPI设计，测试，微电子行业研究',
-                    industry: '微电子、半导体、多媒体技术',
-                    money: 200,
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    midea: '',
-                },
-                {
-                    id: 4,
-                    name: '张良培',
-                    unit: '上海交通大学',
-                    title: '教授',
-                    meetingType: '专家约见',
+            demand: '公司远程 or 模拟会议系统',
+            number: 'N128745613',
+            step: '研发',
+            area: 'ASIC/FOPI设计，测试，微电子行业研究',
+            industry: '微电子、半导体、多媒体技术',
+            money: 200,
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            midea: '',
+          },
+          {
+            id: 4,
+            name: '张良培',
+            unit: '上海交通大学',
+            title: '教授',
+            meetingType: '专家约见',
 
-                    demand: '公司远程 or 模拟会议系统',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: 'ASIC/FOPI设计，测试，微电子行业研究',
-                    industry: '微电子、半导体、多媒体技术',
-                    money: 200,
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    midea: '',
-                }
-            ],
+            demand: '公司远程 or 模拟会议系统',
+            number: 'N128745613',
+            step: '研发',
+            area: 'ASIC/FOPI设计，测试，微电子行业研究',
+            industry: '微电子、半导体、多媒体技术',
+            money: 200,
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            midea: '',
+          }
+        ],
 
-            meetings: [
-                {
-                    id: 1,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/avatar-user1.png',
-                    stepCode:    '待确认',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+        meetings: [
+          {
+            id: 1,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/avatar-user1.png',
+            stepCode: '待确认',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                    meetingDate: '2017-06-12 12:30:00',
-                    meetingDuration: '会议30分钟',
-                    meetingType: '电话会议',
-                    meetingAddress: '',
-                    customerPhone: '1357891254',
-                    payment: 0,
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+            meetingDate: '2017-06-12 12:30:00',
+            meetingDuration: '会议30分钟',
+            meetingType: '电话会议',
+            meetingAddress: '',
+            customerPhone: '1357891254',
+            payment: 0,
 
-                    edit: false,
-                    hasRating: false,
-                    rating: {
-                        accuracy : 0, // 准确度
-                        sincerity: 0, // 诚意
-                        service  : 0, // 服务
-                        composite: 0
-                    },
-                },
-                {
-                    id: 2,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/avatar-user2.png',
+            edit: false,
+            hasRating: false,
+            rating: {
+              accuracy: 0, // 准确度
+              sincerity: 0, // 诚意
+              service: 0, // 服务
+              composite: 0
+            },
+          },
+          {
+            id: 2,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/avatar-user2.png',
 
-                    stepCode:    '已确认',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+            stepCode: '已确认',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                    meetingDate: '2017-06-20 12:30:00',
-                    meetingDuration: '会议30分钟',
-                    meetingType: '线下约谈',
-                    meetingAddress: '武汉市洪山区光谷天地c区星巴克',
-                    customerPhone: '1357891254',
-                    payment: 200,
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+            meetingDate: '2017-06-20 12:30:00',
+            meetingDuration: '会议30分钟',
+            meetingType: '线下约谈',
+            meetingAddress: '武汉市洪山区光谷天地c区星巴克',
+            customerPhone: '1357891254',
+            payment: 200,
 
-                    edit: false,
-                    hasRating: false,
-                    rating: {
-                        accuracy : 0, // 准确度
-                        sincerity: 0, // 诚意
-                        service  : 0, // 服务
-                        composite: 0
-                    },
-                },
-                {
-                    id: 3,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/avatar-user3.png',
+            edit: false,
+            hasRating: false,
+            rating: {
+              accuracy: 0, // 准确度
+              sincerity: 0, // 诚意
+              service: 0, // 服务
+              composite: 0
+            },
+          },
+          {
+            id: 3,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/avatar-user3.png',
 
-                    stepCode:    '已确认',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+            stepCode: '已确认',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                    meetingDate: '2017-06-20 12:30:00',
-                    meetingDuration: '会议30分钟',
-                    meetingType: '线下约谈',
-                    meetingAddress: '武汉市洪山区光谷天地c区星巴克',
-                    customerPhone: '1357891254',
-                    payment: 300,
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+            meetingDate: '2017-06-20 12:30:00',
+            meetingDuration: '会议30分钟',
+            meetingType: '线下约谈',
+            meetingAddress: '武汉市洪山区光谷天地c区星巴克',
+            customerPhone: '1357891254',
+            payment: 300,
 
-                    edit: false,
-                    hasRating: false,
-                    rating: {
-                        accuracy : 0, // 准确度
-                        sincerity: 0, // 诚意
-                        service  : 0, // 服务
-                        composite: 0
-                    },
-                },
-                {
-                    id: 4,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/avatar-user4.png',
+            edit: false,
+            hasRating: false,
+            rating: {
+              accuracy: 0, // 准确度
+              sincerity: 0, // 诚意
+              service: 0, // 服务
+              composite: 0
+            },
+          },
+          {
+            id: 4,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/avatar-user4.png',
 
 
-                    stepCode:    '已结束',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+            stepCode: '已结束',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                    meetingDate: '2017-05-20 12:30:00',
-                    meetingDuration: '会议30分钟',
-                    meetingType: '线下约谈',
-                    meetingAddress: '武汉市洪山区光谷天地c区星巴克',
-                    customerPhone: '1357891254',
-                    payment: 300,
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+            meetingDate: '2017-05-20 12:30:00',
+            meetingDuration: '会议30分钟',
+            meetingType: '线下约谈',
+            meetingAddress: '武汉市洪山区光谷天地c区星巴克',
+            customerPhone: '1357891254',
+            payment: 300,
 
-                    edit: false,
-                    hasRating: false,
-                    rating: {
-                        accuracy : 0, // 准确度
-                        sincerity: 0, // 诚意
-                        service  : 0, // 服务
-                        composite: 0
-                    },
-                },
-                {
-                    id: 5,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/corp3.jpg',
+            edit: false,
+            hasRating: false,
+            rating: {
+              accuracy: 0, // 准确度
+              sincerity: 0, // 诚意
+              service: 0, // 服务
+              composite: 0
+            },
+          },
+          {
+            id: 5,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/corp3.jpg',
 
-                    stepCode:    '已结算',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+            stepCode: '已结算',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                    meetingDate: '2017-03-20 12:30:00',
-                    meetingDuration: '会议30分钟',
-                    meetingType: '线下约谈',
-                    meetingAddress: '武汉市洪山区光谷天地c区星巴克',
-                    customerPhone: '1357891254',
-                    payment: 300,
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+            meetingDate: '2017-03-20 12:30:00',
+            meetingDuration: '会议30分钟',
+            meetingType: '线下约谈',
+            meetingAddress: '武汉市洪山区光谷天地c区星巴克',
+            customerPhone: '1357891254',
+            payment: 300,
 
-                    edit: false,
-                    hasRating: true,
-                    rating: {
-                        accuracy : 2, // 准确度
-                        sincerity: 3, // 诚意
-                        service  : 1, // 服务
-                        composite: 3
-                    },
-                },
-                {
-                    id: 6,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/avatar-user1.png',
-                    stepCode:    '待确认',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+            edit: false,
+            hasRating: true,
+            rating: {
+              accuracy: 2, // 准确度
+              sincerity: 3, // 诚意
+              service: 1, // 服务
+              composite: 3
+            },
+          },
+          {
+            id: 6,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/avatar-user1.png',
+            stepCode: '待确认',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                    meetingDate: '2017-06-12 12:30:00',
-                    meetingDuration: '会议30分钟',
-                    meetingType: '电话会议',
-                    meetingAddress: '',
-                    customerPhone: '1357891254',
-                    payment: 0,
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+            meetingDate: '2017-06-12 12:30:00',
+            meetingDuration: '会议30分钟',
+            meetingType: '电话会议',
+            meetingAddress: '',
+            customerPhone: '1357891254',
+            payment: 0,
 
-                    edit: false,
-                    hasRating: false,
-                    rating: {
-                        accuracy : 0, // 准确度
-                        sincerity: 0, // 诚意
-                        service  : 0, // 服务
-                        composite: 0
-                    },
-                },
-                {
-                    id: 7,
-                    title: '微通道换热器应用于制冷系统（干式）',
-                    number: 'N128745613',
-                    step: '研发',
-                    area: '北京',
-                    money: '50万',
-                    time: '2017年5月21日 17:30 发送',
-                    keywords: ['机械', '涡轮', '建模'],
-                    desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-                    corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-                    media: '/static/img/avatar-user2.png',
+            edit: false,
+            hasRating: false,
+            rating: {
+              accuracy: 0, // 准确度
+              sincerity: 0, // 诚意
+              service: 0, // 服务
+              composite: 0
+            },
+          },
+          {
+            id: 7,
+            title: '微通道换热器应用于制冷系统（干式）',
+            number: 'N128745613',
+            step: '研发',
+            area: '北京',
+            money: '50万',
+            time: '2017年5月21日 17:30 发送',
+            keywords: ['机械', '涡轮', '建模'],
+            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
+            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
+            media: '/static/img/avatar-user2.png',
 
-                    stepCode:    '已确认',
-                    stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
+            stepCode: '已确认',
+            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
 
-                    message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-                    customerUnit: '武汉船舶研究院',
-                    customerName: '张大大',
-                    customerTitle: '部门负责人',
-                    meetingDate: '2017-06-20 12:30:00',
-                    meetingDuration: '会议30分钟',
-                    meetingType: '线下约谈',
-                    meetingAddress: '武汉市洪山区光谷天地c区星巴克',
-                    customerPhone: '1357891254',
-                    payment: 200,
+            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
+            customerUnit: '武汉船舶研究院',
+            customerName: '张大大',
+            customerTitle: '部门负责人',
+            meetingDate: '2017-06-20 12:30:00',
+            meetingDuration: '会议30分钟',
+            meetingType: '线下约谈',
+            meetingAddress: '武汉市洪山区光谷天地c区星巴克',
+            customerPhone: '1357891254',
+            payment: 200,
 
-                    edit: false,
-                    hasRating: false,
-                    rating: {
-                        accuracy : 0, // 准确度
-                        sincerity: 0, // 诚意
-                        service  : 0, // 服务
-                        composite: 0
-                    },
-                },
-            ]
-        }
+            edit: false,
+            hasRating: false,
+            rating: {
+              accuracy: 0, // 准确度
+              sincerity: 0, // 诚意
+              service: 0, // 服务
+              composite: 0
+            },
+          },
+        ]
+      }
     },
 
     methods: {
-        formateDate (date, fmt = "M月D日dddd H:mm"){
-            return moment(date).format(fmt)
-        },
+      formateDate (date, fmt = "M月D日dddd H:mm"){
+        return moment(date).format(fmt)
+      },
 
-        isToday(date){
-            return moment(date).isSame(new Date(), 'day')
-        },
+      isToday(date){
+        return moment(date).isSame(new Date(), 'day')
+      },
 
-        isAfterToday(date){
-            return moment(date).isAfter(new Date(), 'day')
-        },
+      isAfterToday(date){
+        return moment(date).isAfter(new Date(), 'day')
+      },
 
-        isBeforeToday(date){
-            return moment(date).isBefore(new Date(), 'day')
-        },
+      isBeforeToday(date){
+        return moment(date).isBefore(new Date(), 'day')
+      },
 
-        rating(info) {
-            // info.edit = true;
-            this.infos = [info];
-            this.popupRating = true;
-        }
+      rating(info) {
+        // info.edit = true;
+        this.infos = [info];
+        this.popupRating = true;
+      }
 
     }
-}
+  }
 </script>
