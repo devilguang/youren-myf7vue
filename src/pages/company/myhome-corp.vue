@@ -6,6 +6,15 @@
   .listItem:last-child{
     padding-bottom: 100px;
   }
+  .card:nth-child(n+1){
+    margin-top: 20px;
+  }
+  .Meeting .card{
+    margin-bottom: 0;
+  }
+  .content-block{
+    padding-bottom: 50px;
+  }
 </style>
 <template>
   <f7-page with-subnavbar no-page-content class="Meeting ">
@@ -56,6 +65,7 @@
         </f7-list>
       </f7-page-content>
 
+
       <!--企业的主页信息-->
       <f7-page-content id="tab2" tab active>
         <div class="card-wrapper" style="margin-top: 103px">
@@ -65,8 +75,8 @@
             <div class="info-inner">
               <div class="info-title color-blue" style="font-size: 16px;">{{info.name}}</div>
               <div>
-                <span style="margin-right: 10px;">上市公司</span> |
-                <span style="margin-left: 10px;">2000人以上</span>
+                <span style="margin-right: 10px;">{{info.companyType}}</span>|
+                <span style="margin-left: 10px;">{{info.num}}</span>
               </div>
             </div>
           </f7-card>
@@ -74,8 +84,8 @@
 
         <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 所属领域</f7-block-title>
         <div class="content-block">
-          <div class="content-block-inner" style="text-indent: 2em;" v-for="">
-              <span>{{}}</span>
+          <div class="content-block-inner" style="text-indent: 2em;">
+              <span v-for="value in fieldsArr" style="margin-left: 10px">{{value}}</span>
           </div>
         </div>
 
@@ -86,57 +96,102 @@
           </div>
         </div>
       </f7-page-content>
+
       <f7-page-content id="tab3" tab style="margin-top: 103px">
         <f7-block-title>联系人</f7-block-title>
 
-        <!--<f7-list>-->
-          <!--<f7-list-item v-for="info in contactors" :key="info.name">-->
-            <!--<div class="unit">-->
-              <!--&lt;!&ndash;<div class="info-misc">姓名：{{info.name}}</div>&ndash;&gt;-->
-              <!--&lt;!&ndash;<div class="info-misc">电话：{{info.phone}}</div>&ndash;&gt;-->
-              <!--&lt;!&ndash;<div class="info-misc">邮箱：{{info.email}}</div>&ndash;&gt;-->
-              <!--&lt;!&ndash;<div class="info-misc">职位：{{info.title}}</div>&ndash;&gt;-->
-            <!--</div>-->
-            <!--<div class="flex-middle flex-center" style="width: 40px;">-->
-              <!--<div class="fa fa-edit fa-lg" @click=""></div>-->
-            <!--</div>-->
-          <!--</f7-list-item>-->
-        <!--</f7-list>-->
-
         <!--增加联系人-->
-        <f7-list from>
-          <f7-list-item v-for="info in contactors" :key="info.name">
-            <div class="unit">
-              <f7-label floating>姓名</f7-label>
-              <f7-input class="info-misc"  type="text" placeholder="姓名" v-model="info.name"></f7-input>
-              <f7-label floating>姓名</f7-label>
-              <f7-input class="info-misc"  type="text" placeholder="电话" v-model="info.phone"></f7-input>
-              <f7-label floating>姓名</f7-label>
-              <f7-input class="info-misc"  type="text" placeholder="邮箱" v-model="info.email"></f7-input>
-              <f7-label floating>姓名</f7-label>
-              <f7-input class="info-misc"  type="text" placeholder="职位" v-model="info.title"></f7-input>
-            </div>
-            <div class="flex-middle flex-center" style="width: 40px;">
-              <div class="fa fa-edit fa-lg" @click=""></div>
-            </div>
-          </f7-list-item>
-        </f7-list>
-
-
-
+        <f7-card v-for="(item, index) in contactors" :key="item.id">
+          <f7-card-content >
+            <form class="list-block inputs-list">
+              <div v-show="item.id != 0" class="fa fa-edit fa-lg"
+                   style="position: absolute; top:0px; right: 0px; z-index:100" @click="recompose()"></div>
+              <ul>
+                <li>
+                  <div class="item-content" style="position: relative;">
+                    <div class="item-inner">
+                      <div class="item-title label">姓名</div>
+                      <div class="item-input item-input-field">
+                        <input type="text" placeholder="" v-model="item.name" />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
+                    <div class="item-inner">
+                      <div class="item-title label">电话</div>
+                      <div class="item-input item-input-field">
+                        <input   type="tel" placeholder="" v-model="item.phone" />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
+                    <div class="item-inner">
+                      <div class="item-title label">邮箱</div>
+                      <div class="item-input item-input-field">
+                        <input type="text" placeholder="" v-model="item.email" />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
+                    <div class="item-inner">
+                      <div class="item-title label">职位</div>
+                      <div class="item-input item-input-field">
+                        <input type="text" placeholder="" v-model="item.title"/>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </form>
+          </f7-card-content>
+        </f7-card>
         <f7-block>
-          <f7-button @click="">新增联系人</f7-button>
+          <f7-button style="margin-bottom: 50px" @click="addLinkman()">新增联系人</f7-button>
         </f7-block>
       </f7-page-content>
+
     </f7-tabs>
+    <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;z-index:100;display: flex" >
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/mymeeting-corp">
+        <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x" style="color:#999;"></i></p>
+        <p style="margin-top: -25px">会议约见</p>
+      </f7-button>
+      <f7-button  style="width:80px;height: 60px;color:#000;flex:1"
+                  href="/recommend-corp">
+        <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
+        <p  style="margin-top: -25px">推荐</p>
+
+      </f7-button>
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/myhome-corp">
+        <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x color-blue"></i></p>
+        <p  style="margin-top: -25px;" class="color-blue">主页 </p>
+      </f7-button>
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/myaccount-corp">
+        <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x" style="color:#999;"></i></p>
+        <p style="margin-top:-25px">账户</p>
+      </f7-button>
+    </div>
   </f7-page>
 </template>
 <script>
+  let autoID = 0;
   export default {
     data() {
       return {
         info: {},
-        fieldsArr:[],
+        fieldsArr:[],   //所属领域
         keyWords:[],
         infoList: [
           {
@@ -192,14 +247,9 @@
             enable: false,
           },
         ],
-        contactors: [
-          {
-            name: '张万磊',
-            phone: '13071242556',
-            email: 'awl@metadata.net.cn',
-            title: '产品经理'
-          }
-        ],
+        contactors: [],  //联系人信息
+        oldId:'',
+        userId:''
       }
     },
     methods: {
@@ -215,26 +265,59 @@
         return moment(date).isAfter(new Date(), 'day')
       },
       getFields(){
+          this.$http({
+            method:'get',
+            url:'v1/company/'+this.oldId,
+            data:{}
+          }).then((res)=>{
+            this.info = res.data
+            this.keyWords = res.data.fields.split(';')
+            this.$http({
+              method:'get',
+              url:'/v1/admin/fields',
+              data:{}
+            }).then((res)=>{
+              res.data.forEach((item,index)=> {
+                this.keyWords.forEach((value,$index)=> {
+                  if(value === item.id){
+                    this.fieldsArr.push(item.name)
+                  }
+                })
+              })
+            })
+        })
+      },
+      getContact(){
+        console.log("我进这个了吗")
+        console.log(this.userId+"我是用户的ID")
         this.$http({
           method:'get',
-          url:'/v1/admin/fields',
+          url:'/v1/user/contacts/'+this.userId,
           data:{}
         }).then((res)=>{
-          res.data.forEach((item,index)=> {
-            this.keyWords.forEach((value,$index)=> {
-              if(value === item.id){
-                console.log(item.name)
-                this.fieldsArr.push(item.name)
-              }
-            })
-          })
+            console.log(res.data)
+//          this.linkmans = res.data
+        })
+      },
+      recompose() {
+          this.disabledInput = true
+      },
+      addLinkman() {
+        this.contactors.push({
+          name: '',
+          telephone: '',
+          email: '',
+          postion: '',
+          domain:''
         })
       }
     },
     mounted(){
-      this.info = JSON.parse(window.localStorage.getItem("expertOpinion")).object;
-      this.keyWords.push(JSON.parse(window.localStorage.getItem("expertOpinion")).object.fields)
-      this.getFields()
+        this.oldId = this.$store.oId
+        this.userId = this.$store.userId
+
+        this.getFields()
+        this.getContact()
     }
   }
 </script>

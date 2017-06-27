@@ -35,7 +35,7 @@ export default [{
 
   // 专家版
   {
-    path: '/myhome-user/:id',
+    path: '/myhome-user',
     name: 'myhome-user',
     component: require("@/pages/scholar/myhome-user.vue")
 
@@ -47,19 +47,19 @@ export default [{
 
   },
   {
-    path: '/recommend-user/:id',
+    path: '/recommend-user',
     name: 'recommend-user',
     component: require("@/pages/scholar/recommend-user.vue")
 
   },
   {
-    path: '/mymeeting-user/:id',
+    path: '/mymeeting-user',
     name: 'mymeeting-user',
     component: require("@/pages/scholar/mymeeting-user.vue")
 
   },
   {
-    path: '/demand/:id',
+    path: '/demand',
     name: 'demand',
     component: require("@/pages/scholar/demand-user.vue")
   },
@@ -76,12 +76,12 @@ export default [{
 
   },
   {
-    path: '/recommend-cor/:id',
+    path: '/recommend-corp',
     name: 'recommend-corp',
     component: require("@/pages/company/recommend-corp.vue")
   },
   {
-    path: '/myhome-corp/:id',
+    path: '/myhome-corp',
     name: 'myhome-corp',
     component: require("@/pages/company/myhome-corp.vue")
   }

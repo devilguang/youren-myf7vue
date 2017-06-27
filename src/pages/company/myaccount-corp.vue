@@ -1,9 +1,19 @@
-
+<style>
+/*.content-block-inner:nth-child(1){*/
+  /**/
+/*}*/
+.content-block:nth-child(1){
+  margin-top: 60px;
+}
+  .content-block{
+    padding-bottom: 0px;
+  }
+</style>
 
 <template>
     <f7-page class="MyAccount">
           <f7-navbar title="帐户" back-link="Back" sliding></f7-navbar>
-        <f7-block inner>
+        <f7-block inner >
             <div class="message-type">累计咨询次数</div>
             <div class="money-content">3</div>
         </f7-block>
@@ -31,6 +41,29 @@
                 <p>电话：<span class="color-gray">15798745621</span></p>
             </div>
         </f7-block>
+      <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;z-index:100;display: flex" >
+        <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                    href="/mymeeting-corp">
+          <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x" style="color:#999;"></i></p>
+          <p style="margin-top: -25px">会议约见</p>
+        </f7-button>
+        <f7-button  style="width:80px;height: 60px;color:#000;flex:1"
+                    href="/recommend-corp">
+          <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
+          <p  style="margin-top: -25px">推荐</p>
+
+        </f7-button>
+        <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                    href="/myhome-corp">
+          <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x " style="color:#999;"></i></p>
+          <p  style="margin-top: -25px;" >主页 </p>
+        </f7-button>
+        <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                    href="/myaccount-corp">
+          <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x color-blue" ></i></p>
+          <p style="margin-top:-25px" class="color-blue">账户</p>
+        </f7-button>
+      </div>
     </f7-page>
 </template>
 

@@ -122,7 +122,29 @@
         </f7-button>
       </f7-block>
     </f7-popup>
+    <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;z-index:100;display: flex" >
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/mymeeting-corp">
+        <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x" style="color:#999;"></i></p>
+        <p style="margin-top: -25px">会议约见</p>
+      </f7-button>
+      <f7-button  style="width:80px;height: 60px;color:#000;flex:1"
+                  href="/recommend-corp">
+        <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x color-blue" ></i></p>
+        <p  style="margin-top: -25px"class="color-blue">推荐</p>
 
+      </f7-button>
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/myhome-corp">
+        <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x " style="color:#999;"></i></p>
+        <p  style="margin-top: -25px;" >主页 </p>
+      </f7-button>
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/myaccount-corp">
+        <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x "style="color:#999;"></i></p>
+        <p style="margin-top:-25px" >账户</p>
+      </f7-button>
+    </div>
   </f7-page>
 </template>
 <script>
@@ -133,16 +155,20 @@
         boolean: false,
         buttonText: "立即联系" || " 约见安排中..." || "已安排约见" || "已完成",
         clickIndex: '',
-        person:[]
+        person:[],
+        oId:''
       }
     },
     methods: {
       cropGetAixos(){
+        console.log(this.oId+"我被打印出来了吗")
         this.$http({
           method:'get',
-          url:'v1/recommend/list',
-          data:[]
+//          +this.oId
+          url:'v1/recommend/list/',
+          data:{}
         }).then((res)=>{
+            console.log(res)
             this.infoList = res.data.data
         })
       },
@@ -152,7 +178,7 @@
         this.$f7.confirm('您是否对该专家感兴趣，确定后系统将发送您的基本信息给对方。', '立即联系', () => {
           this.$f7.alert('系统正在为您安排约会，稍后会有技术经纪人与您联系，您可以在“约会”查看进度。', '约会安排中', () => {
             this.buttonText = "约见安排中"
-            self.$router.load({url: 'mymeeting-corp'})
+            self.$router.load({url: '/mymeeting-corp'})
           })
         })
       },
@@ -163,7 +189,7 @@
       }
     },
     mounted() {
-        console.log(this.$route)
+      this.oId = this.$store.oId
       this.cropGetAixos()
     }
   }

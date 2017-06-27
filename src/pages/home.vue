@@ -38,6 +38,7 @@
       </p>
     </div>
     <f7-button style="display: none" id="ss" href="/home/"></f7-button>
+    <f7-button  href="/recommend-corp/">企业的推荐专家</f7-button>
   </f7-page>
 </template>
 <script>
@@ -47,14 +48,14 @@
         nextPage: '',
         loginType: "code" || "password",
         formValues: {
-          code: 'pwhdxmet6', //企业cwhmdqy6 pwhdxmet6
+          code: 'qyxq1', //企业cwhmdqy6 pwhdxmet6  shjd1
           loginEmail: '',
           password: '',
         },
         formValid: {
           loginEmail: false
         },
-        meassage: '',
+        meassage: '邀请码无效，请重新输入',
         flag: false,
         expertUser: '',
         ordId: '',
@@ -73,20 +74,28 @@
           url: 'v1/user/loginCode/' + this.formValues.code,
           data: {}
         }).then((res) => {
+          let err = res.data.errno
+          if(err==2){
+            this.flag = true
+            return false;
+          }
+          this.$store.userId = res.data.data.user.id
           let {errno, role, data: {token, user}} = res.data;
           let {dataFlag, oId } = user;
-          if (errno == 2) {
+          if (err == 2) {
+              console.log("我能进来吗")
             this.flag = true
-            this.meassage = "邀请码无效，请重新输入"
             return false;
           }
           else if (dataFlag == '1') {
-            this.$router.load({url: this.nextPage || (role == '1' ? '/myhome-user/'+oId : '/myhome-corp/'+oId)})
+            this.$store.state.token = res.data.data.token
+            this.$router.load({url: this.nextPage || (role == '1' ? '/myhome-user' : '/myhome-corp')})
               localStorage.setItem('expertOpinion',JSON.stringify(user))
               localStorage.setItem('type',JSON.stringify(role))
+              this.$store.oId = user.oId
           }
           else {
-            this.$router.load({url: role == '1' ? '/check' : '/checkfirm'})
+              this.$router.load({url: role == '1' ? '/check' : '/checkfirm'})
               localStorage.setItem('expertOpinion',JSON.stringify(user))
               localStorage.setItem('type',JSON.stringify(role))
           }
@@ -94,7 +103,6 @@
       }
     },
     created(){
-
     },
     mounted(){
       this.$$("#ss").click()

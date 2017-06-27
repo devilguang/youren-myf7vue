@@ -1,6 +1,7 @@
 <style>
   .page>.subnavbar{
-    top:56px;
+    top:0px;
+    margin-top: 56px;
   }
   .list-block{
     margin: 120px 0;
@@ -11,29 +12,28 @@
       <f7-navbar back-link="Back" title="约见" sliding></f7-navbar>
       <f7-subnavbar sliding>
         <f7-buttons>
-          <f7-button tab-link="#tab1" >待确认</f7-button>
-          <f7-button tab-link="#tab2">已确认</f7-button>
-          <f7-button tab-link="#tab3" active>已结束</f7-button>
+          <f7-button tab-link="#tab1" active>待确认</f7-button>
+          <f7-button tab-link="#tab2" >已确认</f7-button>
+          <f7-button tab-link="#tab3">已结束</f7-button>
         </f7-buttons>
       </f7-subnavbar>
     <f7-tabs swipeable>
-      <f7-page-content id="tab1" tab style="margin-top: 120px">
+      <f7-page-content id="tab1" tab active style="margin-top: 120px">
         <f7-block-title class="color-blue">
           <i class="fa fa-star"></i> 我感兴趣的
         </f7-block-title>
         <f7-list>
           <f7-list-item v-for="info in myInteresting" :key="info.id">
             <div class="info-content unit">
-              <p class="info-title color-blue">{{info.title}}</p>
-              <p class="info-text">{{info.desc}}</p>
-              <p class="info-time">{{info.time}}</p>
+              <p class="info-title color-blue" style="margin-bottom: 10px">{{info.title}}</p>
+              <p class="info-text" style="line-height: 20px">{{info.demandInfo}}</p>
+              <p class="info-time" style="margin-top: 10px">{{info.createDate}}&ensp;&ensp;发送</p>
             </div>
             <div class="info-action flex-vertical flex-middle flex-center color-red">
-              <div style="font-size: 12px;" :stepMessage="'系统正在安排约会，请耐心等待'">{{info.stepMessage}}</div>
+              <div style="font-size: 12px;" stepMessage="系统正在安排约会，请耐心等待">系统正在安排约会，请耐心等待</div>
             </div>
           </f7-list-item>
         </f7-list>
-
         <f7-block-title class="color-blue">
           <i class="fa fa-heartbeat"></i> 对我感兴趣的
         </f7-block-title>
@@ -43,8 +43,8 @@
               <div class="flex-left">
                 <img class="info-midea" :src="info.media" alt="" style="width: 80px; height:50px; margin-right: 10px;">
                 <div class="">
-                  <p class="info-title">{{info.customerUnit}}</p>
-                  <p class="info-misc">{{info.customerName}}  <span
+                  <p class="info-title">{{info.title}}</p>
+                  <p class="info-misc">{{info.demandInfo}}  <span
                     style="display:inline-block; margin-left: 10px; font-size: smaller">({{info.customerTitle}})</span>
                   </p>
                 </div>
@@ -110,8 +110,7 @@
           </f7-list-item>
         </f7-list>
       </f7-page-content>
-
-      <f7-page-content id="tab3" tab active>
+      <f7-page-content id="tab3" tab >
         <f7-list>
           <f7-list-item v-for="info in meetings" v-if="isBeforeToday(info.meetingDate)" :key="info.id">
             <div class="info-content" style="width: max-content; max-width: 120px;">
@@ -196,33 +195,39 @@
         </f7-pages>
       </f7-view>
     </f7-popup>
+    <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;z-index: 100;display:flex" >
+      <f7-button  style="width:80px;height:60px;line-height: 40px;
+        color:#000;flex: 1"
+                  href="/mymeeting-user">
+        <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x color-blue" ></i></p>
+        <p style="margin-top: -30px" class="color-blue">会议约见</p>
+      </f7-button>
+      <f7-button  style="width:80px;height: 60px;color:#000;flex:1"
+                  href="/recommend-user">
+        <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
+        <p  style="margin-top: -25px">推荐</p>
 
+      </f7-button>
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/myhome-user">
+        <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x "style="color:#999;"></i></p>
+        <p  style="margin-top: -25px;">主页 </p>
+      </f7-button>
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/myaccount-user">
+        <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x" style="color:#999;"></i></p>
+        <p style="margin-top:-25px">账户</p>
+      </f7-button>
+    </div>
   </f7-page>
 </template>
 <script>
   export default {
-
     data() {
       return {
         popupRating: false,
         infos: [],
-        myInteresting: [
-          {
-            id: 1,
-            title: '微通道换热器应用于制冷系统（干式）',
-            number: 'N128745613',
-            step: '研发',
-            area: '北京',
-            money: '50万',
-            time: '2017年5月21日 17:30 发送',
-            keywords: ['机械', '涡轮', '建模'],
-            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-            midea: '',
-            stepMessage: '系统正在安排约会，请耐心等待',
-          }
-
-        ],
+        myInteresting: [],
         beInterested: [
           {
             id: 1,
@@ -305,115 +310,6 @@
             },
           },
           {
-            id: 2,
-            title: '微通道换热器应用于制冷系统（干式）',
-            number: 'N128745613',
-            step: '研发',
-            area: '北京',
-            money: '50万',
-            time: '2017年5月21日 17:30 发送',
-            keywords: ['机械', '涡轮', '建模'],
-            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-            media: '/static/img/corp2.jpg',
-
-            stepCode: '已确认',
-            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
-
-            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-            customerUnit: '武汉船舶研究院',
-            customerName: '张大大',
-            customerTitle: '部门负责人',
-            meetingDate: '2017-06-20 12:30:00',
-            meetingDuration: '会议30分钟',
-            meetingType: '线下约谈',
-            meetingAddress: '武汉市洪山区光谷天地c区星巴克',
-            customerPhone: '1357891254',
-            payment: 200,
-
-            edit: false,
-            hasRating: false,
-            rating: {
-              accuracy: 0, // 准确度
-              sincerity: 0, // 诚意
-              service: 0, // 服务
-              composite: 0
-            },
-          },
-          {
-            id: 3,
-            title: '微通道换热器应用于制冷系统（干式）',
-            number: 'N128745613',
-            step: '研发',
-            area: '北京',
-            money: '50万',
-            time: '2017年5月21日 17:30 发送',
-            keywords: ['机械', '涡轮', '建模'],
-            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-            media: '/static/img/corp3.jpg',
-
-            stepCode: '已确认',
-            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
-
-            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-            customerUnit: '武汉船舶研究院',
-            customerName: '张大大',
-            customerTitle: '部门负责人',
-            meetingDate: '2017-06-20 12:30:00',
-            meetingDuration: '会议30分钟',
-            meetingType: '线下约谈',
-            meetingAddress: '武汉市洪山区光谷天地c区星巴克',
-            customerPhone: '1357891254',
-            payment: 300,
-
-            edit: false,
-            hasRating: false,
-            rating: {
-              accuracy: 0, // 准确度
-              sincerity: 0, // 诚意
-              service: 0, // 服务
-              composite: 0
-            },
-          },
-          {
-            id: 4,
-            title: '微通道换热器应用于制冷系统（干式）',
-            number: 'N128745613',
-            step: '研发',
-            area: '北京',
-            money: '50万',
-            time: '2017年5月21日 17:30 发送',
-            keywords: ['机械', '涡轮', '建模'],
-            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-            media: '/static/img/corp3.jpg',
-
-
-            stepCode: '已结束',
-            stepMessage: '您已接受对方邀请，系统正在安排约见，请耐心等待',
-
-            message: '对您的技术“可靠可坐的婴儿椅” 很感兴趣，希望跟您电话约谈。',
-            customerUnit: '武汉船舶研究院',
-            customerName: '张大大',
-            customerTitle: '部门负责人',
-            meetingDate: '2017-05-20 12:30:00',
-            meetingDuration: '会议30分钟',
-            meetingType: '线下约谈',
-            meetingAddress: '武汉市洪山区光谷天地c区星巴克',
-            customerPhone: '1357891254',
-            payment: 300,
-
-            edit: false,
-            hasRating: false,
-            rating: {
-              accuracy: 0, // 准确度
-              sincerity: 0, // 诚意
-              service: 0, // 服务
-              composite: 0
-            },
-          },
-          {
             id: 5,
             title: '微通道换热器应用于制冷系统（干式）',
             number: 'N128745613',
@@ -453,7 +349,6 @@
         allId:[]
       }
     },
-
     methods: {
       formateDate (date, fmt = "M月D日dddd H:mm"){
         return moment(date).format(fmt)
@@ -474,20 +369,22 @@
       },
 //      在待确认列表中获取我感兴趣的数据
       getCorporation(){
-          this.allId.forEach((value,index)=> {
-            this.$http.get('/v1/phase/id/'+value).then((res)=>{
-//                    this.myInteresting = res.data.data
-//                    console.log(this.myInteresting)
+        this.allId .forEach((value,index)=> {
+            console.log(value)
+            this.$http.get( '/v1/appoint/list',{ params:{'pageIndex':1,'pageSize':10,
+              'itemId':value,'type':'3','orderType':'desc'}}).then((res)=>{
+                console.log(res.data.data.data[0].item)
+                this.myInteresting.push(res.data.data.data[0].item)
             })
           })
-
+        console.log(this.myInteresting)
       }
     },
     mounted(){
-      let routeId = this.$route.params.id
-      this.allId.push(routeId)
+      this.allId = this.$store.areaInfo
       this.getCorporation()
-
+    },
+    creat(){
     }
   }
 </script>

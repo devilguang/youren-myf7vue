@@ -1,26 +1,28 @@
 <style>
-  [v-cloak] {
-    display: none;
+  .page>.subnavbar{
+    top:0;
+    margin-top: 55px;
+  }
+  .listItem:nth-child(1){
+      margin-top: 120px;
+  }
+  .list-block{
+    margin-bottom: 100px;
   }
 </style>
 <template>
-  <f7-page with-subnavbar no-page-content class="Meeting">
-    <div v-cloak>
+  <f7-page with-subnavbar no-page-content  class="Meeting">
       <f7-navbar back-link="Back" title="约见" sliding></f7-navbar>
-      <f7-subnavbar sliding :slot="$theme.material ? 'after-inner' : 'default'">
+      <f7-subnavbar>
         <f7-buttons>
-          <f7-button tab-link="#tab1">待付款</f7-button>
-          |
-          <f7-button tab-link="#tab2" active>已确认</f7-button>
-          |
+          <f7-button tab-link="#tab1">待付款</f7-button><span style="display: inline-block;margin-top: 5px;color:#ffffff">|</span>
+          <f7-button tab-link="#tab2" active>已确认</f7-button><span style="display: inline-block;margin-top: 5px;color:#ffffff">|</span>
           <f7-button tab-link="#tab3">已结束</f7-button>
         </f7-buttons>
       </f7-subnavbar>
-    </div>
     <f7-tabs swipeable>
       <f7-page-content id="tab1" tab>
-        <f7-block-title class="color-blue">需求沟通</f7-block-title>
-
+        <f7-block-title class="color-blue" style="margin-top: 100px">需求沟通</f7-block-title>
         <!--表单类型用 form 否则用 div -->
         <div class="list-block">
           <ul>
@@ -85,8 +87,10 @@
         </div>
       </f7-page-content>
 
+
+      <!--已确认-->
       <f7-page-content id="tab2" tab active>
-        <f7-block-title class="color-blue">今天</f7-block-title>
+        <f7-block-title class="color-blue" style="margin-top: 120px">今天</f7-block-title>
         <f7-list>
           <f7-list-item v-for="info in meetings" v-if="isToday(info.meetingDate)" :key="info.id">
             <div class="info-content" style="width: max-content; max-width: 120px; text-align: center;">
@@ -125,9 +129,12 @@
         </f7-list>
       </f7-page-content>
 
+
+
+      <!--已结束的-->
       <f7-page-content id="tab3" tab>
         <f7-list>
-          <f7-list-item v-for="info in meetings" v-if="isBeforeToday(info.meetingDate)" :key="info.id">
+          <f7-list-item class="listItem" v-for="info in meetings" v-if="isBeforeToday(info.meetingDate)" :key="info.id">
             <div class="info-content" style="width: max-content; max-width: 120px; text-align: center;">
               <img class="info-midea" :src="info.media" alt=""
                    style="width: 50px; height:50px; margin-right: 10px; border-radius: 50%;">
@@ -206,6 +213,29 @@
         </f7-pages>
       </f7-view>
     </f7-popup>
+    <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;z-index:10000;display: flex" >
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/mymeeting-corp">
+        <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x color-blue"></i></p>
+        <p style="margin-top: -25px" class="color-blue">会议约见</p>
+      </f7-button>
+      <f7-button  style="width:80px;height: 60px;color:#000;flex:1"
+                  href="/recommend-corp">
+        <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
+        <p  style="margin-top: -25px">推荐</p>
+
+      </f7-button>
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/myhome-corp">
+        <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x " style="color:#999;"></i></p>
+        <p  style="margin-top: -25px;" >主页 </p>
+      </f7-button>
+      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                  href="/myaccount-corp">
+        <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x " style="color:#999;"></i></p>
+        <p style="margin-top:-25px">账户</p>
+      </f7-button>
+    </div>
   </f7-page>
 </template>
 <script>

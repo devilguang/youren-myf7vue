@@ -1,4 +1,17 @@
-
+<style>
+  .footer_btn{
+    width: 80px;
+    height: 40px;
+    background: green;
+    color: #ffffff;
+  }
+  /*.wrap-text{*/
+    /*overflow: hidden;*/
+    /*height:400px;*/
+    /*text-overflow: ellipsis;*/
+    /*color:#999;*/
+  /*}*/
+</style>
 <template>
   <!--with-subnavbar no-page-content   把这个去掉之后就可以滚动了但是还所有问题-->
   <f7-page  class="Meeting">
@@ -19,7 +32,7 @@
         </div>
       </f7-card>
     </div>
-    <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 所属领域</f7-block-title>
+    <f7-block-title><i class="fa fa-dot-circle-o fa-lg color-blue"></i> 所属领域</f7-block-title>
     <div class="content-block">
       <div class="content-block-inner" style="text-indent: 2em;">
         <span v-for="value in array" style="margin-left: 5px">{{value}}</span>
@@ -27,7 +40,10 @@
     </div>
     <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 个人简介</f7-block-title>
     <f7-block inner style="text-indent: 2em;">
-      {{info.intro}}
+      <div class="wrap-text">
+        {{info.intro}}
+      </div>
+
     </f7-block>
 
     <f7-block-title><i class="fa fa-user fa-lg color-blue"></i> 联系人信息</f7-block-title>
@@ -53,30 +69,49 @@
     <f7-block style="margin-bottom: 200px">
       <f7-button round fill @click="nextStep">确定</f7-button>
     </f7-block>
+        <div style="position: fixed;bottom:0;background:#ffffff;width:100%;z-index:10000;display: flex" >
+        <f7-button  style="width:80px;height:60px;line-height: 40px;
+        color:#000;flex: 1"
+                    href="/mymeeting-user">
+          <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x" style="color:#999;"></i></p>
+          <p style="margin-top: -30px">会议约见</p>
+        </f7-button>
+        <f7-button  style="width:80px;height: 60px;color:#000;flex:1;"
+                  href="/recommend-user">
+          <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
+          <p  style="margin-top: -25px">推荐</p>
+
+        </f7-button>
+        <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                    href="/myhome-user">
+          <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x color-blue"></i></p>
+          <p  style="margin-top: -25px;" class="color-blue">主页 </p>
+        </f7-button>
+        <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+                    href="/myaccount-user">
+          <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x" style="color:#999;"></i></p>
+          <p style="margin-top:-25px">账户</p>
+        </f7-button>
+      </div>
   </f7-page>
 </template>
-
 <script>
   export default {
     data() {
       return {
         info: { },
-        linkmans:[{
-            name:'李志光',
-            email:'1005576676@qq.com ',
-            telephone:'15926919715',
-            address:'湖北武汉'
-        }],
+        linkmans:'',
         ordId:'',
         keyWords:[],
-        array:[]
+        array:[],
+        userId:''
       }
     },
     methods: {
       commit(){
       },
       nextStep(){
-          this.$router.load({url: '/recommend-user/'+this.ordId})
+          this.$router.load({url: '/recommend-user'})
       },
 //      获取专家的信息的方法
       getUserInfor(){
@@ -85,6 +120,7 @@
             url:'v1/expert/'+ this.ordId,
             data:{}
           }).then((res)=>{
+              console.log(res)
               this.info = res.data
               this.keyWords = res.data.field.split(';')
               this.$http({
@@ -99,14 +135,28 @@
                       }
                   })
                 })
-
             })
+        })
+
+
+      },
+      getContact(){
+        this.$http({
+          method:'get',
+          url:'/v1/user/contacts/'+this.userId,
+          data:{}
+        }).then((res)=>{
+            console.log(res)
+          this.linkmans = res.data
+          console.log(this.linkmans)
         })
       }
     },
     mounted(){
-         this.ordId = this.$route.params.id
-         this.getUserInfor()
+        this.ordId = this.$store.oId
+        this.userId = this.$store.userId
+        this.getUserInfor()
+        this.getContact()
     }
   }
 </script>

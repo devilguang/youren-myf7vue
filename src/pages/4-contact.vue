@@ -81,11 +81,12 @@
       return {
         linkmans: [
           {
-            name: '李志光',
-            telephone: '15926919715',
-            email: '1005576676@qq.com',
-            postion: '9527',
-            domain:''
+            name: '',
+            telephone: '',
+            email: '',
+            postion: '',
+            domain:'',
+            userId:''
           }
         ],
         type: '',
@@ -131,12 +132,11 @@
           else {
             this.$f7.alert('恭喜您，认证成功！麦子根据您的信息自动为您匹配了10个企业需求，您可以点击推荐查看。', '认证成功', () => {
               if (this.type == "2") {  //企业的跳转
-
-                this.$router.load({url:'/myhome-corp/'+this._userId})
+                this.$router.load({url:'/myhome-corp'})
                 this.submitFirm()
               } else {   //专家的跳转
                 this.submitInfor() //调用专家的完善资料的方法
-                this.$router.load({url:'/myhome-user/'+this._userId })
+                this.$router.load({url:'/myhome-user' })
               }
             })
           }
@@ -186,7 +186,7 @@
       this.domain = JSON.parse(window.localStorage.getItem("domain")).join(";") //拿到专家的 选择领域的信息
       this.user_id = JSON.parse(window.localStorage.getItem("expertOpinion")).id  //拿到用户的id
       this._userId = JSON.parse(window.localStorage.getItem("expertOpinion")).oId  //专家的id
-
+      this.$store.oId = this._userId
     }
   }
 </script>
