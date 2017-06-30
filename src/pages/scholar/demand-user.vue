@@ -32,24 +32,24 @@
                  @click="nextStep">{{buttonText}}
       </f7-button>
     </f7-block>
-    <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;z-index:100;display: flex" >
-      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+    <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;height:60px;z-index:100;display: flex" >
+      <f7-button  style="height:60px;color:#000;flex:1"
                   href="/mymeeting-user">
         <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x" style="color:#999;"></i></p>
         <p style="margin-top: -30px">会议约见</p>
       </f7-button>
-      <f7-button  style="width:80px;height: 60px;color:#000;flex:1"
+      <f7-button  style="height: 60px;color:#000;flex:1"
                   href="/recommend-user">
         <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
         <p  style="margin-top: -25px">推荐</p>
 
       </f7-button>
-      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+      <f7-button  style="height:60px;color:#000;flex:1"
                   href="/myhome-user">
         <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x"style="color:#999;"></i></p>
         <p  style="margin-top: -25px;">主页 </p>
       </f7-button>
-      <f7-button  style="width:80px;height:60px;color:#000;flex:1"
+      <f7-button  style="height:60px;color:#000;flex:1"
                   href="/myaccount-user">
         <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x" style="color:#999;"></i></p>
         <p style="margin-top:-25px">账户</p>
@@ -84,7 +84,6 @@
                 'message':'立即联系',
               }
             }).then((res)=>{
-
               if(res.data.status==1){
                 this.$f7.alert('认证失败',res.data.message)
               }else{

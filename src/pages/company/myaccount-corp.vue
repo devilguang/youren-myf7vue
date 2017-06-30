@@ -11,7 +11,7 @@
 </style>
 
 <template>
-    <f7-page class="MyAccount">
+    <f7-page class="MyAccount" name="myaccount-corp">
           <f7-navbar title="帐户" back-link="Back" sliding></f7-navbar>
         <f7-block inner >
             <div class="message-type">累计咨询次数</div>
@@ -41,25 +41,25 @@
                 <p>电话：<span class="color-gray">15798745621</span></p>
             </div>
         </f7-block>
-      <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;z-index:100;display: flex" >
-        <f7-button  style="width:80px;height:60px;color:#000;flex:1"
-                    href="/mymeeting-corp">
+      <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;height:60px;z-index:100;display: flex">
+        <f7-button  style="height:60px;color:#000;flex:1"
+                    @click="$router.load({url:'/mymeeting-corp'})">
           <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x" style="color:#999;"></i></p>
           <p style="margin-top: -25px">会议约见</p>
         </f7-button>
-        <f7-button  style="width:80px;height: 60px;color:#000;flex:1"
-                    href="/recommend-corp">
+        <f7-button  style="height: 60px;color:#000;flex:1"
+                    @click="$router.load({url:'/recommend-corp'})">
           <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
           <p  style="margin-top: -25px">推荐</p>
 
         </f7-button>
-        <f7-button  style="width:80px;height:60px;color:#000;flex:1"
-                    href="/myhome-corp">
+        <f7-button  style="height:60px;color:#000;flex:1"
+                    @click="$router.load({url:'/myhome-corp'})">
           <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x " style="color:#999;"></i></p>
           <p  style="margin-top: -25px;" >主页 </p>
         </f7-button>
-        <f7-button  style="width:80px;height:60px;color:#000;flex:1"
-                    href="/myaccount-corp">
+        <f7-button  style="height:60px;color:#000;flex:1"
+                    @click="$router.load({url:'/myaccount-corp'})">
           <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x color-blue" ></i></p>
           <p style="margin-top:-25px" class="color-blue">账户</p>
         </f7-button>

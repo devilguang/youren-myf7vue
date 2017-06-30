@@ -73,7 +73,6 @@ export default [{
     path: '/mymeeting-corp',
     name: 'mymeeting-corp',
     component: require("@/pages/company/mymeeting-corp.vue")
-
   },
   {
     path: '/recommend-corp',

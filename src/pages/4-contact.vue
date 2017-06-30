@@ -55,7 +55,7 @@
                 <div class="item-inner">
                   <div class="item-title label">联系人职务</div>
                   <div class="item-input item-input-field">
-                    <input type="text" placeholder="" v-model="item.postion"/>
+                    <input type="text" placeholder="" v-model="item.position"/>
                   </div>
                 </div>
               </div>
@@ -84,7 +84,7 @@
             name: '',
             telephone: '',
             email: '',
-            postion: '',
+            position: '',
             domain:'',
             userId:''
           }
@@ -99,13 +99,11 @@
         console.log('oo')
       },
       addLinkman() {
-        console.log(this.linkmans)
-        console.log(this.linkmans instanceof Array)
         this.linkmans.push({
           name: '',
           telephone: '',
           email: '',
-          postion: '',
+          position: '',
           domain:''
         })
       },

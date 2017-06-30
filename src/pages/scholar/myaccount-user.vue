@@ -29,28 +29,24 @@
     <f7-block style="margin-top: 40px; margin-bottom: 200px">
       <f7-button round fill @click="nextStep">确定</f7-button>
     </f7-block>
-    <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;z-index: 100" >
-      <f7-button  style="width:80px;height:60px;line-height: 40px;
-        color:#000;float:left;margin-left:13px"
+    <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;height:60px;z-index: 100;display: flex" >
+      <f7-button  style="height:60px;color:#000; flex:1"
                   href="/mymeeting-user">
         <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x" style="color:#999;"></i></p>
         <p style="margin-top: -30px">会议约见</p>
       </f7-button>
-      <f7-button  style="width:80px;height: 60px;color:#000;float:left;
-                  margin-left:10px"
+      <f7-button  style="height: 60px;color:#000;flex: 1"
                   href="/recommend-user">
         <p  style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
         <p  style="margin-top: -25px">推荐</p>
 
       </f7-button>
-      <f7-button  style="width:80px;height:60px;color:#000;float:left;
-                  margin-left:10px"
+      <f7-button  style="height:60px;color:#000;flex: 1"
                   href="/myhome-user">
         <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x "style="color:#999;"></i></p>
         <p  style="margin-top: -25px;" >主页 </p>
       </f7-button>
-      <f7-button  style="width:80px;height:60px;color:#000;float:left;
-                  margin-left:10px"
+      <f7-button  style="height:60px;color:#000;flex:1"
                   href="/myaccount-user">
         <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x color-blue" ></i></p>
         <p style="margin-top:-25px" class="color-blue">账户</p>

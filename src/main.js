@@ -12,9 +12,10 @@ import { VueAuthenticate } from 'vue-authenticate'
 Vue.prototype.$store = new Vue({
    data() {
        return {
-         areaInfo:[],
-         oId:'',     //专家或者企业的oId
-         lId:'',      //需求列表的id
+         areaInfo:[],   //专家版约见的
+         firmInfo:[],   //企业版约见
+         oId:'',        //专家或者企业的oId
+         lId:'',        //需求列表的id
          userId:'',
          state:{
            token:''
@@ -25,9 +26,10 @@ Vue.prototype.$store = new Vue({
 
 Vue.config.productionTip = false
 Vue.use(Framework7Vue)
-// Vue.prototype.$http = axios.create({ baseURL: 'http://192.168.16.253:9002/' });
+Vue.prototype.$http = axios.create({ baseURL: 'http://192.168.16.253:9002/' });
 // Vue.prototype.$http = axios.create({ baseURL: 'http://192.168.16.23:9000/'});
-Vue.prototype.$http = axios.create({ baseURL: 'http://120.55.191.189:9002/' });
+// Vue.prototype.$http = axios.create({ baseURL: 'http://120.55.191.189:9002/' });
+
 
 //拦截器
 Vue.prototype.$http.interceptors.request.use(

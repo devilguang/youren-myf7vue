@@ -2,6 +2,9 @@
   .page-content {
     padding-top: 0px;
   }
+  .list-block{
+    margin-top: 32px;
+  }
 </style>
 <template>
   <f7-page>
@@ -15,13 +18,12 @@
         <f7-button round :fill="loginType=='code'" @click="loginType = 'code'">邀请码登陆</f7-button>
         <f7-button round :fill="loginType=='password'" @click="loginType = 'password'">帐号登陆</f7-button>
       </f7-buttons>
-      <f7-list v-if="loginType=='code'">
+      <f7-list v-if="loginType=='code'" style="margin-top: 32px;margin-bottom: 50px">
         <f7-list-item>
           <f7-input name="code" type="text" placeholder="请输入12位邀请码" v-model="formValues.code"></f7-input>
         </f7-list-item>
       </f7-list>
-
-      <f7-list form v-if="loginType=='password'">
+      <f7-list form v-if="loginType=='password'" style="margin-top: 32px;margin-bottom: 50px">
         <f7-list-item>
           <f7-input name="email" type="email" placeholder="请输入您的注册邮箱" v-model="formValues.loginEmail"></f7-input>
         </f7-list-item>
@@ -37,8 +39,8 @@
         <f7-button>立即注册</f7-button>
       </p>
     </div>
+    <!--<f7-button href="/homePage">首页</f7-button>-->
     <f7-button style="display: none" id="ss" href="/home/"></f7-button>
-    <f7-button  href="/recommend-corp/">企业的推荐专家</f7-button>
   </f7-page>
 </template>
 <script>
@@ -48,7 +50,7 @@
         nextPage: '',
         loginType: "code" || "password",
         formValues: {
-          code: 'qyxq1', //企业cwhmdqy6 pwhdxmet6  shjd1
+          code: 'qyxq2 ', //企业 cwhmdqy6 pwhdxmet6   qyxq2  whdx1 专家
           loginEmail: '',
           password: '',
         },
@@ -83,7 +85,6 @@
           let {errno, role, data: {token, user}} = res.data;
           let {dataFlag, oId } = user;
           if (err == 2) {
-              console.log("我能进来吗")
             this.flag = true
             return false;
           }
@@ -95,6 +96,7 @@
               this.$store.oId = user.oId
           }
           else {
+              this.$store.state.token = res.data.data.token
               this.$router.load({url: role == '1' ? '/check' : '/checkfirm'})
               localStorage.setItem('expertOpinion',JSON.stringify(user))
               localStorage.setItem('type',JSON.stringify(role))
@@ -105,7 +107,7 @@
     created(){
     },
     mounted(){
-      this.$$("#ss").click()
+        this.$$("#ss").click()
        this.nextPage = window.location.hash.replace('#', '');
     }
   }
