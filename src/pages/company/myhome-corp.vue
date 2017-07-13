@@ -1,44 +1,112 @@
 <style>
-  .page > .subnavbar {
-    top: 0;
-    margin-top: 55px;
-  }
-  .listItem:last-child {
-    padding-bottom: 100px;
+  .firmActive {
+    border-bottom: 2px solid #ffffff;
   }
 
-  .card:nth-child(n+1) {
-    margin-top: 20px;
-  }
   .Meeting .card {
     margin-bottom: 20px;
+    height:160px;
+  }
+
+  .page > .subnavbar {
+    /*top: 56px;*/
+  }
+
+  .listItem:last-child {
+    margin-bottom: 100px;
+  }
+
+  .list-block ul ul {
+    padding-left: 0;
+  }
+
+  .floating-label, .list-block .label {
+    width: 24%;
+  }
+
+  .conpanlyName {
+    width: 100%;
+    color: #2196f3;
+    height: 30px;
+    border: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    resize: none;
+  }
+
+  .companyType {
+    border: 0;
+    width: 30%;
+    height: 30px;
+    font-size: 15px;
+  }
+  .companyNum {
+    border: 0;
+    margin-left: 10px;
+    width: 30%;
+    background: #ffffff;
+    height: 30px;
+    font-size: 15px;
+  }
+  .disabled, [disabled] {
+    background: #ffffff;
+    opacity: 1;
+  }
+  .industry {
+    border: 0;
+    width: 80%;
+    height: 30px;
+    font-size: 15px;
+  }
+  .fieldsArr {
+    border: 0;
+    width: 80%;
+    height: 30px;
+    font-size: 15px;
+  }
+  .companyAbout {
+    width: 100%;
+    height: 200px;
+    text-indent: 2em;
+    font-size: 15px;
+    line-height: 24px;
+    color: #333333;
+    font-weight: 200;
+    border: 0;
+    letter-spacing: 1px;
+    resize: none;
+  }
+  .changeActive {
+    border: 1px solid #cccccc;
+    resize: vertical;
+    resize: none;
   }
 </style>
 <template>
-  <f7-page with-subnavbar no-page-content class="Meeting " name="myhome-corp">
+  <f7-page class="Meeting " name="myhome-corp">
     <f7-navbar back-link="Back" title="主页" sliding></f7-navbar>
     <f7-subnavbar>
       <f7-buttons>
-        <f7-button tab-link="#tab1">需求列表</f7-button>
-        <f7-button tab-link="#tab2" active>企业主页</f7-button>
-        <f7-button tab-link="#tab3">联系人</f7-button>
+        <f7-button :class="{'firmActive':demandFlag}" @click="clickDemand">需求列表</f7-button>
+        <f7-button :class="{'firmActive':homeFlag}" @click="clickHome">企业主页</f7-button>
+        <f7-button :class="{'firmActive':contactFlag}" @click="clickContacts">联系人</f7-button>
       </f7-buttons>
     </f7-subnavbar>
-
-
-    <f7-tabs swipeable>
-
-      <f7-page-content id="tab1" tab style="margin-top: 103px">
+    <f7-tabs>
+      <f7-page-content v-show="demandFlag" style="margin-top: 103px">
         <f7-block-title class="color-black"> 推广中</f7-block-title>
         <f7-list>
-          <f7-list-item v-for="info in infoList.filter(info=>info.enable)" :key="info.id" @click="boolean = true">
+          <!-- @click="boolean = true"-->
+          <f7-list-item v-for="info in infoList" :key="info.companyId">
             <div class="flex-left flex-top">
-              <img :src="info.media" alt="" style="width: 80px; height:80px; margin-right: 10px;">
+              <img :src="info.pictureUrl" style="width: 80px; height:80px; " @click="clickDemandList(info)">
               <div class="unit">
                 <div class="info-title">{{info.title}}</div>
-                <p class="info-misc">{{info.desc}} </p>
+                <p class="info-misc" @click="clickDemandList(info)">{{info.demandInfo}} </p>
                 <div class="info-misc flex-right flex-middle" style="text-align: right;">
-                  <f7-input name="switch" type="switch" @change="" v-model="info.enable"></f7-input>
+                  <f7-input name="switch" type="switch" @change.natvie="checkBox()"
+                            @click="carriage(info,0)"></f7-input>
                   <span style="white-space: nowrap; margin-left: 10px;">下架</span>
                 </div>
               </div>
@@ -48,14 +116,15 @@
 
         <f7-block-title class="color-black"> 已下架</f7-block-title>
         <f7-list>
-          <f7-list-item class="listItem" v-for="info in infoList.filter(info => !info.enable)" :key="info.id">
+          <f7-list-item class="listItem" v-for="info in infoLists" :key="info.companyId">
             <div class="flex-left flex-top">
-              <img :src="info.media" alt="" style="width: 80px; height:80px; margin-right: 10px;">
+              <img :src="info.pictureUrl" alt="" style="width: 80px; height:80px; margin-right: 10px;"
+                   @click="clickDemandList(info)">
               <div class="unit">
                 <div class="info-title">{{info.title}}</div>
-                <p class="info-misc">{{info.desc}} </p>
+                <p class="info-misc" @click="clickDemandList(info)">{{info.demandInfo}} </p>
                 <div class="info-misc flex-right flex-middle" style="text-align: right;">
-                  <f7-input name="switch" type="switch" @change="" v-model="info.enable"></f7-input>
+                  <f7-input name="switch" type="switch" @change.native="" @click="carriage(info,1)"></f7-input>
                   <span style="white-space: nowrap; margin-left: 10px;">上架</span>
                 </div>
               </div>
@@ -63,46 +132,64 @@
           </f7-list-item>
         </f7-list>
       </f7-page-content>
-
       <!--企业的主页信息-->
-      <f7-page-content id="tab2" tab active>
-        <div class="card-wrapper" style="margin-top: 103px">
-          <f7-card class="flex-left flex-middle">
+      <f7-page-content v-show="homeFlag" active>
+        <div class="card-wrapper" style="margin-top: 54px;">
+          <f7-card class="flex-left flex-middle" style="display: flex">
+            <span
+              style="position: absolute;bottom: 0px;color:#2196f3;border-radius: 5px;height: 30px;left:40px;font-weight: bold;"
+              v-if="!changeFlag">更改头像</span>
             <img class="info-avatar" src="/static/img/avatar-unit1.png"
-                 style="height: 100px; width: 100px; margin-right: 15px;"/>
-            <div class="info-inner">
-              <div class="info-title color-blue" style="font-size: 16px;">{{info.name}}</div>
-              <div>
-                <span style="margin-right: 10px;">{{info.companyType}}</span>|
-                <span style="margin-left: 10px;">{{info.num}}</span>
+                 style="height: 100px; width: 100px;flex:0 0 100px; margin-right: 15px;"/>
+            <div class="info-inner" style="flex:1">
+              <textarea class="conpanlyName" :disabled="changeFlag"
+                        :class="{'changeActive':!changeFlag}">{{info.name}}</textarea>
+              <!--<input type="text" class="conpanlyName" v-model="info.name" :class="{'changeActive':!changeFlag}"-->
+                     <!--:disabled="changeFlag">-->
+              <div style="margin-top: 10px">
+                <input type="text" class="companyType" v-model="info.companyType" :class="{'changeActive':!changeFlag}"
+                       :disabled="changeFlag">
+                <span style="margin-right: 10px;"></span><span>|</span>
+                <input type="text" class="companyNum" v-model="info.num" :class="{'changeActive':!changeFlag}"
+                       :disabled="changeFlag">
               </div>
             </div>
           </f7-card>
         </div>
-
         <f7-block-title><i class="fa fa-dot-circle-o fa-lg color-blue"></i> 所属领域</f7-block-title>
         <div class="content-block">
           <div class="content-block-inner" style="text-indent: 2em;">
-            <span v-for="value in fieldsArr" style="margin-left: 10px">{{value}}</span>
+            <p><input class="industry" type="text" v-model="info.industry" :disabled="changeFlag"
+                      :class="{'changeActive':!changeFlag}"></p>
+            <p>
+              <input type="text" class="fieldsArr" v-model="info.ext2" :disabled="changeFlag"
+                     :class="{'changeActive':!changeFlag}">
+            </p>
           </div>
         </div>
-
         <f7-block-title><i class="fa fa-file-text fa-lg color-blue"></i> 企业简介</f7-block-title>
-        <div class="content-block" style="margin-bottom: 100px">
-          <div class="content-block-inner" style="text-indent: 2em;">
-            {{info.companyAbout}}
-          </div>
+        <div class="content-block" style="margin-bottom: 20px">
+          <textarea class="companyAbout" :disabled="changeFlag"
+                    :class="{'changeActive':!changeFlag}">{{info.companyAbout}}</textarea>
         </div>
+        <f7-block class="afterLine" style="margin-top:0;margin-left:25%;margin-bottom:100px;width: 50%;"
+                  v-if="changeFlag">
+          <f7-button round fill style="border-radius: 5px" @click="changeFlag = false">编辑主页</f7-button>
+        </f7-block>
+        <f7-block class="afterLine" style="margin-top:0;margin-left:25%;margin-bottom:100px;width: 50%;"
+                  v-if="!changeFlag">
+          <f7-button round fill style="border-radius: 5px" @click="changeFlag = true">完成编辑</f7-button>
+        </f7-block>
       </f7-page-content>
-
-      <f7-page-content id="tab3" tab style="margin-top: 103px">
+      <f7-page-content v-show="contactFlag" style="margin-top: 103px">
         <f7-block-title>联系人</f7-block-title>
         <!--增加联系人-->
+
         <f7-card v-for="(item, index) in contactors" :key="item.id">
+          <div v-show="item.id != 0" class="fa fa-edit  fa-2x"
+               style="position: absolute; top:10px; right: 10px; z-index:100;" @click="recompose(item)"></div>
           <f7-card-content>
             <form class="list-block inputs-list">
-              <div v-show="item.id != 0" class="fa fa-edit fa-lg"
-                   style="position: absolute; top:0px; right: 0px; z-index:100" @click="recompose()"></div>
               <ul>
                 <li>
                   <div class="item-content" style="position: relative;">
@@ -116,7 +203,6 @@
                 </li>
                 <li>
                   <div class="item-content">
-                    <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
                     <div class="item-inner">
                       <div class="item-title label">电话</div>
                       <div class="item-input item-input-field">
@@ -127,7 +213,6 @@
                 </li>
                 <li>
                   <div class="item-content">
-                    <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
                     <div class="item-inner">
                       <div class="item-title label">邮箱</div>
                       <div class="item-input item-input-field">
@@ -138,7 +223,6 @@
                 </li>
                 <li>
                   <div class="item-content">
-                    <!--<div class="item-media"><i class="icon material-icons">person_outline</i></div>-->
                     <div class="item-inner">
                       <div class="item-title label">职位</div>
                       <div class="item-input item-input-field">
@@ -152,17 +236,101 @@
           </f7-card-content>
         </f7-card>
         <f7-block>
-          <f7-button style="margin-bottom: 200px" @click="addLinkman()">新增联系人</f7-button>
+          <f7-button style="margin-bottom: 100px" @click="addLinkman()">新增联系人</f7-button>
         </f7-block>
       </f7-page-content>
-
     </f7-tabs>
+    <!--增加弹窗的需求页面-->
+    <f7-popup :opened="boolean" style="background:rgb(240,239,245)">
+      <div @click="boolean = false">
+        <f7-navbar title="我的需求"></f7-navbar>
+      </div>
+      <div class="list-block" style="margin-top: 0">
+        <ul>
+          <li style="background: #ffffff">
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">需求名：</div>
+                <div class="item-input">
+                  <input type="text" placeholder="简洁明了概括" v-model="companyList.title">
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Select -->
+          <li style="background: #ffffff">
+            <div class="item-content">
+              <div class="item-inner" style="margin-left: 0">
+                <div class="item-title label">需求阶段</div>
+                <div class="item-input">
+                  <select value="">
+                    <option value="0">请选择</option>
+                    <option value="1">设计</option>
+                    <option value="2">研发</option>
+                    <option value="3">制造</option>
+                    <option value="4">营销</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li style="background: #ffffff">
+            <div class="item-content">
+              <div class="item-inner" style="margin-left: 0">
+                <div class="item-title label">所在地：</div>
+                <select-adress :initprovselectedvalue="0"
+                               :initcityselectedvalue="100">
+                </select-adress>
+              </div>
+            </div>
+          </li>
+
+          <li style="background: #ffffff">
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">金额：</div>
+                <div class="item-input">
+                  <input type="email" placeholder="25万" v-model="companyList.price">
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li style="background: #ffffff">
+            <div class="item-content" style="height: 100%;">
+              <div class="item-inner" style="height: 100%;">
+                <div class="item-title label" style="height: 100%;">关键词：</div>
+                <div class="item-input" style="height: 100%;">
+                  <input type="email" placeholder="换热器、制冷、微通道" v-model="companyList.ext2">
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Textarea -->
+          <li class="align-top" style="background: #ffffff;margin-top: 10px;height: 200px;">
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">简介：</div>
+                <div class="item-input" style="background:rgb(240,239,245);height: 150px;">
+                  <textarea style="height: 150px;">{{companyList.demandInfo}}</textarea>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <f7-block style="margin-top: 100px">
+        <f7-button round fill @click="thinkTank()">提交需求</f7-button>
+      </f7-block>
+    </f7-popup>
     <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;height:60px;z-index:10000;display: flex">
       <f7-button style="height:60px;color:#000;flex:1"
                  @click="$router.load({url:'/mymeeting-corp'})">
         <p style="margin-top: 8px"><i class="fa fa-comments-o fa-2x " style="color:#999;"></i></p>
         <p style="margin-top: -25px">会议约见</p>
       </f7-button>
+
       <f7-button style="height: 60px;color:#000;flex:1"
                  @click="$router.load({url:'/recommend-corp'})">
         <p style="margin-top: 8px"><i class="fa fa-thumbs-o-up fa-2x" style="color:#999;"></i></p>
@@ -174,106 +342,13 @@
         <p style="margin-top: 8px"><i class="fa fa-user-o fa-2x color-blue"></i></p>
         <p style="margin-top: -25px;" class="color-blue">主页 </p>
       </f7-button>
+
       <f7-button style="height:60px;color:#000;flex:1"
                  @click="$router.load({url:'/myaccount-corp'})">
         <p style="margin-top: 8px"><i class="fa fa-credit-card fa-2x " style="color:#999;"></i></p>
         <p style="margin-top:-25px">账户</p>
       </f7-button>
     </div>
-
-
-    <!--增加需求页面-->
-    <f7-popup :opened="boolean" style="background:#cccccc">
-      <f7-navbar  back-link="返回" title="我的需求" href="#" sliding></f7-navbar>
-      <div class="list-block" style="margin-top: 0">
-        <ul>
-          <li style="background: #ffffff">
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title label">需求ID：</div>
-                <div class="item-input">
-                  <input type="text" placeholder="ND1782">
-                </div>
-              </div>
-            </div>
-          </li>
-          <li style="background: #ffffff">
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title label">需求名：</div>
-                <div class="item-input">
-                  <input type="email" placeholder="简洁明了概括">
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <!-- Select -->
-          <li style="background: #ffffff">
-            <div class="item-content">
-              <div class="item-inner" style="margin-left: 0">
-                <div class="item-title label">需求阶段</div>
-                <div class="item-input">
-                  <select value="">
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li style="background: #ffffff">
-            <div class="item-content">
-              <div class="item-inner" style="margin-left: 0">
-                <div class="item-title label">需求阶段</div>
-                  <select-adress :initprovselectedvalue="19"
-                                 :initcityselectedvalue="289"
-                                 :initregionselectedvalue="3039">
-                  </select-adress>
-              </div>
-            </div>
-          </li>
-
-          <li style="background: #ffffff">
-            <div class="item-content" >
-              <div class="item-inner">
-                <div class="item-title label">金额：</div>
-                <div class="item-input">
-                  <input type="email" placeholder="25万">
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li style="background: #ffffff">
-            <div class="item-content"  style="height: 100%;">
-              <div class="item-inner"  style="height: 100%;">
-                <div class="item-title label" style="height: 100%;">关键词：</div>
-                <div class="item-input" style="height: 100%;">
-                  <input type="email" placeholder="换热器、制冷、微通道">
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <!-- Textarea -->
-          <li class="align-top" style="background: #ffffff">
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title label">简介：</div>
-                <div class="item-input" style="background: #cccccc">
-                  <textarea>说明需求条件</textarea>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <f7-block >
-        <f7-button round fill @click="boolean = false">提交评价</f7-button>
-      </f7-block>
-    </f7-popup>
   </f7-page>
 </template>
 <script>
@@ -282,81 +357,79 @@
   export default {
     name: 'myhome-corp',
     components: {
-      selectAdress
+      selectAdress,
+    },
+    watch: {
+      //检测编辑主页
+      info: {
+        handler(curVal, oldVal){
+          this.$http({
+            method: 'post',
+            url: '/v1/company/update',
+            data: {
+              id: curVal.id,
+              name: curVal.name,
+              industry: curVal.industry,
+              companyAbout: curVal.companyAbout,
+              companyType: curVal.companyType,
+              num: curVal,
+              ext2: curVal.ext2
+            }
+          })
+        },
+        deep: true
+      }
     },
     data() {
       return {
-        info: {},
+        changeFlag: true,
+        disabledInput: true,
+        demandFlag: false,
+        homeFlag: true,
+        contactFlag: false,
+        info: {
+          id: '',
+          name: '',
+          industry: '',
+          num: '',
+          ext2: '',
+          companyAbout: '',
+          companyType: ''
+        },
         fieldsArr: [],   //所属领域
         keyWords: [],
-        infoList: [
-          {
-            id: 1,
-            title: '微通道换热器应用于制冷系统（干式）',
-            number: 'N128745613',
-            step: '研发',
-            area: '北京',
-            money: '50万',
-            keywords: ['机械', '涡轮', '建模'],
-            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-            media: '/static/img/corp1.jpg',
-            enable: true,
-          },
-          {
-            id: 2,
-            title: '微通道换热器应用于制冷系统（干式）',
-            number: 'N128745613',
-            step: '研发',
-            area: '北京',
-            money: '50万',
-            keywords: ['机械', '涡轮', '建模'],
-            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-            media: '/static/img/corp2.jpg',
-            enable: false,
-          },
-          {
-            id: 3,
-            title: '微通道换热器应用于制冷系统（干式）',
-            number: 'N128745613',
-            step: '研发',
-            area: '北京',
-            money: '50万',
-            keywords: ['机械', '涡轮', '建模'],
-            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-            media: '/static/img/corp1.jpg',
-            enable: true,
-          },
-          {
-            id: 4,
-            title: '微通道换热器应用于制冷系统（干式）',
-            number: 'N128745613',
-            step: '研发',
-            area: '北京',
-            money: '50万',
-            keywords: ['机械', '涡轮', '建模'],
-            desc: '备需方提供工艺条件，工况，用仿真软件建议径向整体叶轮模型，划分网格仿真，优化模型输入为UG格式。需求方有基础数据，涡轮叶片尺寸为300mm',
-            corpDesc: '武钢是新中国成立后兴建的第一个特大型钢铁联合企业，于1955年开始建设，1958年9月13日建成投产。2016年9月22日，宝钢集团与武钢集团实施联合重组，组建“中国宝武钢集团有限公司”，武钢集团整体资产无偿划入，成为其全资子公司。武钢集团与宝武集团武汉总部实行“两块牌子、一套班子”方式动作，是宝武集团在武汉的延伸，承担武钢集团作为公司法人的各项管理职能。',
-            media: '/static/img/corp2.jpg',
-            enable: false,
-          },
-        ],
-        contactors: [],  //联系人信息
+        infoList: [],
+        infoLists: [],
+        companyList: {
+          id: '',     //ID
+          addr: '',   //所在地
+          title: '',   //名称
+          demandPhase: '',   //需求阶段code
+          price: '',  //金额
+          ext2: '',
+          demandInfo: '',  //需求简介
+        },
+        contactors: {
+//          name:'',
+//          telephone:'',
+//          email:'',
+//          position:''
+        },  //联系人信息
         oldId: '',
         userId: '',
-        boolean:false
+        boolean: false
       }
     },
     methods: {
       formateDate (date, fmt = "M月D日dddd H:mm"){
         return moment(date).format(fmt)
       },
-
       isToday(date){
         return moment(date).isSame(new Date(), 'day')
       },
+//      checkBox(e){
+//          console.log(e)
+//      },
 
       isAfterToday(date){
         return moment(date).isAfter(new Date(), 'day')
@@ -367,13 +440,20 @@
           url: 'v1/company/' + this.oldId,
           data: {}
         }).then((res) => {
-          this.info = res.data
+          this.info.id = res.data.id
+          this.info.name = res.data.name
+          this.info.industry = res.data.industry
+          this.info.companyAbout = res.data.companyAbout
+          this.info.companyType = res.data.companyType
+          this.info.num = res.data.num
+          this.info.ext2 = res.data.ext2
           this.keyWords = res.data.fields.split(';')
           this.$http({
             method: 'get',
             url: '/v1/admin/fields',
             data: {}
           }).then((res) => {
+            this.fieldsArr = []
             res.data.forEach((item, index) => {
               this.keyWords.forEach((value, $index) => {
                 if (value === item.id) {
@@ -393,8 +473,8 @@
           this.contactors = res.data
         })
       },
-      recompose() {
-        this.disabledInput = true
+      recompose(item) {
+//          点击编辑
       },
       addLinkman() {
         this.contactors.push({
@@ -404,12 +484,116 @@
           postion: '',
           domain: ''
         })
+      },
+//      点击每个需求查看详情
+      clickDemandList(info){
+        this.boolean = true
+        this.companyList.id = info.id
+        this.companyList.addr = info.addr   //所在地
+        this.companyList.title = info.title   //名称
+        this.companyList.demandPhase = info.demandPhase   //需求阶段code
+        this.companyList.price = info.price//金额
+        this.companyList.ext2 = info.ext2
+        this.companyList.demandInfo = info.demandInfo//需求简介
+      },
+//      提交需求
+      thinkTank(){
+        this.$http({
+          method: 'post',
+          url: '/v1/phase/update',
+          data: {
+            'id': this.companyList.id,     //ID
+            'addr': this.companyList.id,   //所在地
+            'title': this.companyList.title,   //名称
+            'demandPhase': this.companyList.demandPhase,   //需求阶段code
+            'price': this.companyList.price,  //金额
+            'ext2': this.companyList.ext2,
+            'demandInfo': this.companyList.demandInfo,  //需求简介
+          }
+        }).then((res) => {
+          this.boolean = false
+        })
+      },
+      popularize(id){
+        this.boolean = true
+      },
+//      需求
+      clickDemand(){
+        this.demandFlag = true
+        this.homeFlag = false
+        this.contactFlag = false
+        this.requirements()
+      },
+//      主页
+      clickHome(){
+        this.demandFlag = false
+        this.homeFlag = true
+        this.contactFlag = false
+      },
+//      联系人
+      clickContacts(){
+        this.demandFlag = false
+        this.homeFlag = false
+        this.contactFlag = true
+      },
+//      需求列表
+      requirements(){
+
+        this.$http({
+          method: 'post',
+          url: '/v1/phase/list',
+          data: {
+            'companyId': this.oldId,
+            'ban': 1
+          }
+        }).then((res) => {
+          this.infoList = res.data.data
+        })
+        this.$http({
+          method: 'post',
+          url: '/v1/phase/list',
+          data: {
+            'companyId': this.oldId,
+            'ban': 0
+          }
+        }).then((res) => {
+          this.infoLists = res.data.data
+        })
+      },
+//点击上下架
+      carriage(info, type){
+        if (type == 0) {
+          this.$http({
+            method: 'post',
+            url: '/v1/phase/update',
+            data: {
+              id: info.id,
+              ban: 0
+            }
+          }).then((res) => {
+            this.infoLists = [];
+            this.infoList = []
+            this.requirements()
+          })
+        } else {
+          this.$http({
+            method: 'post',
+            url: '/v1/phase/update',
+            data: {
+              id: info.id,
+              ban: 1
+            }
+          }).then((res) => {
+            this.infoLists = [];
+            this.infoList = []
+            this.requirements()
+          })
+        }
       }
     },
     mounted(){
       this.oldId = this.$store.oId
       this.userId = this.$store.userId
-
       this.getFields()
       this.getContact()
     }

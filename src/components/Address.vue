@@ -95,6 +95,7 @@
     font-size: 100%;
     height: 100%;
   }
+
   * {
     margin: 0;
     padding: 0;
@@ -177,14 +178,15 @@
     flex:1;
     padding: 10px 0;
     background-color: white;
-
   }
   ul > li .a {
     width: 24.9%;
     box-sizing: border-box;
     padding-left: 10px;
     color: #333;
-    line-height: 39px;
+    line-height: 30px;
+
+
   }
   ul > li .b {
     width: 74.9%;
@@ -203,7 +205,7 @@
     box-sizing: border-box;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 2px;
+    border-radius: 10px;
     -webkit-border-radius: 2px;
   }
   ul > li .b .select-31 {

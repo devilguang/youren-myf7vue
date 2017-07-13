@@ -83,7 +83,7 @@
           <p class="info-text">行业： {{info.field}}</p>
           <p class="flex-around" style="margin-top: .5em;">
             <f7-button color="blue" class="mini-button" fill round @click="viewDetails($index)">查看详情</f7-button>
-            <f7-button color="orange" class="mini-button" fill round @click="nextStep($index)">立即联系
+            <f7-button color="orange" class="mini-button" fill round @click="nextStep(info,$index)">立即联系
             </f7-button>
           </p>
         </div>
@@ -123,7 +123,7 @@
       </f7-block>
       <f7-block>
         <f7-button round :color="buttonText == '立即联系' ? 'blue' : 'orange'" fill :disabled="buttonText != '立即联系'"
-                   @click="immediately(person.id)">{{buttonText}}
+                   @click="immediately(person,person.id)">{{buttonText}}
         </f7-button>
       </f7-block>
     </f7-popup>
@@ -165,7 +165,8 @@
         keyWord: [],
         array: [],
         demains: [],
-        bus: []
+        bus: [],
+        userId: ''
       }
     },
     methods: {
@@ -176,17 +177,18 @@
           data: {}
         }).then((res) => {
           this.infoList = res.data.data
+          console.log(this.infoList)
           this.infoList.forEach((value, index) => {
             if (value.field) {
-//              this.$set(value, 'fieldOld', value);
-              this.$set(value, 'field', value.field.split(";").map(item => this.bus[item]).join(";"))
+              this.$set(value, 'field', value.field.split(";").map(item => this.bus[item]).join(","))
             }
           })
 
         })
       },
 //    点击立即联系的时候
-      nextStep(index){
+      nextStep(info,index){
+        let address = info.address
         this.$store.firmInfo.push(this.infoList[index].id)
         this.$http({
           method: 'post',
@@ -206,10 +208,13 @@
               this.$f7.alert('系统正在为您安排约会，稍后会有技术经纪人与您联系，您可以在“约会”查看进度。', '约会安排中', () => {
               })
             })
+//            this.sendNews(address)
           }
         })
+
       },
-      immediately(id){
+      immediately(person,id){
+        let address = person.address
         let oid = id
         this.$http({
           method: 'post',
@@ -230,8 +235,10 @@
                 this.buttonText = "约见安排中"
               })
             })
+            this.sendNews(address)
           }
         })
+
       },
 //    点击查看详情
       viewDetails(index){
@@ -263,11 +270,27 @@
           this.bus = res1.data
 
         })
+      },
+//      点击立即联系的时候发送模板消息
+      sendNews(address){
+        let meetTime = this.$store.getNowFormatDate()
+        this.$http({
+          method: 'post',
+          url: '/v1/wechat/sendMsg',
+          data: {
+            touserId: this.userId, //消息接收人id（必须）
+            type: 1,
+            meetName: '电话约谈',
+            meetTime: meetTime,
+            place: address+'电话',
+            url: '/recommend-user'
+          }
+        })
       }
-
     },
     mounted() {
       this.oId = this.$store.oId
+      this.userId = this.$store.userId
       this.cropGetAixos()
       this.getBus()
     }

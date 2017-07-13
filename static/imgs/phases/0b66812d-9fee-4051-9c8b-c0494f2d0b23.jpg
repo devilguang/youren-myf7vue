@@ -1,0 +1,66 @@
+﻿<html>
+<head>
+<title>页面不存在</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.font01 {
+	font-size: 13px;
+	line-height: 24px;
+	color: #354E5B;
+	text-decoration: none;
+}
+.font01_link:link,.font01_link:visited,.font01_link:active,.font01:hover{
+	font-size: 12px;
+	line-height: 20px;
+	color: #6A91A9;
+	text-decoration: none;
+}
+.style1 {
+	color: #0376A7;
+	font-size: 12px;
+}
+.style2 {
+	color: #CC0000;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<!-- ImageReady Slices (不存在.psd) -->
+<table width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:35px; ">
+  <tr>
+    <td height="11" background="/err/images/index_01.gif"></td>
+  </tr>
+  <tr>
+    <td height="250" align="center" valign="middle" background="/err/images/index_02.gif"><table width="90%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="72%" align="center" valign="middle"><table width="89%"  border="0" cellspacing="0" cellpadding="0">
+          <tr align="left" valign="top">
+            <td width="22%"><img src="/err/images/index_06.gif" width="68" height="68" alt=""></td>
+            <td width="5%">&nbsp;</td>
+            <td width="73%" valign="middle" class="font01">对不起！您访问的页面已删除或者不存在！<br>
+              请点击这里返回<span class="style2"><a href="http://www.tianjinwe.com/" target="_blank" class="font01">首页</a></span></td>
+          </tr>
+        </table></td>
+        <td width="28%" align="right" valign="top"><img src="/err/images/index_12.gif" width="160" height="220"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="60" align="center" background="/err/images/index_09.gif" class="font01 style1">天津日报报业集团版权所有 Copyright 2006-2009 天津日报报业集团</td>
+  </tr>
+  <tr>
+    <td height="9" background="/err/images/index_11.gif"></td>
+  </tr>
+</table>
+<!-- End ImageReady Slices -->
+</body>
+</html>

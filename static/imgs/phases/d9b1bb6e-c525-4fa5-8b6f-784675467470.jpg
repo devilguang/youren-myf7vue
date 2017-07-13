@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>优质企商网-您的访问出错了</title>
+<style type="text/css">
+<!--
+body{margin:0px; padding:0px;}
+.top{ width:100%; min-width:458px; background-color:#EDEDED; height:164px; padding-top:61px; margin:0px auto; text-align:center;}
+.mid{ width:100%; min-width:458px; height:auto; margin:17px auto 26px auto; text-align:center;}
+.end{width:100%; height:auto; margin:0px auto 26px auto; font-size:12px; text-align:center;}
+.end a{ margin:0px 5px; display:inline;}
+.end a:link,.end a:visited{ color:#6B6B6B;text-decoration: none;}
+.end a:hover{ color:#FF0103;text-decoration: none;}
+
+-->
+</style>
+<script language="JavaScript" type="text/javascript" src="http://cdn.bootcss.com/jquery/1.7/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/404.js"></script>
+</head>
+<body>
+<div class="top"><img src="/css/Images/404.jpg" width="310" height="164" /></div>
+<div class="mid"><img src="/css/Images/404_1.jpg" width="341" height="180" /></div>
+<div class="end"><a href="http://www.best73.com/">首页</a>  <a href="http://www.best73.com/Category.html">找产品</a>  <a href="http://www.best73.com/Corp.html">找公司</a>  <a href="http://www.best73.com/CorpNews.html">价格行情</a>  <a href="http://www.best73.com/News.html">企商资讯</a>  <a href="http://www.best73.com/IndexCompay.html">最新企业</a>  <a href="http://www.best73.com/IndexProduct.html">最新产品</a>  <a href="http://www.best73.com/IndexInfo.html">最新资讯</a>  <a href="http://www.best73.com/cha.html">企业信用查询</a></div>
+</body>
+</html>

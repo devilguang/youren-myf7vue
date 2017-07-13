@@ -6,6 +6,9 @@
   .list-block{
     margin-top: 30px;
   }
+  .mediaImg{
+    width: 80px;
+  }
 </style>
 <template>
   <f7-page class="Recommend">
@@ -13,11 +16,11 @@
       <f7-navbar title="推荐需求" back-link="Back" sliding></f7-navbar>
     </div>
     <f7-list media-list style="margin-top: 30px">
-      <!--:media=" '<img src=/static/img/corp1.jpg + width='+80+'/>'"-->
+      <!--<img :src="info.pictureUrl" style="width: 80px;" alt="">-->
       <f7-list-item v-for="info in infoList" :key="info.id"
                     :title="info.title" :subtitle="'<br>'"
-                    :text="info.demandInfo" ref="chemical"  @click="nextStep(info.id)">
-        <!--:link="'/demand'"-->
+                    :text="info.demandInfo" ref="chemical"  @click="nextStep(info.id)"
+                   :media="'<img src='+info.pictureUrl+' '+ 'height='+80+' '+ 'width='+100+'/>'">
       </f7-list-item>
     </f7-list>
     <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;height:60px;z-index:100;display: flex" >
@@ -70,6 +73,7 @@
             "expertId": this._expertId
           }
         }).then((res) => {
+          console.log(res)
           this.infoList = res.data.data.data
         })
       },

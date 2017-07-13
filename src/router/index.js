@@ -4,10 +4,26 @@ import Home from '@/pages/home.vue'
 
 Vue.use(Router)
 
-export default [{
+export default [
+  {
     path: '/home',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: require("@/pages/1-login.vue")
+  },
+  {
+    path:'/identity',
+    name:'identity',
+    component:require("@/pages/identity.vue")
+  },
+  {
+    path: '/expertsHome',
+    name: 'expertsHome',
+    component: require("@/pages/expertsHome.vue")
   },
   {
     path: '/check',
@@ -24,7 +40,16 @@ export default [{
     path: '/areas',
     name: 'areas',
     component: require("@/pages/3-areas.vue")
-
+  },
+  {
+    path: '/certification',
+    name: 'certification',
+    component: require("@/pages/certification.vue")
+  },
+  {
+    path: '/registered ',
+    name: 'registered ',
+    component: require("@/pages/4-areas.vue")
   },
   {
     path: '/contact',
@@ -56,7 +81,6 @@ export default [{
     path: '/mymeeting-user',
     name: 'mymeeting-user',
     component: require("@/pages/scholar/mymeeting-user.vue")
-
   },
   {
     path: '/demand',

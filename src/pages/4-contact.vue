@@ -85,13 +85,14 @@
             telephone: '',
             email: '',
             position: '',
-            domain:'',
-            userId:''
+            domain: '',
+            userId: ''
           }
         ],
         type: '',
-        experts:'',
-        user_id:''
+        experts: '',
+        user_id: '',
+        newDate:''
       }
     },
     methods: {
@@ -104,7 +105,7 @@
           telephone: '',
           email: '',
           position: '',
-          domain:''
+          domain: ''
         })
       },
       removeLinkman(id) {
@@ -129,12 +130,44 @@
           }
           else {
             this.$f7.alert('恭喜您，认证成功！麦子根据您的信息自动为您匹配了10个企业需求，您可以点击推荐查看。', '认证成功', () => {
+
               if (this.type == "2") {  //企业的跳转
-                this.$router.load({url:'/myhome-corp'})
+                this.getNowFormatDate()
+                this.$router.load({url: '/myhome-corp'})
                 this.submitFirm()
+
+                let companyName = JSON.parse(window.localStorage.getItem("expertOpinion")).object.name
+                let userName = JSON.parse(window.localStorage.getItem("expertOpinion")).object.contactName
+                // 发送认证成功之后的模板消息
+                this.$http({
+                  method: 'post',
+                  url: '/v1/wechat/sendMsg',
+                  data: {
+                    type: 2,
+                    touserId: this.user_id,     //消息接收人的id
+                    companyName: companyName,   //企业名
+                    userName: userName,         //用户名
+                    time: this.newDate,            //
+                    url: '/recommend-corp'       // 模板消息点击详情跳转的地址
+                  }
+                })
               } else {   //专家的跳转
+                this.getNowFormatDate()
+                let userName = JSON.parse(window.localStorage.getItem("expertOpinion")).name
                 this.submitInfor() //调用专家的完善资料的方法
-                this.$router.load({url:'/myhome-user' })
+                this.$router.load({url: '/myhome-user'})
+                // 发送专家的认证成功之后的模板消息
+                this.$http({
+                  method: 'post',
+                  url: '/v1/wechat/sendMsg',
+                  data: {
+                    type: 3,
+                    touserId: this.user_id,     //消息接收人的id
+                    userName: userName,        //用户名
+                    time: this.newDate,        //
+                    url: '/recommend-user'     // 模板消息点击详情跳转的地址
+                  }
+                })
               }
             })
           }
@@ -143,40 +176,55 @@
 //      专家的完善资料
       submitInfor(){
         this.$http({
-          method:'post',
+          method: 'post',
           url: '/v1/expert/change',
-          data:{
-            id:this._userId,
-            name:this.experts.name,
-            college:this.experts.unit,
-            degree:this.experts.degree,
-            professionalTitle:this.experts.theTitle,
-            researchDirect:this.experts.research,
-            userId:this.user_id,
-            field:this.domain,
-            contact:this.linkmans
+          data: {
+            id: this._userId,
+            name: this.experts.name,
+            college: this.experts.unit,
+            degree: this.experts.degree,
+            professionalTitle: this.experts.theTitle,
+            researchDirect: this.experts.research,
+            userId: this.user_id,
+            field: this.domain,
+            contact: this.linkmans,
           }
-        }).then((res)=>{
+        }).then((res) => {
 
         })
       },
 //      企业完善资料
       submitFirm(){
-          this.$http({
-            method:"post",
-            url:'/v1/company/change',
-            data:{
-              id:this._userId,
-              name:this.experts.name,
-              contactName:this.experts.contactName,
-              position:this.experts.position,
-              fields:this.domain,
-              userId:this.user_id,
-              contact:this.linkmans
-            }
-          }).then((req)=>{
+        this.$http({
+          method: "post",
+          url: '/v1/company/change',
+          data: {
+            id: this._userId,
+            name: this.experts.name,
+            contactName: this.experts.contactName,
+            position: this.experts.position,
+            fields: this.domain,
+            userId: this.user_id,
+            contact: this.linkmans
+          }
+        }).then((req) => {
 
         })
+      },
+      getNowFormatDate() {
+        let date = new Date();
+        let seperator2 = ":";
+        let month = date.getMonth() + 1;
+        let strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+          month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+          strDate = "0" + strDate;
+        }
+        let currentdate = date.getFullYear() + "年" + month + "月" + strDate + "日"
+          + " " + date.getHours() + seperator2 + date.getMinutes()
+        this.newDate = currentdate
       }
     },
     mounted(){

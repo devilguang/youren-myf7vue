@@ -27,7 +27,7 @@
     </f7-block>
 
     <f7-block style="margin-top: 40px; margin-bottom: 200px">
-      <f7-button round fill @click="nextStep">确定</f7-button>
+      <f7-button round fill @click="nextStep">提现</f7-button>
     </f7-block>
     <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;height:60px;z-index: 100;display: flex" >
       <f7-button  style="height:60px;color:#000; flex:1"

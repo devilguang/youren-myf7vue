@@ -12,9 +12,9 @@
             <p class="info-misc">需求阶段: {{info.demandPhase}} </p>
             <p class="info-misc">所在地: {{info.addr}} </p>
             <p class="info-misc">金额: {{info.price}} </p>
-            <p class="color-red" style="font-size: 12px;">关键词:{{info.ext2}} </p>
+            <p class="color-red" style="font-size: 12px;">关键词:{{info.industry}} </p>
           </div>
-          <img class="info-media" src="/static/img/corp1.jpg" style="width: 130px; height: 80px;"/>
+          <img class="info-media" :src="info.pictureUrl" style="width: 130px; height: 80px;"/>
         </div>
       </f7-card>
     </div>
@@ -29,7 +29,7 @@
 
     <f7-block style="margin-bottom: 200px">
       <f7-button round :color="buttonText == '立即联系' ? 'blue' : 'orange'" fill :disabled="buttonText != '立即联系'"
-                 @click="nextStep">{{buttonText}}
+                 @click="nextStep(info)">{{buttonText}}
       </f7-button>
     </f7-block>
     <div style="position: fixed;bottom:0;background:#ffffff;width: 100%;height:60px;z-index:100;display: flex" >
@@ -69,11 +69,13 @@
         companyAbout: "", //企业信息
         firmId:'',
         userId:'',
-        price:''
+        price:'',
+        touserId:''
       }
     },
     methods: {
-      nextStep(){
+      nextStep(info){
+          console.log(info)
             this.$http({
               method:'post',
               url:'/v1/appoint/appointadd',
@@ -87,15 +89,26 @@
               if(res.data.status==1){
                 this.$f7.alert('认证失败',res.data.message)
               }else{
+                let meetime = this.$store.getNowFormatDate()
                 const self = this;
                 this.$f7.confirm('您是否对该需求感兴趣，确定后系统将发送您的基本信息给对方。', '立即联系', () => {
                   this.$f7.alert('系统正在为您安排约会，稍后会有技术经纪人与您联系，您可以在“约会”查看进度。', '约会安排中', () => {
                     this.buttonText = "约见安排中"
-                    this.$store.areaInfo.push(this.userId)
-                    this.$router.load({url: "/mymeeting-user"})
+                     //专家点击立即联系发送模板消息
+                    this.$http({
+                      method: 'post',
+                      url: '/v1/wechat/sendMsg',
+                      data: {
+                        touserId: this.touserId,
+                        type: 1,
+                        meetName: '电话约见',
+                        meetTime: meetime,
+                        place: "电话",
+                        url: '/recommend-user'
+                      }
+                    })
                   })
                 })
-
               }
             })
       },
@@ -109,10 +122,11 @@
             this.companyAbout = res.data.data.busCompany.companyAbout
           }
         })
-      }
+      },
     },
     mounted(){
-      this.userId = this.$store.lId
+      this.userId = this.$store.lId        //需求id
+      this.touserId =this.$store.userId   //用户的id
       this.demandAixos()
     }
   }

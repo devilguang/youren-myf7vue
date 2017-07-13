@@ -13,7 +13,7 @@
       </p>
       <f7-list form>
         <f7-list-item>
-          <f7-label floating>姓名</f7-label>
+          <f7-label floating >姓名</f7-label>
           <f7-input name="name" type="text" placeholder="" v-model="experts.name"></f7-input>
         </f7-list-item>
         <f7-list-item>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>页面提示</title>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family:"微软雅黑";
+	font-size:14px;
+}
+.lj { margin-top:5px;}
+.lj a{ color:#0055aa; text-decoration:none;}
+.lj a:link{ color:#0055aa;text-decoration:none;}
+.lj a:visited{ color:#0055aa;text-decoration:none;}
+.lj a:hover{ color:#0055aa;text-decoration:underline;}
+.lj a:active{ color:#0055aa;text-decoration:none;}
+</style>
+</head>
+
+<body>
+  <div style=" width:370px; margin:0px auto; overflow:hidden; border:3px solid #d7d7d7; padding:30px 0px 40px 30px; margin-top:170px;text-align:center">
+      
+          <div>
+            <span>
+							<img src="/Public/images/admin/error.png"/>
+				<p class="error" style="font-size:20px;font-weight:bold;color:#f60">没有相关栏目！</p>			 
+			</span>
+              
+          </div>
+          <div class="lj">
+		   <p class="jump">
+				页面自动 <a id="href" href="javascript:history.back(-1);">跳转</a> 等待时间： <b id="wait">3</b>
+			</p>
+		  </div>
+   
+  </div>
+</body>
+<script type="text/javascript">
+(function(){
+var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+var interval = setInterval(function(){
+	var time = --wait.innerHTML;
+	if(time <= 0) {
+		location.href = href;
+		clearInterval(interval);
+	};
+}, 1000);
+})();
+</script>
+</html>

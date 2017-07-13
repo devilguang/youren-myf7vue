@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="content-type" content="text/html; charset=GBK" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>摄影频道首页-搜狐</title>
+<script src="http://www.sohu.com/sohuflash_1.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="http://css.sohu.com/upload/global1.3.css" />
+<style> 
+em{font-style:normal}
+.footer,.line{height:1px;font-size:0px;margin:0 auto;clear:both;overflow:hidden}
+ 
+a{color:#000}
+a:hover{color:#DA0000}
+ 
+.pp li{float:left;display:inline;width:100%}
+.pt div img,.pp img{border:1px #D7D7D7 solid;background:#FFF;padding:1px}
+.pt div a:hover img,.pp a:hover img{border:1px #DA0000 solid}
+.list12 li,.list14 li{background:url(http://images.sohu.com/uiue/dot.gif) no-repeat;}
+.list12 li{background-position:-1px -97px;padding:4px 0 4px 12px}
+ 
+.line{background:url(http://photo.sohu.com/upload/index/xx1.gif)}
+ 
+/* 翻牌广告 */
+.adB{width:948px;height:103px;margin:0 auto;background:#fff;border:1px solid #CCC;}
+.adB .left,.adB .right{width:179px;}
+.adB .center{width:590px;margin-top:4px;}
+ 
+#logoNav{margin:16px auto 11px}
+#logoNav .left{margin-left:33px}
+#logoNav .right{width:775px}
+#logoNav .wdA{width:215px}
+#logoNav .wdB{width:135px}
+#logoNav .wdC{width:135px}
+#logoNav .wdD{width:135px}
+#logoNav .wdE{width:155px}
+#logoNav .tt{float:left;margin-right:10px}
+#logoNav p{padding-top:2px;text-align:left;line-height:24px}
+ 
+#flashFocus{width:942px;padding:3px;margin:0 auto 10px;border:1px #D4D4D4 solid}
+.MDC_Focus{position:relative;width:942px;height:426px;background:#000}
+.MDC_Focus .l{cursor:pointer;float:left;padding:13px;display:inline;position:relative}
+.MDC_Focus .r{width:247px;height:426px;position:absolute;right:15px;top:0}
+ 
+.MDC_Focus .l div{position:absolute;bottom:0;left:5px;height:75px;bottom:13px}
+.MDC_Focus .l div h1{padding:0 25px;margin:0 auto;font:18px/32px '黑体';text-align:left;color:#fff}
+.MDC_Focus .l div p{padding:0 25px;margin:0 auto;font:12px/18px '宋体';text-align:left;color:#fff}
+.MDC_Focus .l div.bg{background:#000;left:13px;height:75px;bottom:13px}
+ 
+.MDC_Focus .r .up{cursor:pointer;position:absolute;top:0;left:113px;width:61px;height:13px;display:block;overflow:hidden}
+.MDC_Focus .r .up a{background:url(http://photo.sohu.com/upload/index/MDC_Focus_bg04.gif) top;display:block;width:100%;height:100%}
+.MDC_Focus .r .up a:hover{background:url(http://photo.sohu.com/upload/index/MDC_Focus_bg04.gif) 0 -13px}
+ 
+.MDC_Focus .r .down{cursor:pointer;position:absolute;bottom:0;left:113px;width:61px;height:13px;display:block;overflow:hidden}
+.MDC_Focus .r .down a{background:url(http://photo.sohu.com/upload/index/MDC_Focus_bg05.gif) top;display:block;width:100%;height:100%}
+.MDC_Focus .r .down a:hover{background:url(http://photo.sohu.com/upload/index/MDC_Focus_bg05.gif) 0 -13px}
+ 
+.MDC_Focus .r div{width:268px;height:400px;overflow:hidden;position:relative;top:13px}
+.MDC_Focus .r div dl{width:247px;position:absolute;left:0;top:0}
+.MDC_Focus .r div dl dd{cursor:pointer;height:93px;padding-top:6px;margin-bottom:4px;padding-left:13px;background:url(http://photo.sohu.com/upload/index/MDC_Focus_bg01.gif);margin-bottom:1px}
+.MDC_Focus .r div dl dd img{float:left}
+.MDC_Focus .r div dl dd h2{width:96px;float:left;margin:8px auto 8px 8px;display:inline;font:600 12px/20px '宋体';text-align:left;color:#fff}
+.MDC_Focus .r div dl dd p{width:96px;float:left;margin-left:8px;display:inline;font:12px/20px '宋体';color:#666;text-align:left}
+ 
+.MDC_Focus .r div dl dd.now{background:url(http://photo.sohu.com/upload/index/MDC_Focus_bg02.gif)}
+.MDC_Focus .r div dl dd.now h2{color:#fff}
+.MDC_Focus .r div dl dd.now p{color:#666}
+ 
+/* a */
+#contentA{margin:0 auto 20px;background:url(http://photo.sohu.com/upload/index/bgy01.gif)}
+#contentA .left{width:673px}
+#contentA .right{width:260px}
+#contentA .footer{background:url(http://photo.sohu.com/upload/index/bot01.gif)}
+ 
+#contentA .left .pt{width:300px;margin:5px auto 20px}
+#contentA .left .pt div{width:144px;margin:2px 16px 0 0;_margin-right:13px;text-align:center}
+#contentA .left .pt div span{display:block;margin:9px auto 0;line-height:22px}
+#contentA .left .pt h4{padding-bottom:6px;font:14px/20px "宋体"}
+#contentA .left .pt p a{color:#DA0000}
+#contentA .left h2 a{color:#DA0000}
+ 
+.sameL{background:url(http://photo.sohu.com/upload/index/bg01.gif) no-repeat 336px -470px}
+.sameL .l,.sameL .r{width:336px;padding-top:6px;background:url(http://photo.sohu.com/upload/index/bg02.gif) repeat-x top}
+.sameL h2{height:44px;width:303px;padding:0 16px;background:url(http://photo.sohu.com/upload/index/bg04.jpg) no-repeat 0 -6px;border-right:1px #FFF solid;line-height:44px}
+.sameL .r h2{border:0;border-left:1px #FFF solid}
+ 
+.picTxt{margin:15px auto 0}
+.picTxt .txt{width:300px;margin:12px auto 20px;text-align:left;line-height:20px}
+.picTxt .txt h4{padding-bottom:9px;font:14px/24px "宋体"}
+.picTxt .txt p a{color:#DA0000}
+ 
+.sameL .pp{margin:15px auto 0;width:312px}
+.sameL .pp li{width:144px;margin:0 6px;height:165px}
+.sameL .pp span{width:140px;margin:10px auto 0;line-height:20px}
+#contentA .list12 ul{width:308px;margin:16px auto 0}
+ 
+.sameL .ppBG{width:300px;padding:12px 0;margin:11px auto 0;background:#F2F2F2}
+.sameL .ppBG ul{width:276px;margin:0 auto}
+.sameL .ppBG li{width:92px;float:left}
+.sameL .ppBG span{display:block;width:74px;margin:11px auto 0;line-height:20px}
+ 
+#contentA .blockLA{background-position:336px 0}
+#contentA .blockLA .line{width:90%}
+#contentA .blockLB .pp{margin:22px auto 5px}
+#contentA .blockLC .pp{margin:18px auto 12px}
+#contentA .blockLE .pp{margin:18px auto 12px}
+ 
+#contentA .blockLD{background:url(http://photo.sohu.com/upload/index/xx2.gif) repeat-y 336px 0}
+#contentA .blockLD h2{height:48px;padding:6px 16px 0;background:url(http://photo.sohu.com/upload/index/bg04.jpg) no-repeat 0 0;line-height:48px}
+#contentA .blockLD .l,#contentA .blockLD .r{width:336px}
+#contentA .blockLD .list12 ul{margin:0 auto}
+ 
+.blank10B{height:10px;background:#FFF;font-size:0;clear:both}
+ 
+#contentA .right h2{height:28px;padding:12px 20px 0;background:#676767;border-bottom:2px #FFF solid;line-height:16px;color:#FFF}
+#contentA .right h2 span{font-size:14px}
+#contentA .right h2 a{color:#FFF}
+ 
+#contentA .blockRA{height:963px;overflow:hidden;width:260px;border-bottom:1px #D7D7D7 solid}
+#contentA .column{width:258px;margin:0 auto;border-top:1px #D7D7D7 solid;position:relative}
+#contentA .column .l{width:245px;height:109px;padding:13px 0 12px;border-right:1px #D7D7D7 solid;overflow:hidden}
+#contentA .column .r{width:6px;height:6px;margin-top:-3px;background:url(http://photo.sohu.com/upload/index/bg05.gif);position:absolute;right:3px;top:50%;font-size:0}
+#contentA .column .pt{width:221px;margin:0 auto;background:#FFF}
+#contentA .column .pt div{margin-right:0}
+#contentA .column .pt p{width:75px;float:right;padding-top:32px;color:#000;line-height:18px;font-weight: bold;text-align:center}
+#contentA .column .pt p span{display:block;font:18px/20px "黑体";color:#DA0000}
+#contentA .column .txt{width:223px;margin:12px auto 8px;text-align:left}
+#contentA .column .txt h4{padding-bottom:12px;font:14px/20px "宋体"}
+#contentA .column .txt p a{color:#DA0000}
+#contentA .nowCol{background:#F2F2F2}
+#contentA .nowCol .r{background:url(http://photo.sohu.com/upload/index/bg06.gif)}
+ 
+#contentA .snList ul{width:258px;padding-top:5px;margin:0 auto;border-top:1px #D7D7D7 solid}
+#contentA .snList li{background:url(http://photo.sohu.com/upload/index/xx1.gif) repeat-x bottom;line-height:22px;padding:7px 0;text-align:left}
+#contentA .snList li span{width:14px;height:15px;float:left;display:inline;margin:2px 9px 0;background:url(http://photo.sohu.com/upload/index/bg07.gif);font:600 12px/15px "宋体";color:#FFF;text-align:center}
+#contentA .snList .nobg{background:none}
+#contentA .more{width:230px;margin:10px auto 0;line-height:24px}
+#contentA .more a{color:#DA0000}
+
+/* b */
+#contentB{margin:0 auto 20px;padding-top:10px;border-top:1px #D7D7D7 solid}
+#contentB .left{width:715px}
+#contentB .right{width:230px}
+ 
+#contentB .picList{width:713px;height:430px;margin-left:0;position:relative;background:#B5B5B5}
+#contentB .picList li{position:absolute;top:0;left:0;overflow:hidden;width:158px;height:126px}
+ 
+#contentB .tt{position:absolute;top:216px;left:284px;z-index:100}
+ 
+#contentB li.pic2{top:127px}
+#contentB li.pic3{top:254px;height:176px}
+#contentB li.pic4{left:159px;width:157px;height:253px}
+#contentB li.pic5{left:159px;top:254px;width:275px;height:176px}
+#contentB li.pic6{left:317px;width:396px;height:275px}
+#contentB li.pic7{left:435px;top:276px;width:278px;height:154px}
+ 
+#contentB .picList li span{position:absolute;bottom:-35px;right:0;width:100%;height:26px;padding:8px 0 0;font:600 12px/22px "宋体";color:#FFF;text-align:left;text-indent:12px}
+#contentB .picList li span i{position:absolute;top:0;left:0;width:100%;height:34px;background:#000;filter:alpha(opacity=60);opacity: 0.60;}
+#contentB .picList li span a{color:#FFF;position:relative;z-index:2}
+#contentB .picList li.pic6 span{width:279px}
+
+#contentE .test{text-align:right;padding:50px 130px 2px 10px;}
+#contentE .test p{color:#000;}
+
+#foot{width:950px}
+</style>
+<style>
+.Area {width:950px;clear:both;margin:0 auto}
+</style>
+<script type="text/javascript" src="http://js.sohu.com/library/jquery1.4.2.js"></script>
+</head>
+
+<body>
+<div data-type="roll" data-appid="1077" id="isohu-topbar"></div>
+<link type="text/css" rel="stylesheet" href="http://news.sohu.com/upload/itoolbar/channel/itoolbar.201312131742.css" charset="UTF-8" />
+<script src="http://news.sohu.com/upload/itoolbar/itoolbar.channel.loader.201403191209.js" charset="UTF-8"></script>
+<div id="fullscreenad" style="display:none"></div>
+<style>
+#isohu-topbar .isohu-topbar {width: 950px;}
+#innerToolBar { width:950px;}
+</style>
+<style>
+#commend-headNav {overflow:hidden;color:#999;font: 14px/24px "\5B8B\4F53";height: 24px;margin:10px auto 9px;width:950px;}
+#commend-headNav a {color: #333333;margin:0 5px 0 6px;text-decoration:none;}
+#commend-headNav a.first{margin-left:0;}
+#commend-headNav a.last{margin-right:0;}
+#commend-headNav a.n3{margin-right:6px}
+#commend-headNav a:hover{color: #CC0000;text-decoration:underline;}
+</style>
+<div class="area" id="commend-headNav"><a class="first" href="http://www.sohu.com/">首页</a>-<a href="http://news.sohu.com/">新闻</a>-<a class="n3" href="http://mil.sohu.com/">军事</a>-<a href="http://cul.sohu.com/">文化</a>-<a href="http://history.sohu.com/">历史</a>-<a class="n3" href="http://sports.sohu.com/">体育</a>-<a href="http://sports.sohu.com/nba.shtml">NBA</a>-<a href="http://tv.sohu.com/">视频</a>-<a class="n3" href="http://yule.sohu.com/">娱乐</a>-<a href="http://business.sohu.com/">财经</a>-<a href="http://stock.sohu.com/">股票</a>-<a class="n3" href="http://it.sohu.com/">科技</a>-<a href="http://auto.sohu.com/">汽车</a>-<a href="http://www.focus.cn">房产</a>-<a href="http://fashion.sohu.com/">时尚</a>-<a href="http://baobao.sohu.com/">母婴</a>-<a href="http://learning.sohu.com/">教育</a>-<a href="http://health.sohu.com/">健康</a>-<a href="http://travel.sohu.com/">旅游</a>-<a href="http://chihe.sohu.com">美食</a>-<a class="last" href="http://astro.women.sohu.com/">星座</a></div>
+
+<div class="adB area">
+	<div class="left">
+		<SOHUADCODE>						<script> var passion_config = { PAGEID : "menindex_1377499606068" }; </script>
+<script src="http://images.sohu.com/bill/s2012/gates/all/sohuad2012v15.js"></script>
+<script src="http://images.sohu.com/bill/s2014/gates/01211500/passion.min.js"></script>
+<div>
+<div id="sheyingleft"></div> 
+<script type="text/javascript">
+<!--
+//可编辑内容开始
+var pic_width=176; //falsh宽度
+var pic_height=97; //flash高度
+var stop_time=5000; //图片停留时间(1000为1秒钟)
+
+var pics = "http://images.sohu.com/bill/s2009/MKT/sogou/142801211.jpg|http://images.sohu.com/bill/s2009/MKT/sogou/142801211.jpg";
+var links = "http://top.sogou.com/?=32020113|http://top.sogou.com/?=32020113";
+
+var sohuFlash2 = new sohuFlash("http://images.sohu.com/cs/jsfile/179-103.swf", "ITleft", pic_width, pic_height, "1");
+sohuFlash2.addParam("quality", "high");
+sohuFlash2.addParam("wmode", "opaque");
+sohuFlash2.addVariable("pics",pics);
+sohuFlash2.addVariable("links",links);
+sohuFlash2.addVariable("stop_time",stop_time);
+sohuFlash2.write("sheyingleft");
+//-->
+</script></div>
+</SOHUADCODE>
+	</div>
+	<div class="center">
+		<SOHUADCODE><div id="mktmoren59095"></div>
+<script type="text/javascript">
+var sohuFlash2 = new sohuFlash("http://images.sohu.com/bill/s2014/MKT/news/0114/59095.swf","_mktmoren59095","590","95","7");
+sohuFlash2.addParam("quality", "high");
+sohuFlash2.addParam("wmode", "opaque");
+sohuFlash2.addVariable("clickthru","");
+sohuFlash2.write("mktmoren59095");
+</script></SOHUADCODE>
+	</div>
+	<div class="right">
+		<SOHUADCODE><div id="sheyingright"></div> 
+<script type="text/javascript">
+<!--
+//可编辑内容开始
+var pic_width=176; //falsh宽度
+var pic_height=97; //flash高度
+var stop_time=5000; //图片停留时间(1000为1秒钟)
+
+var pics = "http://images.sohu.com/bill/s2011/MKT/mkt/wireless/14280-3.jpg|http://images.sohu.com/bill/s2011/MKT/mkt/wireless/14280-3.jpg";
+var links = "http://goto.sms.sohu.com/goto.php?aid=172&pid=1333|http://goto.sms.sohu.com/goto.php?aid=172&pid=1333";
+
+var sohuFlash2 = new sohuFlash("http://images.sohu.com/cs/jsfile/179-103.swf", "ITright", pic_width, pic_height, "1");
+sohuFlash2.addParam("quality", "high");
+sohuFlash2.addParam("wmode", "opaque");
+sohuFlash2.addVariable("pics",pics);
+sohuFlash2.addVariable("links",links);
+sohuFlash2.addVariable("stop_time",stop_time);
+sohuFlash2.write("sheyingright");
+//-->
+</script></SOHUADCODE>
+	</div>
+</div>
+
+<div id="logoNav" class="area">
+	<div class="left"><a href="http://photo.sohu.com/" target="_blank"><img src="http://photo.sohu.com/upload/index/photo_logo.gif" width="105" height="52" alt="sohu摄影" /></a></div>
+	<div class="right">
+		<div class="wdB l">
+<div class="tt"><img alt=学院 src="http://photo.sohu.com/upload/index/tt02.gif" width=32 height=47></div>
+<p><a href="http://photo.sohu.com/jzsx/index.shtml" target="_blank">佳作赏析</a> <br><a href="http://photo.sohu.com/dsft/index.shtml" target="_blank">大师访谈</a> </p></div>
+<div class="wdC l">
+<div class="tt"><img alt=资讯 src="http://photo.sohu.com/upload/index/tt03.gif" width=31 height=47></div>
+<p><a href="http://photo.sohu.com/xhxx/" target="_blank">协会信息</a> <br><a href="http://photo.sohu.com/information/" target="_blank">设备资讯</a></p></div>
+<div class="wdA l">
+<div class="tt"><img alt=题材 src="http://photo.sohu.com/upload/index/tt01.gif" width=31 height=47></div>
+<p><a href="http://photo.sohu.com/documentary/" target="_blank">纪实</a>&nbsp;&nbsp;<a href="http://photo.sohu.com/sports/" target="_blank">竞技</a>&nbsp;&nbsp;<a href="http://photo.sohu.com/fashion/" target="_blank">时尚</a>&nbsp;&nbsp;<a href="http://pic.travel.sohu.com/cate-911358.shtml" target="_blank">旅行</a><br><a href="http://photo.sohu.com/nature/" target="_blank">风光</a>&nbsp;&nbsp;<a href="http://photo.sohu.com/portrait/" target="_blank">人像</a>&nbsp;&nbsp;<a href="http://photo.sohu.com/macro/" target="_blank">微距</a>&nbsp;&nbsp;<a href="http://sheying.club.sohu.com/zz2140/threads" target="_blank">模特</a> </p></div>
+<div class="wdD l">
+<div class="tt"><img alt=器材 src="http://photo.sohu.com/upload/index/tt04.gif" width=30 height=47></div>
+<p><a href="http://sheying.club.sohu.com/zz1179/threads" target="_blank">摄影社区</a><br><a href="http://beta.club.sohu.com/zz2027/threads#p1" target="_blank">器材交流</a> </p></div>
+<div class="wdE r">
+<div class="tt"><img alt=摄友团 src="http://photo.sohu.com/upload/index/tt05.gif" width=44 height=47></div>
+<p><a href="http://sheying.club.sohu.com/zz2109/threads" target="_blank">北京</a>&nbsp;&nbsp;<a href="http://sheying.club.sohu.com/zz2125/threads" target="_blank">西安</a>&nbsp;&nbsp;<a href="http://sheying.club.sohu.com/zz2113/threads" target="_blank">山西</a><br><a href="http://sheying.club.sohu.com/zz2111/threads" target="_blank">华南</a>&nbsp;&nbsp;<a href="http://sheying.club.sohu.com/zz2110/threads" target="_blank">华东</a>&nbsp;&nbsp;<a href="http://sheying.club.sohu.com/zz0829/threads" target="_blank">西南</a> </p></div>
+	</div>
+</div>
+
+<div id="flashFocus" class="area">
+<script type="text/javascript">
+/**
+摄影焦点图
+*/
+var MDC_Focus=function(){
+	this.id=jQuery(arguments[0].id);
+	this.bigImgW=arguments[0].bigImgW;
+	this.bigImgH=arguments[0].bigImgH;
+	this.smallImgW=arguments[0].smallImgW;
+	this.smallImgH=arguments[0].smallImgH;
+	this.speed=arguments[0].speed||5000;
+	this.focusData=arguments;
+	this.autoPlay;
+	this.autoPlay2;
+};
+MDC_Focus.prototype={
+	init:function(){
+		var that=this;
+		this.id.addClass("MDC_Focus");		
+		var	go=function(){			
+			var _bigImg=jQuery('<div class="l" style="width:'+that.bigImgW+'px;height:'+that.bigImgH+'px"><a target="_blank"><img style="display:none;width:100%;height:100%" /></a><div class="bg"></div><div style="width:'+that.bigImgW+'px"><h1></h1><p></p></div></div>');
+			var _tab=jQuery('<div class="r"><span class="up"><a href="#"></a></span><span class="down"><a href="#"></a></span><div><dl></dl></div></div>');			
+			that.id.html(_bigImg).append(_tab);
+			for(var i=1;i<that.focusData.length;i++){				
+				that.id.find("> div:eq(1) dl").append('<dd><img src="'+that.focusData[i][1]+'" width="'+that.smallImgW+'" height="'+that.smallImgH+'" /><h2>'+that.focusData[i][5]+'</h2><p>'+that.focusData[i][6]+'</p></dd>');
+			};			
+			that.a()
+		};
+		go();
+	},
+	a:function(){
+		var _tab=this.id.find("> div:eq(1)"),that=this;
+		var _num=this.id.find(".r dl").height()-400;
+		var gogo=function(i){
+			that.b(i);
+		};
+		gogo();
+		this.id.find(".r > .up").mousedown(function(){
+			if(that.id.find(".r > div dl").position().top<0){
+				if(!that.id.find(".r > div dl").is(":animated")){
+					that.id.find(".r > div dl").stop().animate({top:"+=100"},200);
+				}
+			}			
+		});
+		this.id.find(".r > .down").mousedown(function(){
+			if(that.id.find(".r > div dl").position().top>-_num){
+				if(!that.id.find(".r > div dl").is(":animated")){
+					that.id.find(".r > div dl").stop().animate({top:"-=100"},200);
+				}
+			}	
+		});
+		this.id.find(".r a").click(function(){
+			return false
+		});
+		this.id.find(".l").hover(function(){
+			that.id.find(".l span").addClass("now");
+		},function(){
+			that.id.find(".l span").removeClass("now");
+		}).click(function(){
+			window.open(that.id.find(".l a:eq(0)").attr("href"));
+			return false;
+		});
+		_tab.find("dd").each(function(i){
+			(function(i){
+				_tab.find("dd").eq(i).bind("mouseenter",function(){
+					if(jQuery(this)[0].className!="now"){
+						clearTimeout(that.autoPlay);
+						clearTimeout(that.autoPlay2);	
+						gogo(i+1);
+						clearTimeout(that.autoPlay);
+						clearTimeout(that.autoPlay2);
+					}else{
+						clearTimeout(that.autoPlay);
+						clearTimeout(that.autoPlay2);
+					}
+				}).bind("mouseleave",function(){
+					clearTimeout(that.autoPlay);					
+					that.autoPlay2=setTimeout(function(){
+						var s=i+2;
+						s>that.focusData.length-1?s=1:s;
+						gogo(s);
+					},that.speed);
+				}).click(function(){
+					window.open(that.focusData[i+1][2])
+				});
+			})(i)
+		})
+	},
+	b:function(i){
+		var _index=i||1,that=this;
+		this.id.find("img:eq(0)").attr("src",that.focusData[_index][0]).parent().attr("href",that.focusData[_index][2]).end().css({"display":"block"});
+		this.id.find("dd").removeClass("now").eq(_index-1).addClass("now");
+		this.id.find(".l > div > h1").html(that.focusData[_index][3]);
+		this.id.find(".l > div > p").html(that.focusData[_index][4]);
+		var _w=this.id.find(".l > div:eq(1)").width();
+		this.id.find(".l > div:eq(0)").css({"width":0,"opacity":.5}).stop().animate({width:_w},200);
+		var _num1=this.id.find(".r dl dd.now").prevAll().length*100;
+		var _num2=this.id.find(".r dl").height()-400;
+		var _num3=_num1-300;
+		if(!that.id.find(".r > div dl").is(":animated")){
+			if(that.id.find(".r > div dl").position().top > -(_num1-300)){
+				that.id.find(".r > div dl").stop().animate({top:-_num3},200);
+			};
+			if(that.id.find(".r > div dl").position().top < (-_num1)){				
+				that.id.find(".r > div dl").stop().animate({top:-_num1},200);
+			}
+		}
+		if(that.id.find(".r > div dd").eq(0)[0].className=="now"){			
+			if(!that.id.find(".r > div dl").is(":animated")){				
+				that.id.find(".r > div dl").stop().animate({top:0},200);
+			}
+		};
+		this.autoPlay=setTimeout(function(){
+			that.b(_index==that.focusData.length-1?_index=1:++_index);
+		},that.speed);
+	}
+}
+</script>
+<div id="MDC_Focus_1"></div>
+<script type="text/javascript">
+var MDC_Focus_1=new MDC_Focus({
+id:"#MDC_Focus_1",//id
+bigImgW:"660",//大图宽
+bigImgH:"400",//大图高
+smallImgW:"120",//小图宽
+smallImgH:"90",//小图高
+speed:"3000"//转刷速度,默认为5秒
+},
+[	//数据1
+	"http://i2.itc.cn/20170629/366d_106b55d9_352b_d893_1140_6da9ce8a11ef_1.jpg",//大图
+	"http://i1.itc.cn/20170629/366d_a4069036_9279_ed81_389c_4ab110d388c3_1.jpg",//小图
+    "http://www.sohu.com/a/153041386_126820",
+	"“深入生活 扎根人民”大学生公益摄影展在中国摄影展览馆开幕",
+	"展览由中国摄影家协会、北京电影学院和北京国际摄影周组委会主办，中国摄影展览馆、中国摄影家协会教育委员会和北京电影学院摄影学院承办...[详细]",
+	"大学生公益摄影展在京开幕",
+	"&nbsp;"
+],
+[	//数据2
+	"http://i0.itc.cn/20170308/2bad_256ca43d_ff0c_5cd8_a0cc_93ca31a6d764_1.jpg",//大图
+	"http://i0.itc.cn/20170308/2bad_256ca43d_ff0c_5cd8_a0cc_93ca31a6d764_2.jpg",//小图
+    "http://photo.sohu.com/20170308/n482664907.shtml",
+	"2017第五届北京国际摄影周 专题摄影展 征集启事",
+	"本届摄影周将以“摄影:本来与未来”为主题，不忘初心，面向世界，面向未来，提升民族文化自信，推动我国摄影艺术事业向国际化、专业化、学术化发展...[详细]",
+	"2017第五届北京国际摄影周 专题摄影展 征集启事",
+	"&nbsp;"
+],[	//数据3
+	"http://i1.itc.cn/20161221/2bad_9af23737_036a_12c2_4a4d_9377627b5f86_1.jpg",//大图
+	"http://i1.itc.cn/20161221/2bad_9af23737_036a_12c2_4a4d_9377627b5f86_2.jpg",//小图
+        "http://photo.sohu.com/s2016/tupianbanquan/index.shtml",
+	"图片产业发展与摄影版权维护专家谈",
+	"2016年12月9日－10日，来自全国四面八方的摄影界专业人士汇聚到成都，参加由中国摄影家协会、中国摄影著作权协会和成都市文学艺术界联合会共同主办的“图片产业发展与摄影版权维护专家谈”活动...[详细]",
+	"图片产业发展与摄影版权维护专家谈",
+	"&nbsp;"
+],[	//数据4
+	"http://i0.itc.cn/20161115/366d_870b674d_e3f9_1723_8b96_3df0c6bfaf14_2.jpg",//大图
+	"http://i0.itc.cn/20161115/366d_870b674d_e3f9_1723_8b96_3df0c6bfaf14_1.jpg",//小图
+    "http://photo.sohu.com/20161115/n473241852.shtml",
+	"第十一届中国摄影艺术节北京怀柔隆重举行",
+	"第十一届中国摄影艺术节暨首届怀柔摄影文化季在北京市怀柔区雁栖湖畔隆重开幕。第十一届中国摄影金像奖同期颁奖",
+	"第十一届中国摄影艺术节北京怀柔隆重举行",
+	"&nbsp;"
+]);
+MDC_Focus_1.init();
+</script>
+</div>
+
+<div id="contentA" class="area">
+	<div class="left">
+		<div class="blockLA sameL clear">
+			<div class="l">
+				<h2><span><img alt=佳作赏析 src="http://i3.itc.cn/20110923/9d5_760dba74_4ad0_9323_e3ac_2794be07196e_1.gif" width=116 height=38></span><a href="http://photo.sohu.com/jzsx/index.shtml" target=_blank>更多&gt;&gt;</a></h2>
+				<div class="picTxt">
+					<div class="pic"><a href="http://pic.photo.sohu.com/group-704895.shtml" target="_blank"><img alt="" src="http://i3.itc.cn/20151225/366d_48cb9d12_a67a_e39c_96ba_85fa723a3654_1.jpg" width="300" height="225"></a></div>
+<div class="txt">
+<h4><a href="http://pic.photo.sohu.com/group-704895.shtml" target="_blank">朱宪民 国家博物馆 个展 -《百姓》组照</a></h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;《百姓》组照（创作于1963－2015），中国艺术摄影学会执行主席朱宪民是首个进入国家博物馆的摄影艺术家，本次展览将于2016年1月1日开幕...<a href="http://pic.photo.sohu.com/group-704895.shtml" target="_blank">[详细]</a></p></div>
+				</div>
+				<div class="line"></div>
+				<div class="pp">
+<ul>
+
+<li><a href="http://photo.sohu.com/s2015/bjgjsyz-2015/index.shtml" target="_blank"><img alt="" src="http://i3.itc.cn/20160425/366d_8e99a36d_3026_1440_7ced_a3f17f8e1a3e_1.jpg" width=140 height=105></a><span><a href="http://photo.sohu.com/s2015/bjgjsyz-2015/index.shtml" target="_blank">2015北京国际摄影周</a></span></li>
+
+<li><a title="" href="http://photo.sohu.com/s2015/2015lianzhou/index.shtml" target="_blank"><img alt="" src="http://i0.itc.cn/20160425/366d_dcbab7b2_c463_ee2d_063d_5b8d594d8df6_1.jpg" width=140 height=105></a><span><a title="" href="http://photo.sohu.com/s2015/2015lianzhou/index.shtml" target="_blank">2015连州国际摄影节</a></span></li>
+
+<li><a title="" href="http://photo.sohu.com/s2014/2014lianzhou/index.shtml" target="_blank"><img alt="" src="http://i0.itc.cn/20151023/366d_a828f2d7_dba7_0db6_fcb4_f5739f0b24ab_1.gif" width=140 height=105></a><span><a title="" href="http://photo.sohu.com/s2014/2014lianzhou/index.shtml" target="_blank">2014连州国际摄影节</a></span></li>
+
+<li><a title="" href="http://photo.sohu.com/s2013/gysydz/index.shtml" target="_blank"><img alt="" src="http://i2.itc.cn/20131025/2bad_331d33da_4c3e_2989_fccc_59743b2a085b_1.jpg" width=140 height=105></a><span><a title="" href="http://photo.sohu.com/s2013/gysydz/index.shtml" target="_blank">2013工业摄影大展</a></span></li>
+
+
+</ul></div>
+			</div>
+			<div class="r">
+				<h2><span><img alt=进阶学院 src="http://i2.itc.cn/20110923/9d5_af9fccd7_7f7e_76ae_bcb4_2f5964d1859e_1.gif" width=122 height=38></span><a href="http://photo.sohu.com/dsft/index.shtml" target=_blank>更多&gt;&gt;</a></h2>
+				<div class="picTxt">
+					<div class="pic"><a href="http://photo.sohu.com/s2012/interview--jb/index.shtml" target="_blank">
+<img alt="" src="http://i2.itc.cn/20170629/366d_9df4980c_7625_0938_e072_bec2b76be5b9_1.jpg" width="300" height="225"></a></div>
+<div class="txt">
+<h4><a href="http://photo.sohu.com/s2012/interview--jb/index.shtml" target="_blank">大师系列访谈：焦波</a></h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;从30年前，我父母六十多岁的时候，我开始给他们拍照片。作为一个刚刚学会拍照的儿子，就想多给父母留下些影像的东西。...<a href="http://photo.sohu.com/s2012/interview--jb/index.shtml" target="_blank">[详细]</a></p></div>
+				</div>
+				<div class="line"></div>
+				<div class=list12><ul><li><a href='http://photo.sohu.com/20130922/n386977104.shtml' target='_blank'>中国摄影出版社携大师名作及百余种新书亮相平遥</a></li>
+<li><a href='http://photo.sohu.com/20121203/n359361743.shtml' target='_blank'>2012连州国际摄影年展大师访谈——王汉冰</a></li>
+<li><a href='http://pic.photo.sohu.com/group-350160.shtml' target='_blank'>摄影家王亚明——天鹅摄影作品《千姿黑与白》</a></li>
+<li><a href='http://pic.photo.sohu.com/group-336805.shtml' target='_blank'>摄影家张晖非洲之行——鸟</a></li>
+</ul></div>
+				<DIV class="ppBG clear">
+<UL>
+<LI><A href="http://photo.sohu.com/s2011/interview-pd/index.shtml" target=_blank><IMG alt="" src="http://i0.itc.cn/20130219/2bad_05e7182b_abf6_fa04_2ea5_0ce3b3286117_1.jpg" width=90 height=120></A><SPAN><A href="http://photo.sohu.com/s2011/interview-pd/index.shtml" target=_blank>大师访谈系列 彭东</A></SPAN></LI>
+<LI><A title="" href="http://photo.sohu.com/s2011/interview-wlg/index.shtml" target=_blank><IMG alt="" src="http://i0.itc.cn/20121019/2bad_fc32b35c_37ea_bab1_c852_b01dc5a7d3cf_3.jpg" width=90 height=120></A><SPAN><A title="" href="http://photo.sohu.com/s2011/interview-wlg/index.shtml" target=_blank>大师访谈系列 王礼贵</A></SPAN></LI>
+<LI><A title="" href="http://photo.sohu.com/s2011/interview-xm/index.shtml" target=_blank><IMG alt="" src="http://i0.itc.cn/20121022/2bad_a2b88738_8f6b_9686_da33_dd1c7f2f5629_1.jpg" width=90 height=120></A><SPAN><A title="" href="http://photo.sohu.com/s2011/interview-xm/index.shtml" target=_blank>大师访谈系列 谢墨</A></SPAN></LI></UL></DIV>
+			</div>
+		</div>
+		
+		<div class="blockLE sameL clear">
+			<div class="l">
+				<h2><span><img alt=竞技 src="http://photo.sohu.com/upload/index/tt15.gif" width=86 height=38></span><a href="http://photo.sohu.com/sports/" target=_blank>更多&gt;&gt;</a></h2>
+				<DIV class=pp>
+<UL>
+<LI><A href="http://pic.photo.sohu.com/group-474553.shtml#0" target=_blank><IMG alt="" src="http://i3.itc.cn/20130829/2bad_9e4106c7_2ec1_52e2_f9d5_65e2339e69a3_1.jpg" width=140 height=105></A><SPAN><A href="http://pic.photo.sohu.com/group-474553.shtml#0" target=_blank>拳师</A></SPAN></LI>
+
+<LI><A href="http://pic.photo.sohu.com/group-387820.shtml#0" target=_blank><IMG alt="" src="http://i2.itc.cn/20121018/2bad_32e74ff7_8011_9924_3e90_f72aef6cffa9_1.jpg" width=140 height=105></A><SPAN><A href="http://pic.photo.sohu.com/group-387820.shtml#0" target=_blank>“幻影”极限运动</A></SPAN></LI>
+
+</UL></DIV>
+			</div>
+			<div class="r">
+				<h2><span><img alt=时尚 src="http://photo.sohu.com/upload/index/tt16.gif" width=106 height=38></span><a href="http://photo.sohu.com/fashion/" target=_blank>更多&gt;&gt;</a></h2>
+				<div class="pp">
+<ul>
+<li><a href="http://pic.photo.sohu.com/group-474483.shtml#0" target="_blank"><img alt="" src="http://i3.itc.cn/20130829/2bad_a6848502_0b7f_f494_1440_4bf3e47e9c1d_2.jpg" width="140" height="105"></a><span><a href="http://pic.photo.sohu.com/group-474483.shtml#0" target="_blank">广告牌下的路人甲</a></span></li>
+
+<li><a href="http://pic.photo.sohu.com/group-474481.shtml#0" target="_blank"><img alt="" src="http://i3.itc.cn/20130829/2bad_a6848502_0b7f_f494_1440_4bf3e47e9c1d_1.jpg" width="140" height="105"></a><span><a href="http://pic.photo.sohu.com/group-474481.shtml#0" target="_blank">救援英雄的时尚大片</a></span></li>
+</ul>
+</div>
+			</div>
+		</div>
+		
+		<div class="blockLB sameL clear">
+			<div class="l">
+				<h2><span><img alt=人文纪实 src="http://photo.sohu.com/upload/index/tt08.gif" width=168 height=38></span><a href="http://photo.sohu.com/documentary/" target=_blank>更多&gt;&gt;</a></h2>
+				<DIV class=pp>
+<UL>
+<LI><A href="http://pic.photo.sohu.com/group-474522.shtml#0" target=_blank><IMG height=105 alt="" src="http://i0.itc.cn/20130829/2bad_d4385e9f_50e4_e203_30ef_a057c16bb025_2.jpg" width=140></A><SPAN><A href="http://pic.photo.sohu.com/group-474522.shtml#0" target=_blank>触电之后</A></SPAN></LI>
+
+<LI><A href="http://pic.photo.sohu.com/group-474519.shtml#0" target=_blank><IMG height=105 alt="" src="http://i0.itc.cn/20130829/2bad_d4385e9f_50e4_e203_30ef_a057c16bb025_1.jpg" width=140></A><SPAN><A href="http://pic.photo.sohu.com/group-474519.shtml#0" target=_blank>英式摩托车葬礼</A></SPAN> 
+<P></P></LI></UL></DIV>
+			</div>
+			<div class="r">
+				<h2><span><img alt=人像 src="http://photo.sohu.com/upload/index/tt09.gif" width=104 height=38></span><a href="http://photo.sohu.com/portrait/" target=_blank>更多&gt;&gt;</a></h2>
+				<div class=pp>
+<ul>
+<li><a href="http://pic.photo.sohu.com/group-486121.shtml#0" target=_blank><img alt="" src="http://i3.itc.cn/20130929/2bad_cfcca29f_8dfe_507f_f81d_b22356581bf4_1.jpg" width=140 height=105></a><span><a href="http://pic.photo.sohu.com/group-486121.shtml#0" target=_blank>洛杉矶无家可归的流浪人</a></span></li>
+
+<li><a href="http://pic.photo.sohu.com/group-474465.shtml#0" target=_blank><img alt="" src="http://i2.itc.cn/20130829/2bad_0093b256_d43f_a1d6_249d_96ab8a5f78cb_2.jpg" width=140 height=105></a><span><a href="http://pic.photo.sohu.com/group-474465.shtml#0" target=_blank>人像摄影：恶之花</a></span></li>
+</ul>
+</div>
+			</div>
+		</div>
+		
+		<div class="blockLC sameL clear">
+			<div class="l">
+				<h2><span><img alt=自然风光 src="http://photo.sohu.com/upload/index/tt10.gif" width=96 height=38></span><a href="http://photo.sohu.com/nature/" target=_blank>更多&gt;&gt;</a></h2>
+				<div class=pp>
+<ul>
+<li><a href="http://pic.photo.sohu.com/group-439736.shtml#0" target=_blank><img alt="" src="http://i0.itc.cn/20130829/2bad_ddeb9b5a_bf52_7620_d2e7_5f87e909d4cf_2.jpg" width=140 height=105></a><span><a href="http://pic.photo.sohu.com/group-439736.shtml#0" target=_blank>极地之光</a></span></li>
+
+<li><a href="http://pic.photo.sohu.com/group-425696.shtml#0" target=_blank><img alt="" src="http://i0.itc.cn/20130829/2bad_ddeb9b5a_bf52_7620_d2e7_5f87e909d4cf_1.jpg" width=140 height=105></a><span><a href="http://pic.photo.sohu.com/group-425696.shtml#0" target=_blank>倒影巴黎</a></span></li>
+</ul>
+</div>
+			</div>
+			<div class="r">
+				<h2><span><img alt=花鸟虫鱼 src="http://i0.itc.cn/20101104/9cc_ba24a774_1669_4ebf_8b73_75c6a67aebc2_0.gif" width=88 height=38></span><a href="http://photo.sohu.com/macro/" target=_blank>更多&gt;&gt;</a></h2>
+				<div class=pp>
+<ul>
+<li><a href="http://pic.photo.sohu.com/group-387825.shtml#0" target=_blank><img alt="" src="http://i1.itc.cn/20121018/2bad_03c3f987_dd79_cd7b_8492_8e0e6e2feec5_1.jpg" width=140 height=105></a><span><a href="http://pic.photo.sohu.com/group-387825.shtml#0" target=_blank>伊朗摄影师镜头下“暴眼”动物</a></span></li>
+
+<li><a href="http://pic.photo.sohu.com/group-387828.shtml#0" target=_blank><img alt="" src="http://i1.itc.cn/20121018/2bad_38be61ae_e20e_db64_0b0d_21ee8430108f_1.jpg" width=140 height=105></a><span><a href="http://pic.photo.sohu.com/group-387828.shtml#0" target=_blank>微距摄影：蚂蚁</a></span></li>
+</ul>
+</div>
+			</div>
+		</div>
+		
+		<div class="blockLD clear">
+			<h2><span><img alt=资讯 src="http://photo.sohu.com/upload/index/tt12.gif" width=152 height=38></span><a href="http://photo.sohu.com/sheyingzixun/index.shtml" target=_blank>摄影资讯</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://photo.sohu.com/information/" target=_blank>设备资讯</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://photo.sohu.com/assessment/" target=_blank>使用评测</a></h2>
+			<div class="l">
+				<div class="pt">
+<div><a href="http://photo.sohu.com/s2015/artphoto/index.shtml" target="_blank"><img alt="" src="http://i2.itc.cn/20151023/366d_00f8c4bb_f184_3ce6_1740_27448b35c2f8_1.jpg" width="140" height="105"></a></div>在2015北京国际摄影周开幕之际，中国艺术摄影学会官网落户搜狐摄影频道...<a href="http://photo.sohu.com/s2015/artphoto/index.shtml" target="_blank">[详细]</a> 
+<p></p></div>
+			</div>
+			<div class="r">
+				<div class=list12><ul><li><a href='http://photo.sohu.com/20170626/n498675474.shtml' target='_blank'>小黄车首现大连街头 青年代表体验中国共享单车</a></li>
+<li><a href='http://photo.sohu.com/20170623/n498947002.shtml' target='_blank'>深入生活 扎根人民”大学生公益摄影展在京开幕</a></li>
+<li><a href='http://photo.sohu.com/20170518/n493510674.shtml' target='_blank'>包商银行杯全国第七届小企业贷款摄影大展开幕</a></li>
+<li><a href='http://photo.sohu.com/20170517/n493362866.shtml' target='_blank'>2017郑宏昌作品视频</a></li>
+<li><a href='http://photo.sohu.com/20170421/n493537354.shtml' target='_blank'>冬尼《空间 城市》获索尼世界影赛建筑类一等奖</a></li>
+</ul></div>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<div class="ad260">
+			<SOHUADCODE></SOHUADCODE>
+		</div>
+		<div class="blank10B"></div>
+		
+		<div class="blockRA clear" id="columnID">
+			<h2><span>协会天地</span></h2>
+			<div class="column clear">
+<div class="l">
+<div class="pt">
+<div><a href="http://photo.sohu.com/s2015/artphoto/index.shtml" target="_blank"><img height=105 alt="" src="http://i0.itc.cn/20151021/2bad_7f212261_157c_35c1_c6b4_579d75c1b9b1_2.jpg" width=140 =""></a></div>
+<p><span>中国艺术摄影学会</span></p></div>
+<div class="txt">
+<h4><a href="http://photo.sohu.com/s2015/artphoto/index.shtml" target="_blank">中国艺术摄影学会</a></h4>
+<p>遵循文艺为人民服务，为社会主义服务的方向；坚持百花齐放，百家争鸣的方针；积极开展摄影理论研究，促进我国群众摄影艺术事业的繁荣和发展...<a href="http://photo.sohu.com/s2015/artphoto/index.shtml" target="_blank">[详细]</a></p></div></div>
+<div class="r"></div></div>
+
+<div class="column clear">
+<div class="l">
+<div class="pt">
+<div><a href="http://www.cpra.org.cn/index.html" target="_blank"><img height=105 alt="" src="http://i0.itc.cn/20151021/2bad_7f212261_157c_35c1_c6b4_579d75c1b9b1_1.jpg" width=140></a></div>
+<p><span>中国公共关系协会</span></p></div>
+<div class="txt">
+<h4><a href="http://www.cpra.org.cn/index.html" target="_blank">中国公共关系协会</a></h4>
+<p>成立于1987年，由公共关系领域相关的政府部门、机构、传媒、院校、企事业单位和专家、学者、行业从业人员自愿组成。是经民政部核准登记的具有全国性社会团体法人资格的非营利性社会组织...<a href="http://www.cpra.org.cn/index.html" target="_blank">[详细]</a></p></div></div>
+<div class="r"></div></div>
+
+<div class="column clear">
+<div class="l">
+<div class="pt">
+<div><a href="http://www.zggysyw.com/" target="_blank"><img height=105 alt="" src="http://i2.itc.cn/20151023/366d_a6504fc6_22cc_ae49_8e9b_5f15c249f0a3_1.gif" width=140 =""></a></div>
+<p><span>中国工业摄影协会</span></p></div>
+<div class="txt">
+<h4><a href="http://www.zggysyw.com/" target="_blank">中国工业摄影协会</a></h4>
+<p>中国工业摄影协会是经国家民政部批复成立的，由相关企事业单位、社会团体和摄影爱好者自愿组成的国家一级公益性社团。...<a href="http://www.zggysyw.com/" target="_blank">[详细]</a></p></div></div>
+<div class="r"></div></div>
+
+
+<div class="column clear">
+<div class="l">
+<div class="pt">
+<div><a href="http://www.bjsyysxh.com/" target="_blank"><img height=105 alt="" src="http://i0.itc.cn/20151023/366d_e2734136_b05a_ada1_eee6_f34078e6f138_1.gif" width=140></a></div>
+<p><span>北京摄影艺术协会</span></p></div>
+<div class="txt">
+<h4><a href="http://www.bjsyysxh.com/" target="_blank">北京摄影艺术协会</a></h4>
+<p>北京摄影艺术协会成立于2012年6月，是经北京市民政局批准的，由艺术摄影家和从事与摄影艺术有关的企业单位自愿结合组成的学术性社会团体<a href="http://www.bjsyysxh.com/" target="_blank">[详细]</a></p></div></div>
+<div class="r"></div></div>
+
+
+<div class="column clear">
+<div class="l">
+<div class="pt">
+<div><a href="http://www.threeshadows.cn/" target="_blank"><img height=105 alt="" src="http://i0.itc.cn/20121024/2bad_efa14a83_ffdc_0b6c_ea95_610f1ecf752f_1.jpg" width=140></a></div>
+<p><span>三影堂</span></p></div>
+<div class="txt">
+<h4><a href="http://photo.sohu.com/20151109/n425776807.shtml" target="_blank">集美 x 阿尔勒 国际摄影季</a></h4>
+<p>东西方对话国际摄影季分为：相遇、两种乡愁、时尚与摄影、城市巡航、延展摄影、独立影事、在地行动、重影重生、奖项与收藏等板块。涉及到超过十个国家和地区...<a href="http://photo.sohu.com/20151109/n425776807.shtml" target="_blank">[详细]</a></p></div></div>
+<div class="r"></div></div>
+
+<div class="column clear">
+<div class="l">
+<div class="pt">
+<div><a href="http://photo.sohu.com/s2012/jngsydc/index.shtml" target="_blank"><img height=105 alt="" src="http://i3.itc.cn/20121018/2bad_befaa388_26f8_3c42_9f1a_d9d270440e7f_2.jpg" width=140></a></div>
+<p><span>关山月美术馆</span></p></div>
+<div class="txt">
+<h4><a href="http://photo.sohu.com/s2012/jngsydc/index.shtml" target="_blank">纪念关山月诞辰100周年</a></h4>
+<p>今年是著名中国画家、教育家、岭南画派大师关山月先生诞辰100周年，作为岭南画派的卓越代表，关老以发展、繁荣中国画为己任，将个人的艺术探索带入当代中国艺术变革的洪流之中...<a href="http://photo.sohu.com/s2012/jngsydc/index.shtml" target="_blank">[详细]</a></p></div></div>
+<div class="r"></div></div>
+		</div>
+		<script type="text/javascript">
+		jQuery(function(jq){
+			var cls = "nowCol";
+			var rd = jq('#columnID');
+			var divs = rd.find('.column');
+			var curEl = null,
+				dur = 300,
+				h = {min:109, max:220};
+			
+			divs.mouseover(function(el){
+				el = jq(this);
+				if (el === curEl) return;
+				
+				curEl = el;
+				
+				divs.not(el).removeClass(cls).find('> .l').stop().animate({'height':h.min},dur,'linear');
+				
+				el.find('> .l').stop().animate({'height':h.max},dur,'linear');
+				el.addClass(cls);
+			});
+			
+			divs.find('> .l').css({'height':h.min}).eq(0).css({'height':h.max});
+			curEl = divs.eq(0).addClass(cls);
+		});
+		</script>
+		<div class="blank10B"></div>
+		
+		<div class="blockRB clear">
+			<h2><span>摄影名博</span></h2>
+			<div>
+<div class="right">
+<br>
+<a href="http://photo.t.sohu.com/" target="_blank"><img alt="" src="http://i1.itc.cn/20110614/a22_e01976b8_1204_47aa_a6c6_7281b6c55024_0.jpg" width=55 height=55></a>
+<a href="http://summi.t.sohu.com/" target="_blank"><img alt="" src="http://i2.itc.cn/20121017/2bad_cb15da7d_5fad_3631_0bbc_d4b6671ba074_3.jpg" width=55 height=55></a>
+<a href="http://t.sohu.com/u/68999868" target="_blank"><img alt="" src="http://i3.itc.cn/20121017/2bad_cae032c5_d709_7be0_61ee_ca12f8db1438_1.jpg" width=55 height=55></a>
+<a href="http://wangxuebing.t.sohu.com/" target="_blank"><img alt="" src="http://i1.itc.cn/20121017/2bad_cb15da7d_5fad_3631_0bbc_d4b6671ba074_2.jpg" width=55 height=55></a>
+</br>
+<br>
+<a href="http://photo.t.sohu.com/" target="_blank">搜狐摄影</a>　　
+<a href="http://summi.t.sohu.com/" target="_blank">程宫</a>　　
+<a href="http://t.sohu.com/u/68999868" target="_blank">王琛</a>　　
+<a href="http://wangxuebing.t.sohu.com/" target="_blank">王学兵</a>　　　　
+</br>
+<br>
+<a href="http://dongyong.t.sohu.com/" target="_blank"><img alt="" src="http://i2.itc.cn/20121017/2bad_cb15da7d_5fad_3631_0bbc_d4b6671ba074_1.jpg" width=55 height=55></a>
+<a href="http://t.sohu.com/u/999745" target="_blank"><img alt="" src="http://i0.itc.cn/20110614/a22_8d6f028f_4d42_44e7_9820_43d456830c6d_0.jpg" width=55 height=55></a>
+<a href="http://tyimin.t.sohu.com/" target="_blank"><img alt="" src="http://i0.itc.cn/20110614/a22_e333fd0b_a47b_4f2c_a8a7_318001eda63e_0.jpg" width=55 height=55></a>
+<a href="http://gostcry.t.sohu.com/" target="_blank"><img alt="" src="http://i0.itc.cn/20110614/a22_7725c75a_f60a_47d1_8624_6c12ea4ab171_0.jpg" width=55 height=55></a>
+</br>
+<br>
+<a href="http://dongyong.t.sohu.com/" target="_blank">董勇</a>　　
+<a href="http://t.sohu.com/u/999745" target="_blank">李志岩</a>　　
+<a href="http://tyimin.t.sohu.com/" target="_blank">唐怡民</a>　　
+<a href="http://gostcry.t.sohu.com/" target="_blank">刘丹</a>　
+</br>
+<br>
+<a href="http://t.sohu.com/u/49631588" target="_blank"><img alt="" src="http://i2.itc.cn/20121017/2bad_3b38b6c6_bd21_de94_8404_2a50a31bd074_4.jpg" width=55 height=55></a>
+<a href="http://t.sohu.com/u/234217587" target="_blank"><img alt="" src="http://i0.itc.cn/20121017/2bad_3b38b6c6_bd21_de94_8404_2a50a31bd074_1.jpg" width=55 height=55></a>
+<a href="http://t.sohu.com/u/289177647" target="_blank"><img alt="" src="http://i3.itc.cn/20121017/2bad_3b38b6c6_bd21_de94_8404_2a50a31bd074_3.jpg" width=55 height=55></a>
+<a href="http://gettyimages.t.sohu.com" target="_blank"><img alt="" src="http://i2.itc.cn/20121017/2bad_3b38b6c6_bd21_de94_8404_2a50a31bd074_2.jpg" width=55 height=55></a>
+
+</br>
+<br>
+<a href="http://t.sohu.com/u/49631588" target="_blank">摄影发烧友</a>　
+<a href="http://t.sohu.com/u/234217587" target="_blank">张晖</a>　　
+<a href="http://t.sohu.com/u/289177647" target="_blank">焦波</a>　　
+<a href="http://gettyimages.t.sohu.com" target="_blank">华盖创意</a>　　
+</br>
+
+</div>
+			
+		</div>
+		
+		
+		<!-- 2011-06-13 st -->
+		<style>
+		#contentA .blockRB,#contentA .blockRC{padding:0 0 6px;border-bottom:1px #D7D7D7 solid}
+		#contentA .blockRC .list12{border-top:1px #D7D7D7 solid}
+		#contentA .blockRC .list12 ul{width:240px;margin:0 auto;padding:10px 0 0}
+		#contentA .blockRD .list12{border-top:1px #D7D7D7 solid}
+		#contentA .blockRD .list12 ul{width:240px;margin:0 auto;padding:10px 0 0}
+		</style>
+		<div class="blank10B"></div>
+		<div class="blockRC clear">
+			<h2><span>合作机构</span></h2>
+			<div class="list12">
+				<ul>
+					<li><a href="http://photo.sohu.com/s2015/artphoto/index.shtml" target="_blank">中国艺术摄影学会</a></li>
+					<li><a href="http://www.135-120-220.com/" target="_blank">深圳企业家摄影协会</a></li>
+					<li><a href="http://www.gsyart.com/" target="_blank">关山月美术馆</a></li>
+					<li><a href="http://www.lianzhoufoto.com/" target="_blank">连州国际摄影界组委会</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="blank10B"></div>
+		<div class="blockRD clear">
+			<h2><span>合作媒体</span></h2>
+<a href="http://fotomen.cn/" target="_blank"><img alt="" src="http://i1.itc.cn/20110801/a22_a46cd76c_3cee_3152_95af_868f1986923e_1.png" width=70 height=73></a>
+		
+				<ul>
+						</ul>
+			</div>
+		</div>
+		<!-- 2011-06-13 end -->
+		
+	</div>
+	<div class="footer"></div>
+</div>
+		</div>
+	</div>
+	<div class="footer"></div>
+</div>
+
+<div id="contentB" class="area">
+	<div class="left">
+		
+
+	</div>
+	<div class="right">
+		<div class="ad220">
+			<SOHUADCODE>
+</SOHUADCODE>
+		</div>
+	</div>
+</div>
+
+<div class="clear"></div>
+	<div id="foot" class="Area area">
+		<a href="javascript:void(0)" onClick=this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.sohu.com');return false;>设置首页</a>
+		- <a href=http://pinyin.sogou.com/ target=_blank rel="nofollow">搜狗输入法</a>
+		- <a href=http://pay.sohu.com/ target=_blank rel="nofollow">支付中心</a>
+		- <a href=http://hr.sohu.com target=_blank rel="nofollow">搜狐招聘</a>
+		- <a href=http://ad.sohu.com/ target=_blank rel="nofollow">广告服务</a>
+		- <a href=http://sohucallcenter.blog.sohu.com/ target=_blan rel="nofollow"k>客服中心</a>
+		- <a href=http://corp.sohu.com/s2006/contactus/ target=_blank rel="nofollow">联系方式</a>
+		- <a href=http://www.sohu.com/about/privacy.html target=_blank rel="nofollow">保护隐私权</a>
+		- <a href=http://investors.sohu.com/ target=_blank rel="nofollow">About SOHU</a>
+		- <a href=http://corp.sohu.com/indexcn.shtml target=_blank rel="nofollow">公司介绍</a>
+		- <a href=http://sitemap.sohu.com/ target=_blank>网站地图</a>
+		- <a href=http://roll.sohu.com/ target=_blank>全部新闻</a>
+		- <a href=http://blog.sohu.com/roll target=_blank>全部博文</a>
+		<br />Copyright <span class="fontArial">&copy;</span> 2017 Sohu.com Inc. All Rights Reserved. 搜狐公司 <span class="unline"><a href="http://corp.sohu.com/s2007/copyright/" target="_blank" rel="nofollow">版权所有</a></span>
+		<br />搜狐不良信息举报邮箱：<a href="mailto:jubao@contact.sohu.com">jubao@contact.sohu.com</a>
+	</div>
+	<SCRIPT language=JavaScript src="http://js.sohu.com/pv.js"></SCRIPT>
+	<script language="javascript" src="http://js.sohu.com/wrating20120726.js"></script>
+	<script language="javascript"> 
+		var  _wratingId = null;
+		try{
+		_wratingId = _getAcc();
+		}catch(e){}
+		if(_wratingId !=null){
+		document.write('<scr'+'ipt type="text/javascript" src="http://sohu.wrating.com/a1.js"></scr'+'ipt>');
+		}
+		</script>
+		<script language="javascript"> 
+		if(_wratingId !=null){
+		document.write('<scr'+'ipt type="text/javascript">');
+		document.write('var vjAcc="'+_wratingId+'";');
+		document.write('var wrUrl="http://sohu.wrating.com/";');
+		document.write('try{vjTrack();}catch(e){}');
+		document.write('</scr'+'ipt>');
+		}
+	</script>
+	<!--SOHU:DIV_FOOT-->
+
+</body>
+</html>

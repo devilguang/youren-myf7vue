@@ -7,7 +7,10 @@
   <!--<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 " >
+  <script src="//s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
   <script>
+
     (function () {
       // var theme = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ? 'ios' : 'material';
       var theme = 'material';
@@ -20,10 +23,12 @@
         '<link href="/static/framework7/css/framework7.' + theme + '.colors.min.css" rel="stylesheet" />' +
         '<link href="' + icons + '" rel="stylesheet" />'
       );
+      document.addEventListener('touchmove',function(event){}, false);
     })();
   </script>
+
 </head>
-<body>
+<body style="overflow:hidden">
 <div id="app">
     <f7-page>
       <f7-views >
@@ -35,17 +40,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/zh-cn.js"></script>
 <!-- built files will be auto injected -->
-<script>
-  document.addEventListener('touchmove',function(event){}, false);
-  function stopDefault(e) {
-    if(e && e.preventDefault) {
-      e.preventDefault();
-    } else {
-      window.event.returnValue = false;
-    }
-    return false;
-  }
-</script>
 </body>
 
 </html>

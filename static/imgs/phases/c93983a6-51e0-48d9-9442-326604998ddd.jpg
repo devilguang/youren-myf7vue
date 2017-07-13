@@ -1,0 +1,541 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge; IE=8; IE=9" >
+<title>错误页面</title>
+<meta name="others" content="页面生成时间 2017-05-31 11:48:05" />
+<link href="../xhtml/css/eror.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="http://libs.dg.gov.cn/code/xhtml/js/tab.js"></script>
+</head>
+
+<body>
+<div id="top">
+  <div class="topkj">
+    <div class="logo lf"><a href="http://dg.gov.cn/" target="_parent"><img src="../xhtml/images/lo.png"/></a></div>
+    <div class="ssrq lf">
+      <div class="tqyb "><span class="lf ">东莞</span><span class="pad_lf lf">
+        <MARQUEE style="width:490px" DIRECTION=left BEHAVIOR=SCROLL SCROLLAMOUNT=2 SCROLLDELAY=2 height="25" onMouseOver="stop()" onMouseOut="start()">
+        <SCRIPT language=JavaScript src="http://www.dg.gov.cn/sofpro/otherproject/weather/weather.js"></SCRIPT>
+        </marquee>
+        </span></div>
+      <div class="ss"><span class="lf">
+        <FORM onkeypress=if(event.keyCode==13){jmpser();} id=searchForm onsubmit="return false;" method=get name=searchForm action="" target=_blank>
+          <INPUT type=hidden value=all name=database>
+          <INPUT onblur="if(this.value==''){this.value='搜索东莞信息或服务'}" name="qt"  onfocus="this.value=''"  maxLength=100  value=搜索东莞信息或服务 >
+        </FORM>
+        </span><span class="an lf"><a href="javascript:;" onclick="jmpser();">搜 索</a></span></div>
+    </div>
+    <SCRIPT type=text/javascript>
+ function jmpser(){
+	if (document.all.searchForm.qt.value=="搜索东莞信息或服务"){
+		alert("请填写搜索信息");
+		return ;
+	}
+   
+   document.all.searchForm.action="http://so.dg.gov.cn/dg/s?database=all&qt=";
+   document.all.searchForm.submit();
+  
+ }
+</SCRIPT>
+    
+    <div class="cl"></div>
+  </div>
+  <div><img src="../xhtml/images/eror.png" /></div>
+  <div class="wzdh pad">
+        <div class="daohang lf">网站导航</div>
+        <div class="dhqh lf hui">
+          <ul>
+            <li id="one1" onmouseover="setTab('one',1,5)"  class="hover">党委系统</li>
+            <li id="one2" onmouseover="setTab('one',2,5)" >政府系统</li>
+            <li id="one3" onmouseover="setTab('one',3,5)" >人大政协法院检察</li>
+            <li id="one4" onmouseover="setTab('one',4,5)" >中央省驻莞单位</li>
+            <li id="one5" onmouseover="setTab('one',5,5)" >镇街园区</li>
+          </ul>
+        </div>
+        <div class="dhxx lf">
+          <div id="con_one_1">
+ 
+
+              <ul>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市纪律检查委员会（监察局）" target="_blank">中共东莞市纪律检查委员会（监察局）</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市委办公室" target="_blank">中共东莞市委办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市信访局" target="_blank">市信访局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市国家保密局" target="_blank">市国家保密局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市委组织部" target="_blank">中共东莞市委组织部</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市企业工作委员会" target="_blank">市企业工作委员会</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市社会组织工作委员会" target="_blank">市社会组织工作委员会</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市委宣传部" target="_blank">中共东莞市委宣传部</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东莞报业传媒集团" target="_blank">东莞报业传媒集团</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东莞广播电视台" target="_blank">东莞广播电视台</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市委统战部" target="_blank">中共东莞市委统战部</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市委政法委员会" target="_blank">中共东莞市委政法委员会</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市直属机关工作委员会" target="_blank">中共东莞市直属机关工作委员会</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市委台湾工作办公室" target="_blank">中共东莞市委台湾工作办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市机构编制委员会办公室" target="_blank">市机构编制委员会办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市委党校" target="_blank">中共东莞市委党校</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中共东莞市委党史研究室" target="_blank">中共东莞市委党史研究室</a></li>
+</ul>
+
+          </div>
+          <div id="con_one_2" style="display:none">
+ 
+
+              <ul>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民政府办公室" target="_blank">市人民政府办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市发展和改革局" target="_blank">市发展和改革局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市经济和信息化局" target="_blank">市经济和信息化局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市教育局" target="_blank">市教育局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市科学技术局（市知识产权局）" target="_blank">市科学技术局（市知识产权局）</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市公安局" target="_blank">市公安局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市民政局" target="_blank">市民政局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市司法局" target="_blank">市司法局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市财政局" target="_blank">市财政局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人力资源局" target="_blank">市人力资源局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市社会保障局" target="_blank">市社会保障局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市国土资源局" target="_blank">市国土资源局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市环境保护局" target="_blank">市环境保护局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市住房和城乡建设局" target="_blank">市住房和城乡建设局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市交通运输局" target="_blank">市交通运输局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市水务局" target="_blank">市水务局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市农业局" target="_blank">市农业局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市林业局" target="_blank">市林业局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市商务局" target="_blank">市商务局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市文化广电新闻出版局" target="_blank">市文化广电新闻出版局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市卫生和计划生育局" target="_blank">市卫生和计划生育局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市审计局" target="_blank">市审计局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市外事侨务局（市港澳事务局）" target="_blank">市外事侨务局（市港澳事务局）</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市工商行政管理局" target="_blank">市工商行政管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市质量技术监督局" target="_blank">市质量技术监督局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市体育局" target="_blank">市体育局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市安全生产监督管理局" target="_blank">市安全生产监督管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市食品药品监督管理局" target="_blank">市食品药品监督管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市统计局" target="_blank">市统计局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市法制局" target="_blank">市法制局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市城乡规划局" target="_blank">市城乡规划局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市城市综合管理局" target="_blank">市城市综合管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市金融工作局" target="_blank">市金融工作局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市档案局（市档案馆）" target="_blank">市档案局（市档案馆）</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民政府督查室" target="_blank">市人民政府督查室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民政府打击走私综合治理办公室" target="_blank">市人民政府打击走私综合治理办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民政府地方志办公室" target="_blank">市人民政府地方志办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市行政服务管理办公室" target="_blank">市行政服务管理办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民政府应急管理办公室" target="_blank">市人民政府应急管理办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市中小企业局" target="_blank">市中小企业局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市内资经济促进中心" target="_blank">市内资经济促进中心</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市社会组织管理局" target="_blank">市社会组织管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民政府国有资产监督管理委员会" target="_blank">市人民政府国有资产监督管理委员会</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人才管理办公室" target="_blank">市人才管理办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人事考试管理办公室" target="_blank">市人事考试管理办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市土地储备中心" target="_blank">市土地储备中心</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市地震局" target="_blank">市地震局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市农业技术推广管理办公室" target="_blank">市农业技术推广管理办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市农村集体资产管理办公室" target="_blank">市农村集体资产管理办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市种子管理站" target="_blank">市种子管理站</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东莞市海洋与渔业局" target="_blank">东莞市海洋与渔业局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市外商投资促进中心" target="_blank">市外商投资促进中心</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市文化馆" target="_blank">市文化馆</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市图书馆" target="_blank">市图书馆</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市卫生监督所" target="_blank">市卫生监督所</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市疾病预防控制中心" target="_blank">市疾病预防控制中心</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民政府台湾事务局" target="_blank">市人民政府台湾事务局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东莞市房产管理局" target="_blank">东莞市房产管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市公路管理局" target="_blank">市公路管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市城建工程管理局" target="_blank">市城建工程管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市旅游局" target="_blank">市旅游局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市供销合作联社" target="_blank">市供销合作联社</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市住房公积金管理中心" target="_blank">市住房公积金管理中心</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民防空办公室" target="_blank">市人民防空办公室</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中国国际贸易促进委员会东莞市委员会" target="_blank">中国国际贸易促进委员会东莞市委员会</a></li>
+</ul>
+
+          </div>
+          <div id="con_one_3" style="display:none">
+ 
+
+              <ul>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人大" target="_blank">市人大</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市政协" target="_blank">市政协</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市中级人民法院" target="_blank">市中级人民法院</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=第一人民法院" target="_blank">第一人民法院</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=第二人民法院" target="_blank">第二人民法院</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=第三人民法院" target="_blank">第三人民法院</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市人民检察院" target="_blank">市人民检察院</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=第一市区人民检察院" target="_blank">第一市区人民检察院</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=第二市区人民检察院" target="_blank">第二市区人民检察院</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=第三市区人民检察院" target="_blank">第三市区人民检察院</a></li>
+</ul>
+
+          </div>
+          <div id="con_one_4" style="display:none">
+ 
+
+              <ul>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市国家税务局" target="_blank">市国家税务局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市地方税务局" target="_blank">市地方税务局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市海事局" target="_blank">市海事局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市航道管理局" target="_blank">市航道管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市气象局" target="_blank">市气象局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市邮政管理局" target="_blank">市邮政管理局</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东莞电信" target="_blank">东莞电信</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=国家统计局东莞调查队" target="_blank">国家统计局东莞调查队</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东莞海关" target="_blank">东莞海关</a></li>
+  <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=市盐务局" target="_blank">市盐务局</a></li>
+</ul>
+
+          </div>
+          <div id="con_one_5" class="dhzj" style="display:none">
+            <div class="lkjj2">
+ 
+
+                <ul>
+  <li>
+  <div class="tbt hui6">城 镇 片</div>
+  <div class="lbqh">
+  <ul>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=莞城街道" target="_blank">莞城街道</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=石龙镇" target="_blank">石龙镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=虎门镇" target="_blank">虎门镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东城街道" target="_blank">东城街道</a> </li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=万江街道" target="_blank">万江街道</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=南城街道" target="_blank">南城街道</a></li>
+  </ul>
+  </div>
+  </li>
+  <li>
+  <div class="tbt hui6">水 乡 片</div>
+  <div class="lbqh">
+  <ul>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=中堂镇" target="_blank">中堂镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=望牛墩镇" target="_blank">望牛墩镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=麻涌镇" target="_blank">麻涌镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=石碣镇" target="_blank">石碣镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=高埗镇" target="_blank">高埗镇</a></li>
+  </ul>
+  </div>
+  </li>
+  <li>
+  <div class="tbt hui6">沿 海 片</div>
+  <div class="lbqh">
+  <ul>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=洪梅镇" target="_blank">洪梅镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=道滘镇" target="_blank">道滘镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=厚街镇" target="_blank">厚街镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=沙田镇" target="_blank">沙田镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=长安镇" target="_blank">长安镇</a></li>
+  </ul>
+  </div>
+  </li>
+  <li>
+  <div class="tbt hui6">丘 陵 片</div>
+  <div class="lbqh">
+  <ul>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=寮步镇" target="_blank">寮步镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=大岭山镇" target="_blank">大岭山镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=大朗镇" target="_blank">大朗镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=黄江镇" target="_blank">黄江镇</a></li>
+  </ul>
+  </div>
+  </li>
+  <li>
+  <div class="tbt hui6">山 区 片</div>
+  <div class="lbqh">
+  <ul>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=樟木头镇" target="_blank">樟木头镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=凤岗镇" target="_blank">凤岗镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=塘厦镇" target="_blank">塘厦镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=谢岗镇" target="_blank">谢岗镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=清溪镇" target="_blank">清溪镇</a></li>
+  </ul>
+  </div>
+  </li>
+  <li>
+  <div class="tbt hui6">埔 田 片</div>
+  <div class="lbqh">
+  <ul>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=常平镇" target="_blank">常平镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=桥头镇" target="_blank">桥头镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=横沥镇" target="_blank">横沥镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东坑镇" target="_blank">东坑镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=企石镇" target="_blank">企石镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=石排镇" target="_blank">石排镇</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=茶山镇" target="_blank">茶山镇</a></li>
+  </ul>
+  </div>
+  </li>
+  <li>
+  <div class="tbt hui6">园　　区</div>
+  <div class="lbqh">
+  <ul>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=松山湖(生态园)" target="_blank"> 松山湖(生态园)</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=虎门港" target="_blank">虎门港</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=长安新区" target="_blank">长安新区</a></li>
+    <li><a href="http://libs.dg.gov.cn/code/xhtml/loading.html?from=东莞水乡" target="_blank">东莞水乡</a></li>
+  </ul>
+  </div>
+  </li>
+</ul>
+
+            </div>
+          </div>
+          <div class="cl"></div>
+        </div>
+        <div class="dhxl">
+ 
+
+            <ul>
+  <li>
+  <select id="Select1" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0" size="1" name="select1">
+  <option selected="">国务院部门网站</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=外交部">外交部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=发展改革委">发展改革委</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=教育部">教育部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=科技部">科技部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=工业和信息化部">工业和信息化部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=国家民委">国家民委</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=公安部">公安部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=监察部">监察部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=民政部">民政部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=司法部">司法部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=财政部">财政部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=人力资源社会保障部">人力资源社会保障部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=国土资源部">国土资源部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=环境保护部">环境保护部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=住房和城乡建设部">住房和城乡建设部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=交通运输部">交通运输部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=铁道部">铁道部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=水利部">水利部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=农业部">农业部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=商务部">商务部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=文化部">文化部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=卫生部">卫生部</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=人民银行">人民银行</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=审计署">审计署</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=国资委">国资委</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=海关总署">海关总署</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=税务总局">税务总局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=工商总局">工商总局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=质检总局">质检总局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=广电总局">广电总局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=新闻出版总署(版权局)">新闻出版总署(版权局)</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=体育总局">体育总局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=安全监管总局">安全监管总局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=统计局">统计局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=林业局">林业局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=知识产权局">知识产权局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=旅游局">旅游局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=宗教局">
+  宗教局
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=参事室">参事室</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=国管局">国管局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=侨办">侨办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=港澳办">港澳办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=法制办">法制办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=新华社">新华社</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=中科院">中科院</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=社科院">
+  社科院
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=工程院">工程院</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=发展研究中心">发展研究中心</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=行政学院">行政学院</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=地震局">地震局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=气象局">气象局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=银监会">银监会</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=证监会">证监会</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=保监会">保监会</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=社保基金会">社保基金会</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=自然科学基金会">自然科学基金会</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=台办">台办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=新闻办">新闻办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=档案局">档案局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=信访局">信访局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=粮食局">粮食局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=国防科工局">
+  国防科工局
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=烟草局">烟草局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=外专局">外专局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=海洋局">海洋局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=测绘局">测绘局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=民航局">民航局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=文物局">文物局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=食品药品监管局">食品药品监管局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=中医药局">中医药局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=外汇局">外汇局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=煤矿安监局">煤矿安监局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=密码局">密码局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=航天局">航天局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=原子能机构">原子能机构</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=国家语委">国家语委</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=国务院扶贫办">国务院扶贫办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=国务院三峡办">国务院三峡办</option>
+  </select>
+  </li>
+  <li class="pad_lf">
+  <select id="Select2" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0;this.selectedIndex=0" size="1" name="select2">
+  <option selected="">各省区市网站</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=北京">北京</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=天津">天津</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=河北">河北</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=山西">山西</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=内蒙古">内蒙古</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=辽宁">辽宁</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=吉林">吉林</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=黑龙江">黑龙江</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=上海">上海</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=江苏">江苏</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=浙江">浙江</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=安徽">安徽</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=福建">福建</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=江西">江西</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=山东">山东</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=河南">河南</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=湖北">湖北</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=湖南">湖南</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=广东">广东</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=广西">广西</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=海南">海南</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=重庆">重庆</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=四川">四川</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=贵州">贵州</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=云南">云南</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=西藏">西藏</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=陕西">陕西</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=甘肃">甘肃</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=宁夏">宁夏</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=青海">青海</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=新疆">新疆</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=香港">香港</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=澳门">
+  澳门
+  </option>
+  </select>
+  </li>
+  <li class="pad_lf">
+  <select id="select" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0;this.selectedIndex=0" size="1" name="select3">
+  <option selected="">省政府机构网站</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省发展改革委">省发展改革委</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省经济和信息化委，省国防科工办">省经济和信息化委，省国防科工办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省教育厅">省教育厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省科技厅">省科技厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省民族宗教委">省民族宗教委</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省公安厅">省公安厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省监察厅">
+  省监察厅
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省民政厅">省民政厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省司法厅">省司法厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省财政厅">省财政厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省人力资源社会保障厅">
+  省人力资源社会保障厅
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省国土资源厅">省国土资源厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省住房城乡建设厅">省住房城乡建设厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省交通运输厅">省交通运输厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省水利厅">省水利厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省农业厅，省委农办">
+  省农业厅，省委农办
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省林业厅">省林业厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省外经贸厅，省口岸办">省外经贸厅，省口岸办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省文化厅">省文化厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省卫生厅">省卫生厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省审计厅">省审计厅</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省外办">省外办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省国资委">省国资委</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省地税局">省地税局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省广电局">省广电局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省体育局">省体育局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省统计局">省统计局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省工商局">省工商局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省新闻出版局，省版权局">省新闻出版局，省版权局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省海洋渔业局">省海洋渔业局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省质监局">省质监局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省安全监管局">省安全监管局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省知识产权局">省知识产权局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省旅游局">省旅游局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省法制办">省法制办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省侨办">省侨办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省港澳办">省港澳办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省金融办">省金融办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省监狱局">省监狱局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省劳教局">省劳教局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省食品药品监管局">省食品药品监管局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省人防办，省民防办">
+  省人防办，省民防办
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省新闻办">
+  省新闻办
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省台办">省台办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省保密局">省保密局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省信访局">
+  省信访局
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省密码局">
+  省密码局
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省参事室 ，省文史馆">省参事室 ，省文史馆</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省科学院">省科学院</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省社科院">省社科院</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省发展研究中心">省发展研究中心</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省档案局">省档案局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省地方志办">省地方志办</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省成套局">省成套局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省工研院（广州有色院）">省工研院（广州有色院）</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省代建局">省代建局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省地质局">省地质局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省核工业地质局">省核工业地质局</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=省供销社">省供销社</option>
+  </select>
+  </li>
+  <li class="pad_lf">
+  <select id="Select4" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0" size="1" name="select">
+  <option selected="">地级以上市网站</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=广州">广州</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=深圳">深圳</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=珠海">珠海</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=汕头">汕头</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=佛山">佛山</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=韶关">韶关</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=河源">河源</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=梅州">梅州</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=惠州">惠州</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=汕尾">汕尾</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=东莞">
+  东莞
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=中山">中山</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=江门">江门</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=阳江">阳江</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=湛江">湛江</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=茂名">茂名</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=肇庆">肇庆</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=清远">清远</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=潮州">潮州</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=揭阳">揭阳</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=云浮">云浮</option>
+  </select>
+  </li>
+  <li class="pad_lf">
+  <select onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0" name="address">
+  <option selected="">—其他网站—</option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=东莞时间网">
+  东莞时间网
+  </option>
+  <option value="http://libs.dg.gov.cn/code/xhtml/url.html?from=东莞阳光网">
+  东莞阳光网
+  </option>
+  </select>
+  </li>
+</ul>
+
+          <div class="cl"></div>
+        </div>
+      </div>
+</div>
+<div id="bottom"><iframe scrolling="no" height="100%" width="100%" frameborder="0" src="http://webtest.dg.gov.cn/cndg/bottom/bottom.shtml" allowTransparency="true"></iframe></div>
+</body>
+</html>
