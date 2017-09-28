@@ -7,7 +7,8 @@
       <div class="domain" :class="{'domainBorder':selected}"><img :src="daminImg" @click="domainBtn">
         <p>专家</p></div>
     </div>
-    <f7-block class="afterLine" style="margin-top:0px;">
+    <div style="clear: both"></div>
+    <f7-block class="afterLine" style="margin-top:100px;">
 
       <f7-button round fill style="border-radius: 5px" @click="nextStep">下一步</f7-button>
     </f7-block>
@@ -54,8 +55,7 @@
 </script>
 <style scoped>
   .domain-wrap {
-    display: flex;
-    width: 90%;
+    width: 80%;
     margin: 150px auto;
   }
 
@@ -65,17 +65,13 @@
     border-radius: 50%;
     background: #f4f8fb;
     text-align: center;
-    flex: 0 0 100px;
     box-sizing: border-box;
-
   }
-
   .domain:nth-child(1) {
-    margin-left: 40px;
+    float: left;
   }
-
   .domain:nth-child(2) {
-    margin-left: 100px;
+    float: right;
   }
 
   .domain img {

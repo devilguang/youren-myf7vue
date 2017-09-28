@@ -16,11 +16,11 @@
     "lite-validator": "^0.1.2",
     "vee-validate": "^2.0.0-rc.5",
     "vue": "^2.3.4",
-    "axios": "^0.16.2",
+    "vue-authenticate": "^1.2.7",
+    "vue-bus": "^1.0.0",
+    "vue-infinite-scroll": "^2.0.1",
     "vue-router": "^2.3.1",
-    "vue-bus":"^1.0.0",
-    "vue-authenticate":"^1.2.7",
-    "vuex":"^2.3.1"
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

@@ -97,7 +97,6 @@
     },
     methods: {
       test(){
-        console.log('oo')
       },
       addLinkman() {
         this.linkmans.push({
@@ -115,7 +114,6 @@
       // 点击确定进行下一步
       commit() {
         this.type = window.localStorage.getItem("type")
-        console.log(this.type)
         this.linkmans.forEach((item, index) => {
           this.linkmans[index].id = this._userId
           if (item.name == "" || item.phone == '' || item.email == '' || item.post == '') {
@@ -129,15 +127,15 @@
             this.$f7.alert("请填写正确格式的邮箱", "认证失败")
           }
           else {
-            this.$f7.alert('恭喜您，认证成功！麦子根据您的信息自动为您匹配了10个企业需求，您可以点击推荐查看。', '认证成功', () => {
+            this.$f7.alert('恭喜您，认证成功！麦子根据您的信息自动为您匹配了15个企业需求，您可以点击推荐查看。', '认证成功', () => {
 
               if (this.type == "2") {  //企业的跳转
                 this.getNowFormatDate()
-                this.$router.load({url: '/myhome-corp'})
+                this.$router.load({url: '/myhome-corp'});
                 this.submitFirm()
 
-                let companyName = JSON.parse(window.localStorage.getItem("expertOpinion")).object.name
-                let userName = JSON.parse(window.localStorage.getItem("expertOpinion")).object.contactName
+                let companyName = JSON.parse(window.localStorage.getItem("expertOpinion")).object.name;
+                let userName = JSON.parse(window.localStorage.getItem("expertOpinion")).object.contactName;
                 // 发送认证成功之后的模板消息
                 this.$http({
                   method: 'post',
@@ -148,7 +146,7 @@
                     companyName: companyName,   //企业名
                     userName: userName,         //用户名
                     time: this.newDate,            //
-                    url: '/recommend-corp'       // 模板消息点击详情跳转的地址
+                    url: 'http://m.youren.ai/#/recommend-corp'       // 模板消息点击详情跳转的地址
                   }
                 })
               } else {   //专家的跳转
@@ -165,7 +163,7 @@
                     touserId: this.user_id,     //消息接收人的id
                     userName: userName,        //用户名
                     time: this.newDate,        //
-                    url: '/recommend-user'     // 模板消息点击详情跳转的地址
+                    url: 'http://m.youren.ai/#/recommend-user'     // 模板消息点击详情跳转的地址
                   }
                 })
               }

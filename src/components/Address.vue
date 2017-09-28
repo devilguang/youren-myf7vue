@@ -18,14 +18,14 @@
     <li class="clearfix">
       <div class="fl b">
         <div class="new-select-wp" id="city">
-          <addrselect
-            :initselectedvalue="initcityselectedvalue"
-            :addrs="city_addrs"
-            v-model="city_selected"
-            class="select-31"
-            id="city_select"
-            name="city" lazy>
-          </addrselect>
+          <!--<addrselect-->
+            <!--:initselectedvalue="initcityselectedvalue"-->
+            <!--:addrs="city_addrs"-->
+            <!--v-model="city_selected"-->
+            <!--class="select-31"-->
+            <!--id="city_select"-->
+            <!--name="city" lazy>-->
+          <!--</addrselect>-->
         </div>
       </div>
     </li>
@@ -46,7 +46,7 @@
   export default {
     name: 'Address',
     components: {
-      Addrselect
+//      Addrselect
     },
     props: {
       initprovselectedvalue: Number,

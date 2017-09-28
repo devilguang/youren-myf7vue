@@ -3,13 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>有人智库</title>
   <!--<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 " >
-  <script src="//s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js"></script>
+  <!--<script src="//s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js"></script>-->
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
   <script>
+    //自动获取html的font-size值 达到自适应
+    (function(doc, win) {
+      var docEl = doc.documentElement,
+        // orientationchange 事件是在用户水平或者垂直翻转设备（即方向发生变化）时触发的事件。
+        // onresize 事件会在窗口或框架被调整大小时发生。
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+          var clientWidth = docEl.clientWidth;
+          if(!clientWidth) return;
+          docEl.style.fontSize = 100 * (clientWidth /375) + 'px';
+        };
+
+      if(!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      //	 DOMContentLoaded火狐特有的事件，DOM加载完后触发
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
 
     (function () {
       // var theme = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ? 'ios' : 'material';
@@ -23,7 +43,6 @@
         '<link href="/static/framework7/css/framework7.' + theme + '.colors.min.css" rel="stylesheet" />' +
         '<link href="' + icons + '" rel="stylesheet" />'
       );
-      document.addEventListener('touchmove',function(event){}, false);
     })();
   </script>
 

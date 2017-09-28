@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/home.vue'
-
-Vue.use(Router)
+Vue.use(Router);
 
 export default [
   {
     path: '/home',
     name: 'home',
-    component: Home
+    component: Home,
+
   },
   {
     path: '/login',
@@ -62,50 +62,77 @@ export default [
   {
     path: '/myhome-user',
     name: 'myhome-user',
-    component: require("@/pages/scholar/myhome-user.vue")
+    component: require("@/pages/scholar/myhome-user.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
 
   },
   {
     path: '/myaccount-user',
     name: 'myaccount-user',
-    component: require("@/pages/scholar/myaccount-user.vue")
+    component: require("@/pages/scholar/myaccount-user.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
 
   },
   {
     path: '/recommend-user',
     name: 'recommend-user',
-    component: require("@/pages/scholar/recommend-user.vue")
+    component: require("@/pages/scholar/recommend-user.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
 
   },
   {
     path: '/mymeeting-user',
     name: 'mymeeting-user',
-    component: require("@/pages/scholar/mymeeting-user.vue")
+    component: require("@/pages/scholar/mymeeting-user.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
   },
   {
     path: '/demand',
     name: 'demand',
-    component: require("@/pages/scholar/demand-user.vue")
+    component: require("@/pages/scholar/demand-user.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
   },
   // 企业版
   {
     path: '/myaccount-corp',
     name: 'myaccount-corp',
-    component: require("@/pages/company/myaccount-corp.vue")
+    component: require("@/pages/company/myaccount-corp.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
   },
   {
     path: '/mymeeting-corp',
     name: 'mymeeting-corp',
-    component: require("@/pages/company/mymeeting-corp.vue")
+    component: require("@/pages/company/mymeeting-corp.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
   },
   {
     path: '/recommend-corp',
     name: 'recommend-corp',
-    component: require("@/pages/company/recommend-corp.vue")
+    component: require("@/pages/company/recommend-corp.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
   },
   {
     path: '/myhome-corp',
     name: 'myhome-corp',
-    component: require("@/pages/company/myhome-corp.vue")
+    component: require("@/pages/company/myhome-corp.vue"),
+    meta: {
+      requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+    }
   }
 ]

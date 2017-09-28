@@ -69,7 +69,7 @@
 
 <script>
 import Routes from '@/router'
-Vue.use(Framework7Vue)
+Vue.use(Framework7Vue);
 
 
 

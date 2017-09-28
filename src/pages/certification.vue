@@ -58,7 +58,7 @@
     </form>
 
     <div class="content-top">联系人信息</div>
-    <form  class="list-block" style="background: #ffffff">
+    <form class="list-block" style="background: #ffffff">
       <ul>
         <li>
           <div class="item-content">
@@ -92,7 +92,7 @@
         </li>
       </ul>
     </form>
-    <f7-block  class= "afterLine" style="margin-top: 0px;">
+    <f7-block class="afterLine" style="margin-top: 0px;">
       <f7-button round fill style="border-radius: 5px" @click="nextStep">提交</f7-button>
     </f7-block>
   </f7-page>
@@ -100,82 +100,76 @@
 
 <script>
   export default{
-    name:'expertsHome',
+    name: 'expertsHome',
     data(){
-      return{
-//      name  credentials  contactNumber ext1 contactName   position
-          infoList:{
-              userId :'',
-              name:'',                // 企业名称
-              credentials:'',        // 营业执照注册号
-              ext1:'',               //详细地址
-//              industry:'',           //主营业务
-//              province:'',            // 省份
-//              city:'',                 //城市
-              contactName:'',          //  联系人姓名
-              contactNumber:'',        // 电话
-              position:'',              // 职位
-              fields:'',                 // 领域
-//              coopProject:'',            //合作项目
-//              coopExpert:'',             //合作专家
-//              coopUnit:'',               // 合作机构
-          }
+      return {
+        infoList: {
+          userId: '',
+          openId:'',
+          name: '',                // 企业名称
+          credentials: '',        // 营业执照注册号
+          ext1: '',               //详细地址
+          contactName: '',          //  联系人姓名
+          contactNumber: '',        // 电话
+          position: '',              // 职位
+          fields: '',                 // 领域
+        }
       }
     },
-    methods:{
+    methods: {
       nextStep(){
-        if(this.infoList.name==''||this.infoList.credentials==''||this.infoList.ext1==''||
-          this.infoList.contactName==''||this.infoList.contactName==''||this.infoList.contactNumber==''
-          ||this.infoList.position==''||this.infoList.fields==''){
+        if (this.infoList.name == '' || this.infoList.credentials == '' || this.infoList.ext1 == '' ||
+          this.infoList.contactName == '' || this.infoList.contactName == '' || this.infoList.contactNumber == ''
+          || this.infoList.position == '' || this.infoList.fields == '') {
           this.$f7.alert('请填写完整的信息', '注册失败')
           return
+        } else if (!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(this.infoList.contactNumber))) {
+          this.$f7.alert('请填写正确的手机号码格式', '注册失败')
         }
-          this.$http({
-            method:'post',
-            url:'/v1/company/add',
-            data:{
-              userId:this.infoList.userId,
-              name: this.infoList.name,
-              credentials:this.infoList.credentials,
-              ext1:this.infoList.ext1,
-              contactName:this.infoList.contactName,
-              contactNumber:this.infoList.contactNumber,
-              position:this.infoList.position,
-              fields:this.infoList.fields,
-            }
-          }).then((res)=>{
-              if(res.data.errno==0){
-
-                this.$f7.alert('即将为您跳转到登录页面', '恭喜您注册成功', () => {
-                    this.$router.load({url:'/home'})
-                })
-                let meetime = this.$store.getNowFormatDate()
-                let userName = JSON.parse(window.localStorage.getItem("expertOpinion")).loginName
-                console.log(userName)
-                this.$http({
-                  method:'post',
-                  url:'',
-                  data:{
-                    touserId: this.infoList.userId,
-                    type: 2,
-                    companyName:this.infoList.name,
-                    userName:userName,
-                    time: meetime,
-                    url: '/recommend-user'
-                  }
-                })
-              }else{
-                  this.$f7.alert('请确认信息','注册失败')
+        this.$http({
+          method: 'post',
+          url: '/v1/company/add',
+          data: {
+            userId: this.infoList.userId,
+            name: this.infoList.name,
+            credentials: this.infoList.credentials,
+            ext1: this.infoList.ext1,
+            contactName: this.infoList.contactName,
+            contactNumber: this.infoList.contactNumber,
+            position: this.infoList.position,
+            fields: this.infoList.fields,
+          }
+        }).then((res) => {
+          if (res.data.errno == 0) {
+            let meetime = this.$store.getNowFormatDate();
+            this.$http({
+              method: 'post',
+              url: '/v1/wechat/sendMsg',
+              data: {
+                touserId:this.infoList.userId,
+                type: 2,
+                companyName: this.infoList.name,
+                userName: this.infoList.name,
+                time: meetime,
+                url: 'http://m.youren.ai/#/recommend-user'
               }
-          })
+            }).then((res)=>{});
+            this.$f7.alert('是否为您跳转到登录页面', '恭喜您注册成功', () => {
+              this.$router.load({url: '/home'})
+            })
+          } else {
+            this.$f7.alert('请确认信息', '注册失败')
+          }
+        })
       },
       getFields(){
         this.infoList.fields = JSON.parse(localStorage.getItem('registered')).join(';')
         this.infoList.userId = this.$store.userId
+
       }
     },
     mounted(){
-        this.getFields()
+      this.getFields()
     }
 
   }
@@ -183,23 +177,25 @@
 </script>
 
 <style scoped>
-  .experts-head{
-    width:100%;
-    height:200px;
+  .experts-head {
+    width: 100%;
+    height: 200px;
     background: #ffffff;
     text-align: center;
     overflow: hidden;
 
   }
-  .uploading{
+
+  .uploading {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background:#d7dde2;
+    background: #d7dde2;
     margin-top: 60px;
     margin-left: 50%;
     transform: translateX(-35px);
   }
+
   .newButton {
     width: 140px;
     height: 40px;
@@ -212,17 +208,20 @@
     margin-top: 20px;
     transform: translateX(-70px);
   }
-  .content-top{
-    width:100%;
+
+  .content-top {
+    width: 100%;
     height: 60px;
     line-height: 60px;
     text-indent: 30px;
     color: #989fa3;
-    font-size:14px;
+    font-size: 14px;
   }
+
   .list-block {
     margin-top: 0;
   }
+
   .item-title {
 
   }
